@@ -11,3 +11,5 @@ stop fighting
 also ignore that README~ file. Linux likes making ~ files for backup on txt files
 
 gross, linux
+
+new age txt technology
