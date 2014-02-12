@@ -1,0 +1,9 @@
+﻿Here is where we will pull together files required to work on the (probably) texted based adventure game
+
+this is me adding shit - Geoff
+
+pls kill me - yung dunna
+
+i will if you don’t have my money
+
+stop fighting
