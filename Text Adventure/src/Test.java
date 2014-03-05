@@ -1,8 +1,4 @@
 /**
- * 
- */
-
-/**
  * Test.java
  * @author Stanford Lockhart et. al
  * B00646015
