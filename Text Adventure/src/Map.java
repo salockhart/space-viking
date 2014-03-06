@@ -26,16 +26,10 @@ public class Map {
 		//fill with rooms -- new Room(isTrap, isLocked, items, enemy, description) 
 		rooms[10][10] = new Room();
 		currentRoom = rooms[0][0];
+		currentRoom.playerVisits();
 		currentX = 0;
 		currentY = 0;
-		isDoor[0] = true;
-		isDoor[1] = true;
-		isDoor[2] = true;
-		isDoor[3] = true;
-		isLocked[0] = true;
-		isLocked[1] = true;
-		isLocked[2] = true;
-		isLocked[3] = true;
+		setAdjacentRooms();
 	}
 
 	/**
@@ -101,6 +95,7 @@ public class Map {
 		if (isDoor[0] && !isLocked[0]){
 			currentY++;
 			currentRoom = rooms[currentX][currentY];
+			setAdjacentRooms();
 		} else if (!isDoor[0])
 			System.out.println("There is no door in that direction");
 		else if (isLocked[0])
@@ -114,6 +109,7 @@ public class Map {
 		if (isDoor[1] && !isLocked[1]){
 			currentX++;
 			currentRoom = rooms[currentX][currentY];
+			setAdjacentRooms();
 		} else if (!isDoor[1])
 			System.out.println("There is no door in that direction");
 		else if (isLocked[1])
@@ -127,6 +123,7 @@ public class Map {
 		if (isDoor[2] && !isLocked[2]){
 			currentY--;
 			currentRoom = rooms[currentX][currentY];
+			setAdjacentRooms();
 		} else if (!isDoor[2])
 			System.out.println("There is no door in that direction");
 		else if (isLocked[2])
@@ -140,6 +137,7 @@ public class Map {
 		if (isDoor[3] && !isLocked[3]){
 			currentX--;
 			currentRoom = rooms[currentX][currentY];
+			setAdjacentRooms();
 		} else if (!isDoor[3])
 			System.out.println("There is no door in that direction");
 		else if (isLocked[3])
@@ -175,5 +173,35 @@ public class Map {
 			else
 				System.out.println("There is a door to the West");
 		}
+	}
+	
+
+	/**
+	 * Returns the map as a string
+	 */
+	@Override
+	public String toString() {
+		String map = "";
+		for (int i = 9; i >= 0; i--){
+			for (int j = 0; j < 10; j++){
+				map += rooms[j][i];
+			}
+			map += "\n";
+		}
+		return map;
+	}
+	
+	/**
+	 * Sets whether adjacent rooms exist and/or are locked
+	 */
+	private void setAdjacentRooms(){
+		isDoor[0] = rooms[currentX][currentY + 1] != null;
+		isDoor[1] = rooms[currentX + 1][currentY] != null;
+		isDoor[2] = rooms[currentX][currentY - 1] != null;
+		isDoor[3] = rooms[currentX - 1][currentY] != null;
+		isLocked[0] = rooms[currentX][currentY + 1].isLocked();
+		isLocked[1] = rooms[currentX + 1][currentY].isLocked();
+		isLocked[2] = rooms[currentX][currentY - 1].isLocked();
+		isLocked[3] = rooms[currentX - 1][currentY].isLocked();
 	}
 }
