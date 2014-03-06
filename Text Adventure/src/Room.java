@@ -13,7 +13,7 @@ public class Room {
 	private String description;
 	
 	
-	public Room(boolean isTrap, boolean isLocked, Item[] items, Person enemy,String description) {
+	public Room(boolean isTrap, boolean isLocked, ArrayList<Item> items, Person enemy, String description) {
 		this.isTrap = isTrap;
 		this.isLocked = isLocked;
 		this.items = items;
