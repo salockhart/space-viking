@@ -33,17 +33,17 @@ public class Room {
 		this.isLocked = false;
 	}
 	
-	public Item[] getItems() {
+	public ArrayList<Item> getItems() {
 		return items;
 	}
 	
-	public void setItems(Item[] items) {
+	public void setItems(ArrayList<Item> items) {
 		this.items = items;
 	}
 	
 	//this will likely not work as it's looking for item not item list I'll change once the item class is created
 	public void removeItems(String itemName) {
-		if(items.contains(itemName) {	
+		if(items.contains(itemName)) {	
 			items.remove(itemName);
 		}
 	}
