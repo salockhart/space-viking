@@ -73,7 +73,6 @@ public class Room {
 		this.items = items;
 	}
 	
-	//this will likely not work as it's looking for item not item list I'll change once the item class is created
 	/**
 	 * Removes given Item from item list
 	 * @param itemName
