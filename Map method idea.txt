@@ -1,0 +1,14 @@
+method will use 2D array for the rooms (as Geoff mentioned)
+will show: Unexplored rooms, explored rooms, room player is in, and no rooms
+
+output will look like:
+	[.][.][u][.][.]
+	[u][.][u][u][.]
+	[u][x][e][u][u]
+	[.][.][e][.][.]
+	[.][.][e][.][.]
+
+[.]= no room
+[u]= unexplored
+[x]= player location
+[e]= explored rooms
