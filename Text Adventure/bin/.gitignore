@@ -1,4 +1,9 @@
 /Map.class
 /Room.class
 /Test.class
+<<<<<<< HEAD
 /Game.class
+=======
+/Person.class
+/Player.class
+>>>>>>> FETCH_HEAD
