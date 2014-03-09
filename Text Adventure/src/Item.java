@@ -1,9 +1,13 @@
+/**
+ * Item.java
+ * @author Geoffrey Caven
+ * B00629837
+ * Mar 6, 2014
+ * Dalhousie University
+ * Faculty of Computer Science
+ */
 
 public class Item {
-	
-	/*
-	 * @author Geoffrey Caven B00629837
-	 */
 	
 	private String name;
 	private String detail;

@@ -1,17 +1,19 @@
 import java.util.ArrayList;
 
-/**
+/*
  * Map.java
  * @author Stanford Lockhart
  * B00646015
- * Mar 6, 2014
+ * @author Geoffrey Caven
+ * B00629837
+ * March 2014
  * Dalhousie University
  * Faculty of Computer Science
  */
 public class Map {
 
 	//Instance variables
-	Room[][] rooms = new Room[10][10];
+	Room[][] rooms = new Room[15][11];
 	Room currentRoom;
 	int currentX;
 	int currentY;
@@ -22,13 +24,191 @@ public class Map {
 	 * No args constructor, creates the map in the 2D array and sets all variables for first room
 	 */
 	public Map() {
-		rooms[0][0] = new Room(false, false, new ArrayList<Item>(), );
+		rooms[0][0] = new Room(false, false, new ArrayList<Item>(),null, "A small box of maintenance supplies is overturned on the floor");
+		rooms[0][1] = null;
+		rooms[0][2] = new Room(false, false, new ArrayList<Item>(),null ,"The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side");
+		rooms[0][3] = new Room(false, false, new ArrayList<Item>(),null ,"The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side");
+		rooms[0][4] = null;
+		rooms[0][5] = new Room(false, true, new ArrayList<Item>(),null ,"The nuclear core is in view./n The room is bathed in the green glow of the unshielded core");
+		rooms[0][6] = null;
+		rooms[0][7] = new Room(false, false, new ArrayList<Item>(),null ,"The stern of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side");
+		rooms[0][8] = new Room(false, false, new ArrayList<Item>(),null ,"The stern of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side");
+		rooms[0][9] = null;
+		rooms[0][10] = new Room(false, false, new ArrayList<Item>(),null,"A line of keyhooks labeled 'Core Access' is on the wall, though only one key is hanging on it");
+		
+		rooms[1][0] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls\nA severed foot is lodged in between two pipes");
+		rooms[1][1] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls");
+		rooms[1][2] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls");
+		rooms[1][3] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls");
+		rooms[1][4] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls\nA green glow is leaking under the door from the room to the east");
+		rooms[1][5] = new Room(false, true, new ArrayList<Item>(),null,"The door to the north has a sign: 'Central Drive Core Chamber'\nA green glow emanates from under the door and reflects around the room");
+		rooms[1][6] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls\n\nA green glow is leaking under the door from the room to the west");
+		rooms[1][7] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls");
+		rooms[1][8] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls");
+		rooms[1][9] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls\nA bloody lyn-saber was snapped in half and left on the floor");
+		rooms[1][10] = new Room(false, false, new ArrayList<Item>(),null,"A gray metal hallway\nCore exhaust pipes run along the walls");
+		
+		rooms[2][0] = null;
+		rooms[2][1] = null;
+		rooms[2][2] = null;
+		rooms[2][3] = new Room(false, false, new ArrayList<Item>(), null,"A narrow maintenance hallway\nA small porthole on the west wall provides a scenic view of a passing nebula");
+		rooms[2][4] = null;
+		rooms[2][5] = null;
+		rooms[2][6] = null;
+		rooms[2][7] = new Room(false, false, new ArrayList<Item>(), null,"A narrow maintenance hallway\nThe walls have been smeared with someone's surplus blood");
+		rooms[2][8] = null;
+		rooms[2][9] = null;
+		rooms[2][10] = null;
+		
+		rooms[3][0] = new Room(false, false, new ArrayList<Item>(), null,"Sleeping Quarters\nMost of the bunks have been torn to shreds. The trash can was carefully placed upside-down");
+		rooms[3][1] = new Room(false, false, new ArrayList<Item>(), null,"A storage closest\nA skull sits on the shelf. 'with love, mom' is written across the brow");
+		rooms[3][2] = null;
+		rooms[3][3] = new Room(false, false, new ArrayList<Item>(), null,"A narrow maintenance hallway");
+		rooms[3][4] = new Room(false, false, new ArrayList<Item>(), null,"The floor is covered in strewn human bones and viscera\n Horned helmets are piled against the north wall, though most have been broken");
+		rooms[3][5] = new Room(false, true, new ArrayList<Item>(), null,"A central maintenance annex\nDoors to the west and east provide access to the engines");
+		rooms[3][6] = new Room(false, false, new ArrayList<Item>(), null,"This room is spotless\nSomeone even took the time to clean the ceilings");
+		rooms[3][7] = new Room(false, false, new ArrayList<Item>(), null,"A narrow maintenance hallway");
+		rooms[3][8] = null;
+		rooms[3][9] = new Room(false, true, new ArrayList<Item>(), null,"Capt. Ormskaeg's private room\n The Captain's belongings have been thrown onto the floor");
+		rooms[3][10] = new Room(false, false, new ArrayList<Item>(), null,"Sleeping quarters\nBunks are pushed against the north and east walls");
+		
+		rooms[4][0] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[4][1] = null;
+		rooms[4][2] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[4][3] = null;
+		rooms[4][4] = null;
+		rooms[4][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[4][6] = null;
+		rooms[4][7] = null;
+		rooms[4][8] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[4][9] = null;
+		rooms[4][10] = new Room(false, false, new ArrayList<Item>(), null, "");
+		
+		rooms[5][0] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[5][1] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[5][2] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[5][3] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[5][4] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[5][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[5][6] = null;
+		rooms[5][7] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[5][8] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[5][9] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[5][10] = new Room(false, false, new ArrayList<Item>(), null, "");
+		
+		rooms[6][0] = null;
+		rooms[6][1] = null;
+		rooms[6][2] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[6][3] = null;
+		rooms[6][4] = null;
+		rooms[6][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[6][6] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[6][7] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[6][8] = null;
+		rooms[6][9] = null;
+		rooms[6][10] = null;
+		
+		rooms[7][0] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[7][1] = null;
+		rooms[7][2] = new Room(false, true, new ArrayList<Item>(), null, "");
+		rooms[7][3] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[7][4] = null;
+		rooms[7][5] = null;
+		rooms[7][6] = null;
+		rooms[7][7] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[7][8] = null;
+		rooms[7][9] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[7][10] = null;
+		
+		rooms[8][0] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[8][1] = null;
+		rooms[8][2] = null;
+		rooms[8][3] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[8][4] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[8][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[8][6] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[8][7] = null;
+		rooms[8][8] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[8][9] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[8][10] = new Room(false, false, new ArrayList<Item>(), null, "");
+		
+		rooms[9][0] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[9][1] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[9][2] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[9][3] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[9][4] = null;
+		rooms[9][5] = null;
+		rooms[9][6] = null;
+		rooms[9][7] = null;
+		rooms[9][8] = null;
+		rooms[9][9] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[9][10] = null;
+		
+		rooms[10][0] = null;
+		rooms[10][1] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[10][2] = null;
+		rooms[10][3] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[10][4] = null;
+		rooms[10][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[10][6] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[10][7] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[10][8] = null;
+		rooms[10][9] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[10][10] = null;
+		
+		rooms[11][0] = null;
+		rooms[11][1] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[11][2] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[11][3] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[11][4] = null;
+		rooms[11][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[11][6] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[11][7] = new Room(false, false, new ArrayList<Item>(), null, "Player start\nRemember to change this description");
+		rooms[11][8] = null;
+		rooms[11][9] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[11][10] = new Room(false, true, new ArrayList<Item>(), null, "");
+		
+		rooms[12][0] = null;
+		rooms[12][1] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[12][2] = null;
+		rooms[12][3] = null;
+		rooms[12][4] = null;
+		rooms[12][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[12][6] = null;
+		rooms[12][7] = null;
+		rooms[12][8] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[12][9] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[12][10] = null;
+		
+		rooms[13][0] = null;
+		rooms[13][1] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[13][2] = null;
+		rooms[13][3] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[13][4] = new Room(false, true, new ArrayList<Item>(), null, "");
+		rooms[13][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[13][6] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[13][7] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[13][8] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[13][9] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[13][10] = new Room(false, false, new ArrayList<Item>(), null, "");
+		
+		rooms[14][0] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[14][1] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[14][2] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[14][3] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[14][4] = null;
+		rooms[14][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[14][6] = null;
+		rooms[14][7] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[14][8] = null;
+		rooms[14][9] = null;
+		rooms[14][10] = null;
+		
 		//fill with rooms -- new Room(isTrap, isLocked, items, enemy, description) 
-		rooms[10][10] = new Room();
-		currentRoom = rooms[0][0];
+		currentRoom = rooms[11][7];
 		currentRoom.playerVisits();
-		currentX = 0;
-		currentY = 0;
+		currentX = 11;
+		currentY = 7;
 		setAdjacentRooms();
 	}
 
@@ -182,8 +362,8 @@ public class Map {
 	@Override
 	public String toString() {
 		String map = "";
-		for (int i = 9; i >= 0; i--){
-			for (int j = 0; j < 10; j++){
+		for (int i = 0; i < 11; i--){
+			for (int j = 0; j < 15; j++){
 				map += rooms[j][i];
 			}
 			map += "\n";
@@ -195,13 +375,13 @@ public class Map {
 	 * Sets whether adjacent rooms exist and/or are locked
 	 */
 	private void setAdjacentRooms(){
-		isDoor[0] = rooms[currentX][currentY + 1] != null;
-		isDoor[1] = rooms[currentX + 1][currentY] != null;
-		isDoor[2] = rooms[currentX][currentY - 1] != null;
-		isDoor[3] = rooms[currentX - 1][currentY] != null;
-		isLocked[0] = rooms[currentX][currentY + 1].isLocked();
-		isLocked[1] = rooms[currentX + 1][currentY].isLocked();
-		isLocked[2] = rooms[currentX][currentY - 1].isLocked();
-		isLocked[3] = rooms[currentX - 1][currentY].isLocked();
+		isDoor[0] = rooms[currentY + 1][currentX] != null;
+		isDoor[1] = rooms[currentY][currentX + 1] != null;
+		isDoor[2] = rooms[currentY - 1][currentX] != null;
+		isDoor[3] = rooms[currentY][currentX - 1] != null;
+		isLocked[0] = rooms[currentY + 1][currentX].isLocked();
+		isLocked[1] = rooms[currentY][currentX + 1].isLocked();
+		isLocked[2] = rooms[currentY - 1][currentX].isLocked();
+		isLocked[3] = rooms[currentY][currentX - 1].isLocked();
 	}
 }
