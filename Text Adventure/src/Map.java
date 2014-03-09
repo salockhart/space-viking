@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Map {
 
 	//Instance variables
-	Room[][] rooms = new Room[10][10];
+	Room[][] rooms = new Room[11][15];
 	Room currentRoom;
 	int currentX;
 	int currentY;
@@ -22,9 +22,29 @@ public class Map {
 	 * No args constructor, creates the map in the 2D array and sets all variables for first room
 	 */
 	public Map() {
-		rooms[0][0] = new Room(false, false, new ArrayList<Item>(), );
+		rooms[0][0] = new Room(false, false, new ArrayList<Item>(),null, "A small box of maintenance supplies is overturned on the floor");
+		rooms[0][1] = null;
+		rooms[0][2] = new Room(false, false, new ArrayList<Item>(),null ,"The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side");
+		rooms[0][3] = new Room(false, false, new ArrayList<Item>(),null ,"The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side");
+		rooms[0][4] = null;
+		rooms[0][5] = new Room(false, true, new ArrayList<Item>(),null ,"The nuclear core is in view./n The room is bathed in the green glow of the unshielded core");
+		rooms[0][6] = null;
+		rooms[0][7] = new Room(false, false, new ArrayList<Item>(),null ,"The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side");
+		rooms[0][8] = new Room(false, false, new ArrayList<Item>(),null ,"The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side");
+		rooms[0][9] = null;
+		rooms[0][10] = new Room(false, false, new ArrayList<Item>(),null,"A line of keyhooks labeled 'Core Access' is on the wall, though only one key is hanging on it");
+		rooms[1][0] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway, core exhaust pipes run along the walls");
+		rooms[1][1] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway, core exhaust pipes run along the walls");
+		rooms[1][2] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway, core exhaust pipes run along the walls");
+		rooms[1][3] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway, core exhaust pipes run along the walls");
+		rooms[1][4] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway, core exhaust pipes run along the walls\nA green glow is leaking under the door from the room to the east");
+		rooms[1][5] = new Room(false, true, new ArrayList<Item>(),null,"The door to the north has a sign: 'Central Drive Core Chamber'\nA green glow emanates from under the door and reflects around the room");
+		rooms[1][6] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway, core exhaust pipes run along the walls\n\nA green glow is leaking under the door from the room to the west");
+		rooms[1][7] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway, core exhaust pipes run along the walls");
+		rooms[1][8] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway, core exhaust pipes run along the walls");
+		rooms[1][9] = new Room(false, false, new ArrayList<Item>(),null, "A gray metal hallway, core exhaust pipes run along the walls");
+		rooms[1][10] = new Room(false, false, new ArrayList<Item>(),null,"A gray metal hallway, core exhaust pipes run along the walls");
 		//fill with rooms -- new Room(isTrap, isLocked, items, enemy, description) 
-		rooms[10][10] = new Room();
 		currentRoom = rooms[0][0];
 		currentRoom.playerVisits();
 		currentX = 0;
