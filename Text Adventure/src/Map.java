@@ -51,7 +51,7 @@ public class Map {
 		rooms[2][0] = null;
 		rooms[2][1] = null;
 		rooms[2][2] = null;
-		rooms[2][3] = new Room(false, false, new ArrayList<Item>(), null,"A narrow maintenance hallway\nA small porthole on the west wall provides a scenic view of q pqssing nebula");
+		rooms[2][3] = new Room(false, false, new ArrayList<Item>(), null,"A narrow maintenance hallway\nA small porthole on the west wall provides a scenic view of a passing nebula");
 		rooms[2][4] = null;
 		rooms[2][5] = null;
 		rooms[2][6] = null;
