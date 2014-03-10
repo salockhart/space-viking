@@ -65,24 +65,24 @@ public class Map {
 		rooms[3][2] = null;
 		rooms[3][3] = new Room(false, false, new ArrayList<Item>(), null,"A narrow maintenance hallway");
 		rooms[3][4] = new Room(false, false, new ArrayList<Item>(), null,"The floor is covered in strewn human bones and viscera\n Horned helmets are piled against the north wall, though most have been broken");
-		rooms[3][5] = new Room(false, true, new ArrayList<Item>(), null,"A central maintenance annex\nDoors to the west and east provide access to the engines");
+		rooms[3][5] = new Room(false, true, new ArrayList<Item>(), null,"A central maintenance room\nDoors to the west and east provide access to the engine sector");
 		rooms[3][6] = new Room(false, false, new ArrayList<Item>(), null,"This room is spotless\nSomeone even took the time to clean the ceilings");
 		rooms[3][7] = new Room(false, false, new ArrayList<Item>(), null,"A narrow maintenance hallway");
 		rooms[3][8] = null;
 		rooms[3][9] = new Room(false, true, new ArrayList<Item>(), null,"Capt. Ormskaeg's private room\n The Captain's belongings have been thrown onto the floor");
 		rooms[3][10] = new Room(false, false, new ArrayList<Item>(), null,"Sleeping quarters\nBunks are pushed against the north and east walls");
 		
-		rooms[4][0] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[4][0] = new Room(false, false, new ArrayList<Item>(), null, "Sleeping quarters\nThe west and east walls are lined with bunks\nBlood on the floor is evidence of a recent fight.");
 		rooms[4][1] = null;
-		rooms[4][2] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[4][2] = new Room(false, false, new ArrayList<Item>(), null, "A large bathroom\nSomeone knocked over all the stall walls. How rude.");
 		rooms[4][3] = null;
 		rooms[4][4] = null;
-		rooms[4][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[4][5] = new Room(false, false, new ArrayList<Item>(), null, "A hallway\nThe door to the north has a sign on it: 'Engine Sector Access'");
 		rooms[4][6] = null;
 		rooms[4][7] = null;
-		rooms[4][8] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[4][8] = new Room(false, false, new ArrayList<Item>(), null, "A small alcove filled with shelves\nThe shelves are mostly filled with salted fish");
 		rooms[4][9] = null;
-		rooms[4][10] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[4][10] = new Room(false, false, new ArrayList<Item>(), null, "These were sleeping quarters, though all the beds seem to be missing");
 		
 		rooms[5][0] = new Room(false, false, new ArrayList<Item>(), null, "");
 		rooms[5][1] = new Room(false, false, new ArrayList<Item>(), null, "");
@@ -163,7 +163,7 @@ public class Map {
 		rooms[11][4] = null;
 		rooms[11][5] = new Room(false, false, new ArrayList<Item>(), null, "");
 		rooms[11][6] = new Room(false, false, new ArrayList<Item>(), null, "");
-		rooms[11][7] = new Room(false, false, new ArrayList<Item>(), null, "Player start\nRemember to change this description");
+		rooms[11][7] = new Room(false, false, new ArrayList<Item>(), null, "The closet you took shelter in when it all went bad\nFor some reason it has extra radiation shielding");
 		rooms[11][8] = null;
 		rooms[11][9] = new Room(false, false, new ArrayList<Item>(), null, "");
 		rooms[11][10] = new Room(false, true, new ArrayList<Item>(), null, "");
@@ -192,14 +192,14 @@ public class Map {
 		rooms[13][9] = new Room(false, false, new ArrayList<Item>(), null, "");
 		rooms[13][10] = new Room(false, false, new ArrayList<Item>(), null, "");
 		
-		rooms[14][0] = new Room(false, false, new ArrayList<Item>(), null, "");
-		rooms[14][1] = new Room(false, false, new ArrayList<Item>(), null, "");
-		rooms[14][2] = new Room(false, false, new ArrayList<Item>(), null, "");
-		rooms[14][3] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[14][0] = new Room(false, false, new ArrayList<Item>(), null, "The bow of the ship\nA large window to the south provides a view of passing asteroids");
+		rooms[14][1] = new Room(false, false, new ArrayList<Item>(), null, "The bow of the ship\nThe bulkhead to the south has sealed off access to the bridge\nThe room is full of comfortable chairs and piles of half-salted fish");
+		rooms[14][2] = new Room(false, false, new ArrayList<Item>(), null, "The bow of the ship\nA human skeleton is lounging on a couch in front of the window\nThe large window provides a nice view of the passing debris. Is that the bridge floating over there?");
+		rooms[14][3] = new Room(false, false, new ArrayList<Item>(), null, "The bow of the ship\nNormally one could see the bridge through the southern window, but it seems to be missing");
 		rooms[14][4] = null;
-		rooms[14][5] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[14][5] = new Room(false, false, new ArrayList<Item>(), null, "The secondary bow airlock it to the west, but it has been automatically sealed\nA lyn-axe has been thrown into the shattered southern window, triggering the bulkhead seal");
 		rooms[14][6] = null;
-		rooms[14][7] = new Room(false, false, new ArrayList<Item>(), null, "");
+		rooms[14][7] = new Room(false, false, new ArrayList<Item>(), null, "The main bow airlock is to east, but it has been automatically sealed\nHalf salted fish litters the floor\nYou can see a distant gas giant through the large window to the south");
 		rooms[14][8] = null;
 		rooms[14][9] = null;
 		rooms[14][10] = null;
@@ -355,7 +355,6 @@ public class Map {
 		}
 	}
 	
-
 	/**
 	 * Returns the map as a string
 	 */
