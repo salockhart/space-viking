@@ -12,7 +12,7 @@ public class Person
 		this.strength=strength;
 		this.defense=defense;
 		this.weapon=new Item(weapon.getName(),weapon.getDetail(),weapon.getWeight(),
-				weapon.getType(),weapon.getDataValue(),weapon.isPickupAble);
+				weapon.getType(),weapon.getDataValue(),weapon.isPickupAble());
 	}
 	
 	public String getName()
