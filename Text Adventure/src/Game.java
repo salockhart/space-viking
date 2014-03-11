@@ -17,7 +17,8 @@ public class Game {
 		
 		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
 		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
-		printMessage("This text is "+ HIDDEN+ "hidden "+ RESET+ " (hidden)\n");
+		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
+		System.out.print(BLINK+ "> "+ RESET);
 		
 		
 	}
@@ -44,6 +45,8 @@ public class Game {
 	public static final String WHITE = "\u001B[37m";
 	public static final String CLEAN = "\033[H\033[2J";
 	public static final String HIDDEN= "\u001B[8m";
+	public static final String BLINK= "\u001B[5m";
+	
 	
 	public static String makeBlack(String s) {
 		return BLACK+ s+ RESET;
