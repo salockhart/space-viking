@@ -2,7 +2,7 @@ public class Person
 {
 	private String name,profession;
 	private int health,strength,defense;
-	//private Item weapon;
+	private Item weapon;
 	
 	public Person(String name,String profession,int health,int strength,int defense,Item weapon)
 	{
