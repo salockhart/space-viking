@@ -15,8 +15,10 @@ public class Game {
 		
 		Scanner keyboard = new Scanner(System.in);
 		
-		printMessage("The "+ YELLOW+ "mutated Viking "+ RESET+ "swung his blade hitting for "+ RED+ "65 "+ RESET+ "Damage \n");
-		printMessage("You have "+ GREEN+ " 105 "+ RESET + "health remaining\n");
+		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
+		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
+		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
+		System.out.print(BLINK+ "> "+ RESET);
 		
 		
 	}
@@ -42,4 +44,35 @@ public class Game {
 	public static final String CYAN = "\u001B[36m";
 	public static final String WHITE = "\u001B[37m";
 	public static final String CLEAN = "\033[H\033[2J";
+	public static final String HIDDEN= "\u001B[8m";
+	public static final String BLINK= "\u001B[5m";
+	
+	
+	public static String makeBlack(String s) {
+		return BLACK+ s+ RESET;
+	}
+	public static String makeRed(String s) {
+		return RED+ s+ RESET;
+	}
+	public static String makeGreen(String s) {
+		return GREEN+ s+ RESET;
+	}
+	public static String makeYellow(String s) {
+		return YELLOW+ s+ RESET;
+	}
+	public static String makeBlue(String s) {
+		return BLUE+ s+ RESET;
+	}
+	public static String makePurple(String s) {
+		return PURPLE+ s+ RESET;
+	}
+	public static String makeCyan(String s) {
+		return CYAN+ s+ RESET;
+	}
+	public static String makeWhite(String s) {
+		return WHITE+ s+ RESET;
+	}
+	public static String makeHidden(String s) {
+		return HIDDEN+ s+ RESET;
+	}
 }
