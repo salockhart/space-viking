@@ -15,11 +15,13 @@ public class Game {
 		
 		Scanner keyboard = new Scanner(System.in);
 		
-		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
-		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
-		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
-		System.out.print(BLINK+ "> "+ RESET);
+//		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
+//		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
+//		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
+//		System.out.print(BLINK+ "> "+ RESET);
 		
+		Map map = new Map();
+		System.out.println(map);
 		
 	}
 	
@@ -28,7 +30,7 @@ public class Game {
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
 			try {
-				Thread.sleep(100);
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 			}
 		}
