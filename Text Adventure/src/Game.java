@@ -44,7 +44,6 @@ public class Game {
 	public static final String WHITE = "\u001B[37m";
 	public static final String CLEAN = "\033[H\033[2J";
 	public static final String HIDDEN= "\u001B[8m";
-	public static final String BLINK= "\u001B[5m";
 	
 	
 	public static String makeBlack(String s) {
