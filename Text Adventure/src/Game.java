@@ -24,15 +24,11 @@ public class Game {
 		System.out.println(map);
 		
 	}
-	
-	public static void printMessage(String n){
+	public static void printMessage(String n) throws InterruptedException{
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			try {
-				Thread.sleep(50);
-			} catch (InterruptedException e) {
-			}
+			Thread.sleep(50);
 		}
 	}
 	
@@ -47,7 +43,6 @@ public class Game {
 	public static final String WHITE = "\u001B[37m";
 	public static final String CLEAN = "\033[H\033[2J";
 	public static final String HIDDEN= "\u001B[8m";
-	public static final String BLINK= "\u001B[5m";
 	
 	
 	public static String makeBlack(String s) {
