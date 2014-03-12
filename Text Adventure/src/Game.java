@@ -25,14 +25,11 @@ public class Game {
 		
 	}
 	
-	public static void printMessage(String n){
+	public static void printMessage(String n) throws InterruptedException{
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			try {
-				Thread.sleep(50);
-			} catch (InterruptedException e) {
-			}
+			Thread.sleep(50);
 		}
 	}
 	
