@@ -26,16 +26,6 @@ public class Game {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		Scanner keyboard = new Scanner(System.in);
-		
-		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
-		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
-		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
-		System.out.print(RESET);
-		
-		Map map = new Map();
-		System.out.println(map);
-		
 		if (!System.getProperty("os.name").contains("Windows")){
 			 RESET = "\u001B[0m";
 			 BLACK = "\u001B[30m";
@@ -49,6 +39,16 @@ public class Game {
 			 CLEAN = "\033[H\033[2J";
 			 HIDDEN= "\u001B[8m";
 		}
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
+		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
+		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
+		System.out.print(RESET);
+		
+		Map map = new Map();
+		System.out.println(map);	
 		
 	}
 	
