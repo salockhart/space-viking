@@ -2,16 +2,17 @@ public class Person
 {
 	private String name,profession;
 	private int health,strength,defense;
-	//private Item weapon;
+	private Item weapon;
 	
-	public Person(String name,String profession,int health,int strength,int defense/*,Item weapon*/)
+	public Person(String name,String profession,int health,int strength,int defense,Item weapon)
 	{
 		this.name=name;
 		this.profession=profession;
 		this.health=health;
 		this.strength=strength;
 		this.defense=defense;
-		/*this.weapon=new Item(weapon.getName() etc...*/
+		this.weapon=new Item(weapon.getName(),weapon.getDetail(),weapon.getWeight(),
+				weapon.getType(),weapon.getDataValue(),weapon.isPickupAble);
 	}
 	
 	public String getName()
@@ -54,7 +55,6 @@ public class Person
 		this.defense=defense;
 	}
 	
-	/*
 	public Item getWeapon()
 	{
 		return weapon;
@@ -64,7 +64,6 @@ public class Person
 	{
 		this.weapon=weapon;
 	}
-	*/
 	
 	public String getProfession()
 	{
@@ -81,17 +80,14 @@ public class Person
 		health-=damage;
 	}
 	
-	/*
 	public double dealDamage(int damage)
 	{
-		return weapon.getWeight()+(.1*strength)...whatever damage formula ends up being
+		return weapon.getWeight()+(.1*strength); //whatever damage formula ends up being
 	}
-	*/
 	
 	public String toString()
 	{
 		return "\nStatus:\nHealth:\t"+health+"\nStrength:\t"+strength
-				+"\nDefense:\t"+defense+"\nWeapon name:\t"+/*weapon.getName()+*/
-					"\nWeapon strength:\t"/*+weapon.getStrength()*/;
+				+"\nDefense:\t"+defense+"\nWeapon name:\t"+weapon.getName();
 	}
 }
