@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
-import java.util.ArrayList();
-
->>>>>>> master
 public class Player extends Person
 {
-	private ArrayList<Item>inventory;
+	private ArrayList<Item> inventory = new ArrayList<Item>();
 	private String saint;
 	
 	public Player(String name,String profession,int health,int strength,
