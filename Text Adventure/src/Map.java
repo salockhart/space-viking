@@ -1,5 +1,12 @@
 import java.util.ArrayList;
 
+<<<<<<< HEAD
+/**
+ * Map.java
+ * @author Stanford Lockhart
+ * B00646015
+ * Mar 6, 2014
+=======
 /*
  * Map.java
  * @author Stanford Lockhart
@@ -7,13 +14,18 @@ import java.util.ArrayList;
  * @author Geoffrey Caven
  * B00629837
  * March 2014
+>>>>>>> master
  * Dalhousie University
  * Faculty of Computer Science
  */
 public class Map {
 
 	//Instance variables
+<<<<<<< HEAD
+	Room[][] rooms = new Room[10][10];
+=======
 	Room[][] rooms = new Room[15][11];	//(y,x), (0,0) is at top left
+>>>>>>> master
 	Room currentRoom;
 	int currentX;
 	int currentY;
@@ -24,6 +36,15 @@ public class Map {
 	 * No args constructor, creates the map in the 2D array and sets all variables for first room
 	 */
 	public Map() {
+<<<<<<< HEAD
+		rooms[0][0] = new Room(false, false, new ArrayList<Item>(), );
+		//fill with rooms -- new Room(isTrap, isLocked, items, enemy, description) 
+		rooms[10][10] = new Room();
+		currentRoom = rooms[0][0];
+		currentRoom.playerVisits();
+		currentX = 0;
+		currentY = 0;
+=======
 		rooms[0][0] = new Room(false, false, new ArrayList<Item>(),null, "A small box of maintenance supplies is overturned on the floor");
 		rooms[0][1] = null;
 		rooms[0][2] = new Room(false, false, new ArrayList<Item>(),null ,"The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side");
@@ -209,6 +230,7 @@ public class Map {
 		currentRoom.playerVisits();
 		currentX = 7;
 		currentY = 11;
+>>>>>>> master
 		setAdjacentRooms();
 	}
 
@@ -355,18 +377,28 @@ public class Map {
 		}
 	}
 	
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 	/**
 	 * Returns the map as a string
 	 */
 	@Override
 	public String toString() {
 		String map = "";
+<<<<<<< HEAD
+		for (int i = 9; i >= 0; i--){
+			for (int j = 0; j < 10; j++){
+				map += rooms[j][i];
+=======
 		for (int i = 0; i < 15; i++){
 			for (int j = 0; j < 11; j++){
 				if (rooms[i][j] != null)
 					map += rooms[i][j];
 				else
 					map += "   ";
+>>>>>>> master
 			}
 			map += "\n";
 		}
@@ -377,6 +409,16 @@ public class Map {
 	 * Sets whether adjacent rooms exist and/or are locked
 	 */
 	private void setAdjacentRooms(){
+<<<<<<< HEAD
+		isDoor[0] = rooms[currentX][currentY + 1] != null;
+		isDoor[1] = rooms[currentX + 1][currentY] != null;
+		isDoor[2] = rooms[currentX][currentY - 1] != null;
+		isDoor[3] = rooms[currentX - 1][currentY] != null;
+		isLocked[0] = rooms[currentX][currentY + 1].isLocked();
+		isLocked[1] = rooms[currentX + 1][currentY].isLocked();
+		isLocked[2] = rooms[currentX][currentY - 1].isLocked();
+		isLocked[3] = rooms[currentX - 1][currentY].isLocked();
+=======
 		if (currentX == 0){
 			if (currentY == 0){
 				isDoor[0] = false;
@@ -473,5 +515,6 @@ public class Map {
 			if (isDoor[3])
 				isLocked[3] = rooms[currentY][currentX - 1].isLocked();
 		}
+>>>>>>> master
 	}
 }

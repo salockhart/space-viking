@@ -1,5 +1,10 @@
 <<<<<<< HEAD
 /Map.class
+/Room.class
+/Test.class
+=======
+<<<<<<< HEAD
+/Map.class
 /Person.class
 /Player.class
 =======
@@ -10,3 +15,5 @@
 /Player.class
 /Room.class
 >>>>>>> FETCH_HEAD
+>>>>>>> master
+/.DS_Store
