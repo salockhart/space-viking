@@ -1,19 +1,7 @@
-<<<<<<< HEAD
+/Item.class
 /Map.class
 /Room.class
 /Test.class
-=======
-<<<<<<< HEAD
-/Map.class
-/Person.class
-/Player.class
-=======
 /Game.class
-/Item.class
-/Map.class
 /Person.class
 /Player.class
-/Room.class
->>>>>>> FETCH_HEAD
->>>>>>> master
-/.DS_Store

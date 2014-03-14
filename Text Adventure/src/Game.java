@@ -11,17 +11,44 @@
 import java.util.Scanner;
 
 public class Game {
-	public static void main(String[] args) {
+	
+	public static String RESET = "";
+	public static String BLACK = "";
+	public static String RED = "";
+	public static String GREEN = "";
+	public static String YELLOW = "";
+	public static String BLUE = "";
+	public static String PURPLE = "";
+	public static String CYAN = "";
+	public static String WHITE = "";
+	public static String CLEAN = "";
+	public static String HIDDEN= "";
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		if (!System.getProperty("os.name").contains("Windows")){
+			 RESET = "\u001B[0m";
+			 BLACK = "\u001B[30m";
+			 RED = "\u001B[31m";
+			 GREEN = "\u001B[32m";
+			 YELLOW = "\u001B[33m";
+			 BLUE = "\u001B[34m";
+			 PURPLE = "\u001B[35m";
+			 CYAN = "\u001B[36m";
+			 WHITE = "\u001B[37m";
+			 CLEAN = "\033[H\033[2J";
+			 HIDDEN= "\u001B[8m";
+		}
 		
 		Scanner keyboard = new Scanner(System.in);
 		
-//		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
-//		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
-//		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
-//		System.out.print(BLINK+ "> "+ RESET);
+		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
+		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
+		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
+		System.out.print(RESET);
 		
 		Map map = new Map();
-		System.out.println(map);
+		System.out.println(map);	
 		
 	}
 	
@@ -32,19 +59,6 @@ public class Game {
 			Thread.sleep(50);
 		}
 	}
-	
-	public static final String RESET = "\u001B[0m";
-	public static final String BLACK = "\u001B[30m";
-	public static final String RED = "\u001B[31m";
-	public static final String GREEN = "\u001B[32m";
-	public static final String YELLOW = "\u001B[33m";
-	public static final String BLUE = "\u001B[34m";
-	public static final String PURPLE = "\u001B[35m";
-	public static final String CYAN = "\u001B[36m";
-	public static final String WHITE = "\u001B[37m";
-	public static final String CLEAN = "\033[H\033[2J";
-	public static final String HIDDEN= "\u001B[8m";
-	
 	
 	public static String makeBlack(String s) {
 		return BLACK+ s+ RESET;
