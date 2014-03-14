@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-/Map.class
-/Person.class
-/Player.class
-=======
-/Game.class
 /Item.class
 /Map.class
+/Room.class
+/Test.class
+/Game.class
 /Person.class
 /Player.class
-/Room.class
->>>>>>> FETCH_HEAD

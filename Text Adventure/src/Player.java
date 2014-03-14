@@ -1,4 +1,8 @@
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 public class Player extends Person
 {
 	private ArrayList<Item> inventory = new ArrayList<Item>();
@@ -12,7 +16,7 @@ public class Player extends Person
 		inventory=new ArrayList<Item>();
 	}
 
-	public void dropItem()
+	public void dropItem(int index)
 	{
 		inventory.remove(index);
 	}
@@ -22,7 +26,7 @@ public class Player extends Person
 		inventory.add(item);
 	}
 	
-	public ArrayList<String> getInventory()
+	public ArrayList<Item> getInventory()
 	{
 		return inventory;
 	}
