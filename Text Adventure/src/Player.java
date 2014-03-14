@@ -1,8 +1,4 @@
 import java.util.ArrayList;
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 public class Player extends Person
 {
 	private ArrayList<Item> inventory = new ArrayList<Item>();
