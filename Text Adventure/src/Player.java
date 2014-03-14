@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Player extends Person
 {
 	//private ArrayList<Item>inventory;
@@ -9,6 +10,23 @@ public class Player extends Person
 		this.saint=saint;
 	}
 	/*
+=======
+import java.util.ArrayList();
+
+public class Player extends Person
+{
+	private ArrayList<Item>inventory;
+	private String saint;
+	
+	public Player(String name,String profession,int health,int strength,
+			int defense,item weapon,ArrayList<Item> inventory,String saint)
+	{
+		super(name,profession,health,strength,defense,weapon);
+		this.saint=saint;
+		inventory=new ArrayList<Item>();
+	}
+
+>>>>>>> master
 	public void dropItem()
 	{
 		inventory.remove(index);
@@ -28,7 +46,10 @@ public class Player extends Person
 	{
 		System.out.println("\n\ninventory\n");
 	}
+<<<<<<< HEAD
 	*/
+=======
+>>>>>>> master
 	
 	public String getSaint()
 	{
