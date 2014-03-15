@@ -42,13 +42,30 @@ public class Game {
 		
 		Scanner keyboard = new Scanner(System.in);
 		
-		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
-		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
-		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
-		System.out.print(RESET);
+		System.out.println(CLEAN);
 		
-		Map map = new Map();
-		System.out.println(map);	
+		printMessage("A Blessed Boys production:\n");
+		System.out.println();
+		System.out.println();
+		System.out.println(" ___________  ___  _____ _____      _   _ _____ _   _______ _   _ _____ ");
+		System.out.println("/  ___| ___ \\/ _ \\/  __ \\  ___|    | | | |_   _| | / /_   _| \\ | |  __ \\");
+		System.out.println("\\ `--.| |_/ / /_\\ \\ /  \\/ |__      | | | | | | | |/ /  | | |  \\| | |  \\/");
+		System.out.println(" `--. \\  __/|  _  | |   |  __|     | | | | | | |    \\  | | | . ` | | __ ");
+		System.out.println("/\\__/ / |   | | | | \\__/\\ |___     \\ \\_/ /_| |_| |\\  \\_| |_| |\\  | |_\\ \\");
+		System.out.println("\\____/\\_|   \\_| |_/\\____|____/      \\___/ \\___/\\_| \\_/\\___/\\_| \\_/\\____/");
+		System.out.println();
+		System.out.println("                     Press Enter to Continue.");
+		
+		if(keyboard.nextLine().length() <= 0) {
+			
+			System.out.print(CLEAN);
+			System.out.println();
+			printMessage("Hello Warrior.\n");
+			printMessage("I am Odin, God of war. You have been in cryostasis since the Information Age.\n");
+			
+			Map map = new Map();
+			System.out.println(map);
+		}
 		
 	}
 	
