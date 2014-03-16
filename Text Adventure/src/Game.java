@@ -47,12 +47,11 @@ public class Game {
 		printMessage("A Blessed Boys production:\n");
 		System.out.println();
 		System.out.println();
-		System.out.println(" ___________  ___  _____ _____      _   _ _____ _   _______ _   _ _____ ");
-		System.out.println("/  ___| ___ \\/ _ \\/  __ \\  ___|    | | | |_   _| | / /_   _| \\ | |  __ \\");
-		System.out.println("\\ `--.| |_/ / /_\\ \\ /  \\/ |__      | | | | | | | |/ /  | | |  \\| | |  \\/");
-		System.out.println(" `--. \\  __/|  _  | |   |  __|     | | | | | | |    \\  | | | . ` | | __ ");
-		System.out.println("/\\__/ / |   | | | | \\__/\\ |___     \\ \\_/ /_| |_| |\\  \\_| |_| |\\  | |_\\ \\");
-		System.out.println("\\____/\\_|   \\_| |_/\\____|____/      \\___/ \\___/\\_| \\_/\\___/\\_| \\_/\\____/");
+		System.out.println("   _____ ____  ___   ____________   _    ________ __ _____   ________");
+		System.out.println("  / ___// __ \\/   | / ____/ ____/  | |  / /  _/ //_//  _/ | / / ____/");
+		System.out.println("  \\__ \\/ /_/ / /| |/ /   / __/     | | / // // . /  / //  |/ / / __  ");
+		System.out.println(" ___/ / ____/ ___ / /___/ /___     | |/ // // /| |_/ // /|  / /_/ /  ");
+		System.out.println("/____/_/   /_/  |_\\____/_____/     |___/___/_/ |_/___/_/ |_/\\____/   ");
 		System.out.println();
 		System.out.print("                     ");
 		printMessage("Press Enter to Continue.");
