@@ -99,13 +99,14 @@ public class Game {
 			//prints the entire map
 				//when map is viewed during the actual game only previously visited rooms
 				//and adjacent rooms will show
-			printMessage("Here is a map of the NSFVV, I have marked your position with a pre-age symbol: *\n");
+			printMessage("Here on the wall is a map of the NSFVV, I have marked your position with a pre-age symbol: *\n");
 			printMessage("It should look familiar to your time, it is called an asterisk.\n");
 			
 			System.out.println();
 			System.out.println(map);
 			System.out.println();
-			
+			printMessage("This map will not be available to you after you leave this room, you will have\n");
+			printMessage("to mark each room after you've visited them.");
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take this, you may find it useful on your quest.\n");
