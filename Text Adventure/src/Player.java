@@ -6,7 +6,7 @@ public class Player extends Person
 	private String saint;
 
 	public Player(String name,String profession,int health,int strength,
-			int defense,Item weapon,ArrayList<Item> inventory,String saint)
+			int defense,Item weapon,String saint)
 	{
 		super(name,profession,health,strength,defense,weapon);
 		this.saint=saint;
