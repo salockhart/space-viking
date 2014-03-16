@@ -71,35 +71,35 @@ public class Game {
 			printMessage("Hello Warrior.\n");
 			printMessage("I am "+makeRed("Odin")+", God of war. You have been in cryostasis since the "+makePurple("Information Age")+".\n");
 			printMessage("It is the year "+makePurple("20XX PA (Post-Armageddon)")+", and you are drifting aboard the "+makeCyan("NS Fjord VValkyrie")+".\n");
-			printMessage("Your vessel and crew have succumb to a terrible fate.\n");
+			printMessage("Your vessel and crew have succumb to a "+makeYellow("terrible fate")+".\n");
 			System.out.println();
 			printMessage("Your crew was returning home from a raid on "+makeGreen("Neo-Dublin")+"\n");
-			printMessage("when a freak nuclear fish-salting accident occurred and the main core overheated and caused\n");
+			printMessage("when an unexpected nuclear fish-salting accident occurred and the main core overheated and caused\n");
 			printMessage("a great explosion.\n");
 			System.out.println();
 			printMessage("Every member of your crew was either mutated or killed in the explosion\n");
-			printMessage("and are now roaming the halls of this vessel.\n");
+			printMessage("and are now roaming the halls of this vessel, and may prove "+makeRed("dangerous")+".\n");
 			System.out.println();
 			
 			//user's character inputs
-			printMessage("What would you like me to call you, Warrior?\n");
+			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
 			String name = keyboard.nextLine();
 			System.out.println();
-			printMessage(name+". An interesting name indeed.\nWhat is your profession?\n");
+			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
 			String profession = keyboard.nextLine();
 			System.out.println();
-			printMessage("Ah, "+name+" the "+profession+". Yes, I remember you.\n");
+			printMessage("Ah, "+makeCyan(name)+" the "+makeCyan(profession)+". Yes, I remember you.\n");
 			
 			
 			System.out.println();
-			printMessage("I call upon you now "+name+", to go and rid this universe of your mutating vessel.\n");
+			printMessage("I call upon you now "+makeCyan(name)+", to go and rid this universe of your mutating vessel.\n");
 			printMessage("You must reach the core and destroy it for good and finish this.\n");
 			System.out.println();
 			
 			//prints the entire map
 				//when map is viewed during the actual game only previously visited rooms
 				//and adjacent rooms will show
-			printMessage("Here on the wall is a map of the NSFVV, I have marked your position with a pre-age symbol: *\n");
+			printMessage("Here on the wall is a map of the "+makeCyan("NSFVV")+", I have marked your position with a pre-age symbol: *\n");
 			printMessage("It should look familiar to your time, it is called an asterisk.\n");
 			
 			System.out.println();
@@ -109,8 +109,10 @@ public class Game {
 			printMessage("to mark each room after you've visited them.");
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
-			printMessage("And here take this, you may find it useful on your quest.\n");
+			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
+			
+			System.out.println(CLEAN);
 			
 			//new player created with the inputed name and profession
 				//health: 10
@@ -118,6 +120,7 @@ public class Game {
 				//defense: 1
 			Player user = new Player(name, profession, 10, 1, 1, soedekilling, null);			
 			user.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
+			
 			
 		}
 		
