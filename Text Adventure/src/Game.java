@@ -1,5 +1,5 @@
 /**
- * Map.java
+ * Game.java
  * @author Alex Dunn
  * B00636250
  * Mar 9, 2014
@@ -26,6 +26,8 @@ public class Game {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
+		//if user is not running windows the colour take effect
+			//(ANSI colour codes do not work in command prompt)
 		if (!System.getProperty("os.name").contains("Windows")){
 			 RESET = "\u001B[0m";
 			 BLACK = "\u001B[30m";
@@ -58,15 +60,17 @@ public class Game {
 		
 		if(keyboard.nextLine().length() <= 0) {
 			
+			//creates the map
 			Map map = new Map();
 			
-			System.out.print(CLEAN); //clears the console for a visually blank start
+			//clears the console for a visually blank start
+			System.out.print(CLEAN);
 			System.out.println();
 			
 			//back story intro
 			printMessage("Hello Warrior.\n");
-			printMessage("I am "+makeRed("Odin")+", God of war. You have been in cryostasis since the Information Age.\n");
-			printMessage("It is the year 20XX PA (Post-Armageddon), and you are drifting aboard the NS Fjord VValkyrie.\n");
+			printMessage("I am "+makeRed("Odin")+", God of war. You have been in cryostasis since the "+makePurple("Information Age")+".\n");
+			printMessage("It is the year "+makePurple("20XX PA (Post-Armageddon)")+", and you are drifting aboard the "+makeCyan("NS Fjord VValkyrie")+".\n");
 			printMessage("Your vessel and crew have succumb to a terrible fate.\n");
 			System.out.println();
 			printMessage("Your crew was returning home from a raid on "+makeGreen("Neo-Dublin")+"\n");
@@ -80,13 +84,15 @@ public class Game {
 			//user's character inputs
 			printMessage("What would you like me to call you, Warrior?\n");
 			String name = keyboard.nextLine();
+			System.out.println();
 			printMessage(name+". An interesting name indeed.\nWhat is your profession?\n");
 			String profession = keyboard.nextLine();
+			System.out.println();
 			printMessage("Ah, "+name+" the "+profession+". Yes, I remember you.\n");
 			
 			
-			
-			printMessage("I call upon you now warrior, to go and rid this universe of your mutating vessel.\n");
+			System.out.println();
+			printMessage("I call upon you now "+name+", to go and rid this universe of your mutating vessel.\n");
 			printMessage("You must reach the core and destroy it for good and finish this.\n");
 			System.out.println();
 			
@@ -102,7 +108,7 @@ public class Game {
 			
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
-			printMessage("And here take this, you may find it useful in your journey.");
+			printMessage("And here take this, you may find it useful on your quest.\n");
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
 			
 			//new player created with the inputed name and profession
@@ -110,12 +116,13 @@ public class Game {
 				//strength: 1
 				//defense: 1
 			Player user = new Player(name, profession, 10, 1, 1, soedekilling, null);			
-			user.pickupItem(soedekilling);
+			user.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
 			
 		}
 		
 	}
 	
+	//prints strings letter by letter to create a typing effect
 	public static void printMessage(String n) throws InterruptedException {
 		
 		for (int i = 0; i < n.length(); i++){
@@ -124,6 +131,7 @@ public class Game {
 		}
 	}
 	
+	//methods to change colours of strings in terminal
 	public static String makeBlack(String s) {
 		return BLACK+ s+ RESET;
 	}
