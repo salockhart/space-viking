@@ -54,15 +54,16 @@ public class Game {
 		System.out.println("/\\__/ / |   | | | | \\__/\\ |___     \\ \\_/ /_| |_| |\\  \\_| |_| |\\  | |_\\ \\");
 		System.out.println("\\____/\\_|   \\_| |_/\\____|____/      \\___/ \\___/\\_| \\_/\\___/\\_| \\_/\\____/");
 		System.out.println();
-		System.out.println("                     Press Enter to Continue.");
+		System.out.print("                     ");
+		printMessage("Press Enter to Continue.");
 		
 		if(keyboard.nextLine().length() <= 0) {
 			
 			System.out.print(CLEAN);
 			System.out.println();
 			printMessage("Hello Warrior.\n");
-			printMessage("I am Odin, God of war. You have been in cryostasis since the Information Age.\n");
-			
+			printMessage("I am "+makeRed("Odin")+", God of war. You have been in cryostasis since the Information Age.\n");
+			printMessage(".\n");
 			Map map = new Map();
 			System.out.println(map);
 		}
