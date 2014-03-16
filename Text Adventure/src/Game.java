@@ -47,29 +47,36 @@ public class Game {
 		printMessage("A Blessed Boys production:\n");
 		System.out.println();
 		System.out.println();
-		System.out.println(" ___________  ___  _____ _____      _   _ _____ _   _______ _   _ _____ ");
-		System.out.println("/  ___| ___ \\/ _ \\/  __ \\  ___|    | | | |_   _| | / /_   _| \\ | |  __ \\");
-		System.out.println("\\ `--.| |_/ / /_\\ \\ /  \\/ |__      | | | | | | | |/ /  | | |  \\| | |  \\/");
-		System.out.println(" `--. \\  __/|  _  | |   |  __|     | | | | | | |    \\  | | | . ` | | __ ");
-		System.out.println("/\\__/ / |   | | | | \\__/\\ |___     \\ \\_/ /_| |_| |\\  \\_| |_| |\\  | |_\\ \\");
-		System.out.println("\\____/\\_|   \\_| |_/\\____|____/      \\___/ \\___/\\_| \\_/\\___/\\_| \\_/\\____/");
+		System.out.println("   _____ ____  ___   ____________   _    ________ __ _____   ________");
+		System.out.println("  / ___// __ \\/   | / ____/ ____/  | |  / /  _/ //_//  _/ | / / ____/");
+		System.out.println("  \\__ \\/ /_/ / /| |/ /   / __/     | | / // // . /  / //  |/ / / __  ");
+		System.out.println(" ___/ / ____/ ___ / /___/ /___     | |/ // // /| |_/ // /|  / /_/ /  ");
+		System.out.println("/____/_/   /_/  |_\\____/_____/     |___/___/_/ |_/___/_/ |_/\\____/   ");
 		System.out.println();
-		System.out.println("                     Press Enter to Continue.");
+		System.out.print("                     ");
+		printMessage("Press Enter to Continue.");
 		
 		if(keyboard.nextLine().length() <= 0) {
 			
 			System.out.print(CLEAN);
 			System.out.println();
 			printMessage("Hello Warrior.\n");
-			printMessage("I am Odin, God of war. You have been in cryostasis since the Information Age.\n");
-			
+			printMessage("I am "+makeRed("Odin")+", God of war. You have been in cryostasis since the Information Age.\n");
+			printMessage("It is the year 20XX PA (Post-Armageddon), and you are drifting aboard the NS Fjord VValkyrie.\n");
+			printMessage("Your vessel and crew have succumb to a terrible fate.\n");
+			System.out.println();
+			printMessage("Your crew was returning home from a raid on Neo-Dublin,\n");
+			printMessage("when a freak nuclear fish-salting accident occurred and the main core overheated and caused\n");
+			printMessage("a great explosion.\n");
+			System.out.println();
+			printMessage("Every member of your crew was mutated or killed in the explosion and are now roaming the hall of this vessel.");
 			Map map = new Map();
 			System.out.println(map);
 		}
 		
 	}
 	
-	public static void printMessage(String n) throws InterruptedException{
+	public static void printMessage(String n) throws InterruptedException {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
