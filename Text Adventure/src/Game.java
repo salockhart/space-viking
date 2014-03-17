@@ -58,7 +58,7 @@ public class Game {
 		System.out.print("                     ");
 		printMessage("Press Enter to Continue.");
 		
-		if(keyboard.nextLine().length() <= 0) {
+		if(keyboard.nextLine().length() > -1) {	//Unconditionally is true as text will never be less than 0
 			
 			//creates the map
 			Map map = new Map();
