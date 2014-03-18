@@ -21,7 +21,7 @@ public class Game {
 	public static String PURPLE = "";
 	public static String CYAN = "";
 	public static String WHITE = "";
-	public static String CLEAN = "";
+	public static String CLEAN = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 	public static String HIDDEN= "";
 	
 	public static void main(String[] args) throws InterruptedException {
