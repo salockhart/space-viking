@@ -68,8 +68,13 @@ public class Game {
 			System.out.println();
 			
 			//back story intro
+			printMessage(makeRed("*** ALERT ***\n"));
+			printMessage(makeRed("New E-mail Recieved!\n"));
+			printMessage("From: odin@valhalla.no\n");
+			printMessage("Subject: Hello Warrior\n");
+			System.out.println();
 			printMessage("Hello Warrior.\n");
-			printMessage("I am "+makeRed("Odin")+", God of war. You have been in cryostasis since the "+makePurple("Information Age")+".\n");
+			printMessage("I am "+makeRed("Odin")+", The All-Father. You have been in cryostasis since the "+makePurple("Information Age")+".\n");
 			printMessage("It is the year "+makePurple("20XX PA (Post-Armageddon)")+", and you are drifting aboard the "+makeCyan("NS Fjord VValkyrie")+".\n");
 			printMessage("Your vessel and crew have succumb to a "+makeYellow("terrible fate")+".\n");
 			System.out.println();
@@ -83,11 +88,25 @@ public class Game {
 			
 			//user's character inputs
 			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
+			System.out.println();
+			printMessage("To: odin@valhall.no\n");
+			printMessage("Subject: Re: Hello Warrior\n");
 			String name = keyboard.nextLine();
 			System.out.println();
+			printMessage(makeRed("*** ALERT ***\n"));
+			printMessage(makeRed("New E-mail Recieved!\n"));
+			printMessage("From: odin@valhalla.no\n");
+			printMessage("Subject: Re:Re: Hello Warrior\n");
 			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
+			System.out.println();
+			printMessage("To: odin@valhall.no\n");
+			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
 			String profession = keyboard.nextLine();
 			System.out.println();
+			printMessage(makeRed("*** ALERT ***\n"));
+			printMessage(makeRed("New E-mail Recieved!\n"));
+			printMessage("From: odin@valhalla.no\n");
+			printMessage("Subject: Re:Re:Re:Re: Hello Warrior\n");
 			printMessage("Ah, "+makeCyan(name)+" the "+makeCyan(profession)+". Yes, I remember you.\n");
 			
 			
