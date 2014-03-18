@@ -89,9 +89,14 @@ public class Game {
 			//user's character inputs
 			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
 			System.out.println();
+			printMessage(makeGreen("*** DRAFTING ***\n"));
 			printMessage("To: odin@valhall.no\n");
 			printMessage("Subject: Re: Hello Warrior\n");
 			String name = keyboard.nextLine();
+			System.out.println();
+			printMessage("Processing ");
+			printMessage(". . . ", 300);
+			printMessage("Message Sent!\n");
 			System.out.println();
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
@@ -99,9 +104,14 @@ public class Game {
 			printMessage("Subject: Re:Re: Hello Warrior\n");
 			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
 			System.out.println();
+			printMessage(makeGreen("*** DRAFTING ***\n"));
 			printMessage("To: odin@valhall.no\n");
 			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
 			String profession = keyboard.nextLine();
+			System.out.println();
+			printMessage("Processing ");
+			printMessage(". . . ", 300);
+			printMessage("Message Sent!\n");
 			System.out.println();
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
@@ -125,7 +135,7 @@ public class Game {
 			System.out.println(map);
 			System.out.println();
 			printMessage("This map will not be available to you after you leave this room, you will have\n");
-			printMessage("to mark each room after you've visited them.");
+			printMessage("to mark each room after you've visited them.\n");
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
