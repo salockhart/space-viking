@@ -7,7 +7,6 @@
  * Faculty of Computer Science
  */
 
-
 import java.util.Scanner;
 
 public class Game {
@@ -21,7 +20,7 @@ public class Game {
 	public static String PURPLE = "";
 	public static String CYAN = "";
 	public static String WHITE = "";
-	public static String CLEAN = "";
+	public static String CLEAN = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 	public static String HIDDEN= "";
 	
 	public static void main(String[] args) throws InterruptedException {
@@ -67,7 +66,7 @@ public class Game {
 			System.out.print(CLEAN);
 			System.out.println();
 			
-			//back story intro
+			//First email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
 			printMessage("From: odin@valhalla.no\n");
@@ -92,24 +91,34 @@ public class Game {
 			printMessage("To: odin@valhall.no\n");
 			printMessage("Subject: Re: Hello Warrior\n");
 			String name = keyboard.nextLine();
+			printMessage("Sending");
+			printMessage("..........", 125);
+			printMessage("Sent!\n");
 			System.out.println();
+			
+			//Next email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
 			printMessage("From: odin@valhalla.no\n");
 			printMessage("Subject: Re:Re: Hello Warrior\n");
 			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
 			System.out.println();
+			
+			//User's second input field
 			printMessage("To: odin@valhall.no\n");
 			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
 			String profession = keyboard.nextLine();
+			printMessage("Sending");
+			printMessage("..........", 125);
+			printMessage("Sent!\n");
 			System.out.println();
+			
+			//Third email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
 			printMessage("From: odin@valhalla.no\n");
 			printMessage("Subject: Re:Re:Re:Re: Hello Warrior\n");
 			printMessage("Ah, "+makeCyan(name)+" the "+makeCyan(profession)+". Yes, I remember you.\n");
-			
-			
 			System.out.println();
 			printMessage("I call upon you now "+makeCyan(name)+", to go and rid this universe of your mutating vessel.\n");
 			printMessage("You must reach the core and destroy it for good and finish this.\n");
@@ -120,12 +129,16 @@ public class Game {
 				//and adjacent rooms will show
 			printMessage("Here on the wall is a map of the "+makeCyan("NSFVV")+", I have marked your position with a pre-age symbol: *\n");
 			printMessage("It should look familiar to your time, it is called an asterisk.\n");
-			
+			System.out.println();
+			System.out.println(map.fullMap());
+			System.out.println();
+			printMessage("This map will not be available to you after you leave this room, you will have\n");
+			printMessage("to mark each room after you've visited them. ");
+			printMessage("This is what your map will normally look like:\n");
 			System.out.println();
 			System.out.println(map);
 			System.out.println();
-			printMessage("This map will not be available to you after you leave this room, you will have\n");
-			printMessage("to mark each room after you've visited them.");
+			
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
