@@ -356,10 +356,9 @@ public class Map {
 	}
 	
 	/**
-	 * Returns the map as a string
+	 * @return the entire map, regardless of whether or not a room has been visited
 	 */
-	@Override
-	public String toString() {
+	public String fullMap(){
 		String map = "";
 		for (int i = 0; i < 15; i++){
 			for (int j = 0; j < 11; j++){
@@ -372,6 +371,84 @@ public class Map {
 		}
 		return map;
 	}
+	
+	/**
+	 * Returns the map as a string
+	 */
+	@Override
+	public String toString() {
+		String map = "";
+		for (int i = 0; i < 15; i++){
+			for (int j = 0; j < 11; j++){
+				if (rooms[i][j] != null && (rooms[i][j].hasVisited() || isAdjacent(rooms, i, j)))
+					map += rooms[i][j];
+				else
+					map += "   ";
+			}
+			map += "\n";
+		}
+		return map;
+	}
+	
+	/**
+	 * Returns whether room is currently adjacent
+	 * @param rooms2
+	 * @param y
+	 * @param x
+	 * @return
+	 */
+	private boolean isAdjacent(Room[][] rooms2, int y, int x) {
+		if (currentX == 0){
+			if (currentY == 0){
+				if (x == currentX + 1 && y == currentY)
+					return true;
+				else if (x == currentX && y == currentY + 1)
+					return true;
+			} else if (currentY == 14){
+				if (x == currentX + 1 && y == currentY)
+					return true;
+				else if (x == currentX && y == currentY - 1)
+					return true;
+			} else {
+				if (x == currentX + 1 && y == currentY)
+					return true;
+				else if (x == currentX && y == currentY + 1)
+					return true;
+				else if (x == currentX && y == currentY - 1)
+					return true;
+			}
+		} else if (currentX == 10){
+			if (currentY == 0){
+				if (x == currentX - 1 && y == currentY)
+					return true;
+				else if (x == currentX && y == currentY + 1)
+					return true;
+			} else if (currentY == 14){
+				if (x == currentX - 1 && y == currentY)
+					return true;
+				else if (x == currentX && y == currentY - 1)
+					return true;
+			} else {
+				if (x == currentX - 1 && y == currentY)
+					return true;
+				else if (x == currentX && y == currentY - 1)
+					return true;
+				else if (x == currentX && y == currentY + 1)
+					return true;
+			}
+		} else {
+			if (x == currentX - 1 && y == currentY)
+				return true;
+			else if (x == currentX + 1 && y == currentY)
+				return true;
+			else if (x == currentX && y == currentY - 1)
+				return true;
+			else if (x == currentX && y == currentY + 1)
+				return true;
+		}
+		return false;
+	}
+
 	
 	/**
 	 * Sets whether adjacent rooms exist and/or are locked
