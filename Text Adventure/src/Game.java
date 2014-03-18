@@ -154,6 +154,14 @@ public class Game {
 		}
 	}
 	
+	public static void printMessage(String n, int time) throws InterruptedException {
+		
+		for (int i = 0; i < n.length(); i++){
+			System.out.print(n.substring(i, i+1));
+			Thread.sleep(time);
+		}
+	}
+	
 	//methods to change colours of strings in terminal
 	public static String makeBlack(String s) {
 		return BLACK+ s+ RESET;
