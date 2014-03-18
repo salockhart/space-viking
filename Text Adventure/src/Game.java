@@ -1,12 +1,11 @@
 /**
- * Map.java
+ * Game.java
  * @author Alex Dunn
  * B00636250
  * Mar 9, 2014
  * Dalhousie University
  * Faculty of Computer Science
  */
-
 
 import java.util.Scanner;
 
@@ -21,11 +20,13 @@ public class Game {
 	public static String PURPLE = "";
 	public static String CYAN = "";
 	public static String WHITE = "";
-	public static String CLEAN = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	public static String CLEAN = "";
 	public static String HIDDEN= "";
 	
 	public static void main(String[] args) throws InterruptedException {
 		
+		//if user is not running windows the colour take effect
+			//(ANSI colour codes do not work in command prompt)
 		if (!System.getProperty("os.name").contains("Windows")){
 			 RESET = "\u001B[0m";
 			 BLACK = "\u001B[30m";
@@ -42,17 +43,109 @@ public class Game {
 		
 		Scanner keyboard = new Scanner(System.in);
 		
-		printMessage("The "+ makeYellow("mutated Viking ")+ "swung his blade hitting for "+ makeRed("65 ")+ "Damage \n");
-		printMessage("You have "+ makeGreen("105 ")+ "health remaining\n");
-		printMessage("This text is "+ makeHidden("hidden ")+ " (hidden)\n");
-		System.out.print(RESET);
+		System.out.println(CLEAN);
 		
-		Map map = new Map();
-		System.out.println(map);	
+		printMessage("A Blessed Boys production:\n");
+		System.out.println();
+		System.out.println();
+		System.out.println("   _____ ____  ___   ____________   _    ________ __ _____   ________");
+		System.out.println("  / ___// __ \\/   | / ____/ ____/  | |  / /  _/ //_//  _/ | / / ____/");
+		System.out.println("  \\__ \\/ /_/ / /| |/ /   / __/     | | / // // . /  / //  |/ / / __  ");
+		System.out.println(" ___/ / ____/ ___ / /___/ /___     | |/ // // /| |_/ // /|  / /_/ /  ");
+		System.out.println("/____/_/   /_/  |_\\____/_____/     |___/___/_/ |_/___/_/ |_/\\____/   ");
+		System.out.println();
+		System.out.print("                     ");
+		printMessage("Press Enter to Continue.");
+		
+		if(keyboard.nextLine().length() > -1) {	//Unconditionally is true as text will never be less than 0
+			
+			//creates the map
+			Map map = new Map();
+			
+			//clears the console for a visually blank start
+			System.out.print(CLEAN);
+			System.out.println();
+			
+			//back story intro
+			printMessage(makeRed("*** ALERT ***\n"));
+			printMessage(makeRed("New E-mail Recieved!\n"));
+			printMessage("From: odin@valhalla.no\n");
+			printMessage("Subject: Hello Warrior\n");
+			System.out.println();
+			printMessage("Hello Warrior.\n");
+			printMessage("I am "+makeRed("Odin")+", The All-Father. You have been in cryostasis since the "+makePurple("Information Age")+".\n");
+			printMessage("It is the year "+makePurple("20XX PA (Post-Armageddon)")+", and you are drifting aboard the "+makeCyan("NS Fjord VValkyrie")+".\n");
+			printMessage("Your vessel and crew have succumb to a "+makeYellow("terrible fate")+".\n");
+			System.out.println();
+			printMessage("Your crew was returning home from a raid on "+makeGreen("Neo-Dublin")+"\n");
+			printMessage("when an unexpected nuclear fish-salting accident occurred and the main core overheated and caused\n");
+			printMessage("a great explosion.\n");
+			System.out.println();
+			printMessage("Every member of your crew was either mutated or killed in the explosion\n");
+			printMessage("and are now roaming the halls of this vessel, and may prove "+makeRed("dangerous")+".\n");
+			System.out.println();
+			
+			//user's character inputs
+			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
+			System.out.println();
+			printMessage("To: odin@valhall.no\n");
+			printMessage("Subject: Re: Hello Warrior\n");
+			String name = keyboard.nextLine();
+			System.out.println();
+			printMessage(makeRed("*** ALERT ***\n"));
+			printMessage(makeRed("New E-mail Recieved!\n"));
+			printMessage("From: odin@valhalla.no\n");
+			printMessage("Subject: Re:Re: Hello Warrior\n");
+			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
+			System.out.println();
+			printMessage("To: odin@valhall.no\n");
+			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
+			String profession = keyboard.nextLine();
+			System.out.println();
+			printMessage(makeRed("*** ALERT ***\n"));
+			printMessage(makeRed("New E-mail Recieved!\n"));
+			printMessage("From: odin@valhalla.no\n");
+			printMessage("Subject: Re:Re:Re:Re: Hello Warrior\n");
+			printMessage("Ah, "+makeCyan(name)+" the "+makeCyan(profession)+". Yes, I remember you.\n");
+			
+			
+			System.out.println();
+			printMessage("I call upon you now "+makeCyan(name)+", to go and rid this universe of your mutating vessel.\n");
+			printMessage("You must reach the core and destroy it for good and finish this.\n");
+			System.out.println();
+			
+			//prints the entire map
+				//when map is viewed during the actual game only previously visited rooms
+				//and adjacent rooms will show
+			printMessage("Here on the wall is a map of the "+makeCyan("NSFVV")+", I have marked your position with a pre-age symbol: *\n");
+			printMessage("It should look familiar to your time, it is called an asterisk.\n");
+			
+			System.out.println();
+			System.out.println(map);
+			System.out.println();
+			printMessage("This map will not be available to you after you leave this room, you will have\n");
+			printMessage("to mark each room after you've visited them.");
+			//receive first weapon
+			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
+			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
+			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
+			
+			System.out.println(CLEAN);
+			
+			//new player created with the inputed name and profession
+				//health: 10
+				//strength: 1
+				//defense: 1
+			Player user = new Player(name, profession, 10, 1, 1, soedekilling, null);			
+			user.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
+			
+			
+		}
 		
 	}
 	
-	public static void printMessage(String n) throws InterruptedException{
+	//prints strings letter by letter to create a typing effect
+	public static void printMessage(String n) throws InterruptedException {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
@@ -60,6 +153,15 @@ public class Game {
 		}
 	}
 	
+	public static void printMessage(String n, int time) throws InterruptedException {
+		
+		for (int i = 0; i < n.length(); i++){
+			System.out.print(n.substring(i, i+1));
+			Thread.sleep(time);
+		}
+	}
+	
+	//methods to change colours of strings in terminal
 	public static String makeBlack(String s) {
 		return BLACK+ s+ RESET;
 	}
