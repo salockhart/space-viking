@@ -82,7 +82,7 @@ public class Person
 	
 	public double dealDamage(int damage)
 	{
-		return weapon.getWeight()+(.1*strength); //whatever damage formula ends up being
+		return weapon.getDataValue()+(.1*strength); //whatever damage formula ends up being
 	}
 	
 	public String toString()
