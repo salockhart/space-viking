@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class Game {
 	
+	public static boolean play;
 	public static String RESET = "";
 	public static String BLACK = "";
 	public static String RED = "";
@@ -57,6 +58,8 @@ public class Game {
 		System.out.print("                     ");
 		printMessage("Press Enter to Continue.");
 		
+		play = true;
+		
 		if(keyboard.nextLine().length() > -1) {	//Unconditionally is true as text will never be less than 0
 			
 			//creates the map
@@ -88,36 +91,39 @@ public class Game {
 			//user's character inputs
 			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
 			System.out.println();
+			printMessage(makeGreen("*** DRAFTING ***\n"));
 			printMessage("To: odin@valhall.no\n");
 			printMessage("Subject: Re: Hello Warrior\n");
 			String name = keyboard.nextLine();
-			printMessage("Sending");
+			printMessage("\nSending");
 			printMessage("..........", 125);
-			printMessage("Sent!\n");
+			printMessage(" Sent!\n");
 			System.out.println();
 			
 			//Next email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
 			printMessage("From: odin@valhalla.no\n");
-			printMessage("Subject: Re:Re: Hello Warrior\n");
+			printMessage("Subject: Re:Re: Hello Warrior\n\n");
 			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
 			System.out.println();
+
+			printMessage(makeGreen("*** DRAFTING ***\n"));
 			
 			//User's second input field
 			printMessage("To: odin@valhall.no\n");
 			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
 			String profession = keyboard.nextLine();
-			printMessage("Sending");
+			printMessage("\nSending");
 			printMessage("..........", 125);
-			printMessage("Sent!\n");
+			printMessage(" Sent!\n");
 			System.out.println();
-			
+
 			//Third email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
 			printMessage("From: odin@valhalla.no\n");
-			printMessage("Subject: Re:Re:Re:Re: Hello Warrior\n");
+			printMessage("Subject: Re:Re:Re:Re: Hello Warrior\n\n");
 			printMessage("Ah, "+makeCyan(name)+" the "+makeCyan(profession)+". Yes, I remember you.\n");
 			System.out.println();
 			printMessage("I call upon you now "+makeCyan(name)+", to go and rid this universe of your mutating vessel.\n");
@@ -139,6 +145,7 @@ public class Game {
 			System.out.println(map);
 			System.out.println();
 			
+
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
@@ -150,9 +157,29 @@ public class Game {
 				//health: 10
 				//strength: 1
 				//defense: 1
-			Player user = new Player(name, profession, 10, 1, 1, soedekilling, null);			
-			user.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
+			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
+			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
 			
+			while(play) {
+				
+				printMessage("What will you do, "+player.getName()+"?\n");
+				String temp = keyboard.nextLine();
+				temp.toLowerCase();
+				if(temp.equals("help")) {
+					printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)");
+					printMessage("'inventory' or 'i' : open inventory");
+					printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index");
+					printMessage("'look' or 'l' : look at your surroundings\n");
+					printMessage("'pick up' or 'p' : pick up an item\n");
+					printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n");
+					printMessage("'move east' or 'e' : move to the eastern adjacent room (if valid)\n");
+					printMessage("'move west' or 'w' : move to the western adjacent room (if valid)\n");
+					printMessage("'move south' or 's' : move to the southern adjacent room (if valid)\n");
+					printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n");
+					printMessage("'attack' or 'a' : attacks an enemy while in battle\n");
+					printMessage("\n");
+				}
+			}
 			
 		}
 		
