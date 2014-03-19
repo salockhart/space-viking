@@ -205,10 +205,10 @@ public class Map {
 		rooms[14][10] = null;
 		
 		//fill with rooms -- new Room(isTrap, isLocked, items, enemy, description) 
-		currentRoom = rooms[11][7];
+		currentRoom = rooms[14][2];
 		currentRoom.playerVisits();
-		currentX = 7;
-		currentY = 11;
+		currentX = 2;
+		currentY = 14;
 		setAdjacentRooms();
 	}
 
@@ -437,14 +437,30 @@ public class Map {
 					return true;
 			}
 		} else {
-			if (x == currentX - 1 && y == currentY)
-				return true;
-			else if (x == currentX + 1 && y == currentY)
-				return true;
-			else if (x == currentX && y == currentY - 1)
-				return true;
-			else if (x == currentX && y == currentY + 1)
-				return true;
+			if (currentY == 0){
+				if (x == currentX - 1 && y == currentY)
+					return true;
+				else if (x == currentX + 1 && y == currentY)
+					return true;
+				else if (x == currentX && y == currentY + 1)
+					return true;
+			} else if (currentY == 14){
+				if (x == currentX - 1 && y == currentY)
+					return true;
+				else if (x == currentX + 1 && y == currentY)
+					return true;
+				else if (x == currentX && y == currentY - 1)
+					return true;
+			} else {
+				if (x == currentX - 1 && y == currentY)
+					return true;
+				else if (x == currentX + 1 && y == currentY)
+					return true;
+				else if (x == currentX && y == currentY - 1)
+					return true;
+				else if (x == currentX && y == currentY + 1)
+					return true;
+			}
 		}
 		return false;
 	}
@@ -537,18 +553,46 @@ public class Map {
 					isLocked[3] = rooms[currentY][currentX - 1].isLocked();
 			}
 		} else {
-			isDoor[0] = rooms[currentY - 1][currentX] != null;
-			isDoor[1] = rooms[currentY][currentX + 1] != null;
-			isDoor[2] = rooms[currentY + 1][currentX] != null;
-			isDoor[3] = rooms[currentY][currentX - 1] != null;
-			if (isDoor[0])
-				isLocked[0] = rooms[currentY - 1][currentX].isLocked();
-			if (isDoor[1])
-				isLocked[1] = rooms[currentY][currentX + 1].isLocked();
-			if (isDoor[2])
-				isLocked[2] = rooms[currentY + 1][currentX].isLocked();
-			if (isDoor[3])
-				isLocked[3] = rooms[currentY][currentX - 1].isLocked();
+			if (currentY == 0){
+				isDoor[0] = false;
+				isDoor[1] = rooms[currentY][currentX + 1] != null;
+				isDoor[2] = rooms[currentY + 1][currentX] != null;
+				isDoor[3] = rooms[currentY][currentX - 1] != null;
+				if (isDoor[0])
+					isLocked[0] = false;
+				if (isDoor[1])
+					isLocked[1] = rooms[currentY][currentX + 1].isLocked();
+				if (isDoor[2])
+					isLocked[2] = rooms[currentY + 1][currentX].isLocked();
+				if (isDoor[3])
+					isLocked[3] = rooms[currentY][currentX - 1].isLocked();
+			} else if (currentY == 14){
+				isDoor[0] = rooms[currentY - 1][currentX] != null;
+				isDoor[1] = rooms[currentY][currentX + 1] != null;
+				isDoor[2] = false;
+				isDoor[3] = rooms[currentY][currentX - 1] != null;
+				if (isDoor[0])
+					isLocked[0] = rooms[currentY - 1][currentX].isLocked();
+				if (isDoor[1])
+					isLocked[1] = rooms[currentY][currentX + 1].isLocked();
+				if (isDoor[2])
+					isLocked[2] = false;
+				if (isDoor[3])
+					isLocked[3] = rooms[currentY][currentX - 1].isLocked();
+			} else {
+				isDoor[0] = rooms[currentY - 1][currentX] != null;
+				isDoor[1] = rooms[currentY][currentX + 1] != null;
+				isDoor[2] = rooms[currentY + 1][currentX] != null;
+				isDoor[3] = rooms[currentY][currentX - 1] != null;
+				if (isDoor[0])
+					isLocked[0] = rooms[currentY - 1][currentX].isLocked();
+				if (isDoor[1])
+					isLocked[1] = rooms[currentY][currentX + 1].isLocked();
+				if (isDoor[2])
+					isLocked[2] = rooms[currentY + 1][currentX].isLocked();
+				if (isDoor[3])
+					isLocked[3] = rooms[currentY][currentX - 1].isLocked();
+			}
 		}
 	}
 }
