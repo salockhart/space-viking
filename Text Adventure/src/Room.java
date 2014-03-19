@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class Room {
 
 	//Instance variables
-	private boolean isTrap;
 	private boolean isLocked;
 	private ArrayList<Item> items;
 	private Person enemy;
@@ -27,20 +26,12 @@ public class Room {
 	 * @param enemy
 	 * @param description
 	 */
-	public Room(boolean isTrap, boolean isLocked, ArrayList<Item> items, Person enemy, String description) {
-		this.isTrap = isTrap;
+	public Room(boolean isLocked, ArrayList<Item> items, Person enemy, String description) {
 		this.isLocked = isLocked;
 		this.items = items;
 		this.enemy = enemy;
 		this.description = description;
 		this.hasVisited = false;
-	}
-	
-	/**
-	 * @return whether the room is trapped or not
-	 */
-	public boolean isTrap() {
-		return isTrap;
 	}
 	
 	/**
