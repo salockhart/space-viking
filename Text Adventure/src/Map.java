@@ -363,7 +363,10 @@ public class Map {
 		for (int i = 0; i < 15; i++){
 			for (int j = 0; j < 11; j++){
 				if (rooms[i][j] != null)
-					map += rooms[i][j];
+					if (i == currentY && j == currentX)
+						map += "[*]";
+					else
+						map += rooms[i][j];
 				else
 					map += "   ";
 			}
@@ -381,7 +384,10 @@ public class Map {
 		for (int i = 0; i < 15; i++){
 			for (int j = 0; j < 11; j++){
 				if (rooms[i][j] != null && (rooms[i][j].hasVisited() || isAdjacent(rooms, i, j)))
-					map += rooms[i][j];
+					if (i == currentY && j == currentX)
+						map += "[*]";
+					else
+						map += rooms[i][j];
 				else
 					map += "   ";
 			}
