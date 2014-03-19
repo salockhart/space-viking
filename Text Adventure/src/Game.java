@@ -92,7 +92,7 @@ public class Game {
 			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
 			System.out.println();
 			printMessage(makeGreen("*** DRAFTING ***\n"));
-			printMessage("To: odin@valhall.no\n");
+			printMessage("To: odin@valhalla.no\n");
 			printMessage("Subject: Re: Hello Warrior\n");
 			String name = keyboard.nextLine();
 			printMessage("\nSending");
@@ -111,7 +111,7 @@ public class Game {
 			printMessage(makeGreen("*** DRAFTING ***\n"));
 			
 			//User's second input field
-			printMessage("To: odin@valhall.no\n");
+			printMessage("To: odin@valhalla.no\n");
 			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
 			String profession = keyboard.nextLine();
 			printMessage("\nSending");
@@ -166,9 +166,9 @@ public class Game {
 				String temp = keyboard.nextLine();
 				temp.toLowerCase();
 				if(temp.equals("help")) {
-					printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)");
-					printMessage("'inventory' or 'i' : open inventory");
-					printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index");
+					printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)\n");
+					printMessage("'inventory' or 'i' : open inventory\n");
+					printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index\n");
 					printMessage("'look' or 'l' : look at your surroundings\n");
 					printMessage("'pick up' or 'p' : pick up an item\n");
 					printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n");
