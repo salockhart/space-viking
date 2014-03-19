@@ -154,10 +154,7 @@ public class Room {
 	 * Return the room as a string
 	 */
 	public String toString() {
-		if (hasVisited)
-			return "[*]";
-		else
-			return "[ ]";
+		return "[ ]";
 	}
 	
 }

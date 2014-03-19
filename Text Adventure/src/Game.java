@@ -165,19 +165,19 @@ public class Game {
 				printMessage("What will you do, "+player.getName()+"?\n");
 				String temp = keyboard.nextLine();
 				temp.toLowerCase();
-				if(temp.equals("help")) {
-					printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)");
-					printMessage("'inventory' or 'i' : open inventory");
-					printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index");
-					printMessage("'look' or 'l' : look at your surroundings\n");
-					printMessage("'pick up' or 'p' : pick up an item\n");
-					printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n");
-					printMessage("'move east' or 'e' : move to the eastern adjacent room (if valid)\n");
-					printMessage("'move west' or 'w' : move to the western adjacent room (if valid)\n");
-					printMessage("'move south' or 's' : move to the southern adjacent room (if valid)\n");
-					printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n");
-					printMessage("'attack' or 'a' : attacks an enemy while in battle\n");
-					printMessage("\n");
+				if(temp.equals("help") || temp.equals("?")) {
+					printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)", 15);
+					printMessage("'inventory' or 'i' : open inventory", 15);
+					printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index", 15);
+					printMessage("'look' or 'l' : look at your surroundings\n", 15);
+					printMessage("'pick up' or 'p' : pick up an item\n", 15);
+					printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n", 15);
+					printMessage("'move east' or 'e' : move to the eastern adjacent room (if valid)\n", 15);
+					printMessage("'move west' or 'w' : move to the western adjacent room (if valid)\n", 15);
+					printMessage("'move south' or 's' : move to the southern adjacent room (if valid)\n", 15);
+					printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n", 15);
+					printMessage("'attack' or 'a' : attacks an enemy while in battle\n", 15);
+					printMessage("\n", 15);
 				}
 			}
 			
