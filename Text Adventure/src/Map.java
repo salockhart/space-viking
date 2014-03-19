@@ -205,10 +205,10 @@ public class Map {
 		rooms[14][10] = null;
 		
 		//fill with rooms -- new Room(isTrap, isLocked, items, enemy, description) 
-		currentRoom = rooms[14][2];
+		currentRoom = rooms[11][7];
 		currentRoom.playerVisits();
-		currentX = 2;
-		currentY = 14;
+		currentX = 7;
+		currentY = 11;
 		setAdjacentRooms();
 	}
 
