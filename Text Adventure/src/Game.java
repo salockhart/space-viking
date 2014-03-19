@@ -88,6 +88,7 @@ public class Game {
 			//user's character inputs
 			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
 			System.out.println();
+			printMessage(makeGreen("*** DRAFTING ***\n"));
 			printMessage("To: odin@valhall.no\n");
 			printMessage("Subject: Re: Hello Warrior\n");
 			String name = keyboard.nextLine();
@@ -103,6 +104,8 @@ public class Game {
 			printMessage("Subject: Re:Re: Hello Warrior\n");
 			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
 			System.out.println();
+
+			printMessage(makeGreen("*** DRAFTING ***\n"));
 			
 			//User's second input field
 			printMessage("To: odin@valhall.no\n");
@@ -112,7 +115,7 @@ public class Game {
 			printMessage("..........", 125);
 			printMessage("Sent!\n");
 			System.out.println();
-			
+
 			//Third email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
@@ -139,6 +142,7 @@ public class Game {
 			System.out.println(map);
 			System.out.println();
 			
+
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
