@@ -92,7 +92,7 @@ public class Game {
 			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
 			System.out.println();
 			printMessage(makeGreen("*** DRAFTING ***\n"));
-			printMessage("To: odin@valhall.no\n");
+			printMessage("To: odin@valhalla.no\n");
 			printMessage("Subject: Re: Hello Warrior\n");
 			String name = keyboard.nextLine();
 			printMessage("\nSending");
@@ -111,7 +111,7 @@ public class Game {
 			printMessage(makeGreen("*** DRAFTING ***\n"));
 			
 			//User's second input field
-			printMessage("To: odin@valhall.no\n");
+			printMessage("To: odin@valhalla.no\n");
 			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
 			String profession = keyboard.nextLine();
 			printMessage("\nSending");
