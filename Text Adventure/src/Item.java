@@ -63,5 +63,15 @@ public class Item {
 	public void setPickupAble(boolean pickupAble) {
 		this.pickupAble = pickupAble;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Item\nname: " + name + "\ndetail: " + detail + "\nweight: "
+				+ weight + "\ntype: " + type + "\ndataValue: " + dataValue
+				+ "\npickupAble: " + pickupAble;
+	}
 	
 }

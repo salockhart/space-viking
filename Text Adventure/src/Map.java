@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
  * Map.java
@@ -13,12 +14,12 @@ import java.util.ArrayList;
 public class Map {
 
 	//Instance variables
-	Room[][] rooms = new Room[15][11];	//(y,x), (0,0) is at top left
-	Room currentRoom;
-	int currentX;
-	int currentY;
-	boolean[] isDoor = new boolean[4];	//0 for North, 1 for East, 2 for South, 3 for West
-	boolean[] isLocked = new boolean[4]; 	//Same as above
+	private Room[][] rooms = new Room[15][11];	//(y,x), (0,0) is at top left
+	private Room currentRoom;
+	private int currentX;
+	private int currentY;
+	private boolean[] isDoor = new boolean[4];	//0 for North, 1 for East, 2 for South, 3 for West
+	private boolean[] isLocked = new boolean[4]; 	//Same as above
 	
 	/**
 	 * No args constructor, creates the map in the 2D array and sets all variables for first room
@@ -163,7 +164,7 @@ public class Map {
 		rooms[11][4] = null;
 		rooms[11][5] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[11][6] = null;
-		rooms[11][7] = new Room(false, new ArrayList<Item>(), null, "The closet you took shelter in when it all went bad\nFor some reason it has extra radiation shielding");
+		rooms[11][7] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("BOB", "Ballistic Olfactory Bomb", 50, "Weapon", 10, true))), null, "The closet you took shelter in when it all went bad\nFor some reason it has extra radiation shielding");
 		rooms[11][8] = null;
 		rooms[11][9] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[11][10] = new Room(true, new ArrayList<Item>(), null, "");
@@ -363,7 +364,10 @@ public class Map {
 		for (int i = 0; i < 15; i++){
 			for (int j = 0; j < 11; j++){
 				if (rooms[i][j] != null)
-					map += rooms[i][j];
+					if (i == currentY && j == currentX)
+						map += "[*]";
+					else
+						map += rooms[i][j];
 				else
 					map += "   ";
 			}
@@ -381,7 +385,10 @@ public class Map {
 		for (int i = 0; i < 15; i++){
 			for (int j = 0; j < 11; j++){
 				if (rooms[i][j] != null && (rooms[i][j].hasVisited() || isAdjacent(rooms, i, j)))
-					map += rooms[i][j];
+					if (i == currentY && j == currentX)
+						map += "[*]";
+					else
+						map += rooms[i][j];
 				else
 					map += "   ";
 			}
