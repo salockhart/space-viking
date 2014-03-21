@@ -150,6 +150,7 @@ public class Game {
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
+			printMessage("Finally, remember that your keen "+profession+"'s instinct allows you to seek for \"help\" at any time.");
 			
 			System.out.println(CLEAN);
 			
@@ -159,30 +160,80 @@ public class Game {
 				//defense: 1
 			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
 			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
-			
-			while(play) {
+						
+			while(play)
+			{	
 				
 				printMessage("What will you do, "+player.getName()+"?\n");
-				String temp = keyboard.nextLine();
-				temp.toLowerCase();
-				if(temp.equals("help") || temp.equals("?")) {
-					printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)", 15);
-					printMessage("'inventory' or 'i' : open inventory", 15);
-					printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index", 15);
-					printMessage("'look' or 'l' : look at your surroundings\n", 15);
-					printMessage("'pick up' or 'p' : pick up an item\n", 15);
-					printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n", 15);
-					printMessage("'move east' or 'e' : move to the eastern adjacent room (if valid)\n", 15);
-					printMessage("'move west' or 'w' : move to the western adjacent room (if valid)\n", 15);
-					printMessage("'move south' or 's' : move to the southern adjacent room (if valid)\n", 15);
-					printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n", 15);
-					printMessage("'attack' or 'a' : attacks an enemy while in battle\n", 15);
-					printMessage("\n", 15);
+				String entry = keyboard.nextLine();
+				entry.toLowerCase();
+				
+				if(entry.equals("help") || entry.equals("?"))	
+					help();
+				
+				//may be incorrect way to check for an enemy
+				if(map.getCurrentRoom().getEnemy()!=null)
+				{
+					person enemy=map.getCurrentRoom().getEnemy();
+					printMessage("You have encountered a "+makePurple(enemy.getName())+"\n");
+					boolean fight=true;
+
+					while(fight)
+					{
+						printMessage("What will you do?\n")
+						String input=keyboard.nextLine();
+						input.toLowerCase();
+						
+						if(input.equals("run")||input.equals("run away")||input.equals("flee"))
+							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
+									+"narrating the deeds of a perpetually"+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
+										+profession+" embarking on a"+makeRed("VIKING") +"related journey in the cold and unforgiving "
+											+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latté and a foot massage on your way out?"
+												+"Hm? No, I thought not. Now go back and fight.\n");
+						
+						if(input.equals("fight")||input.equals("attack"))
+						{
+							enemy.takeDamage(player.dealDamage()));
+							printMessage("You dealt "+player.dealDamage()+" damage to your opponent.\n");
+							player.takeDamage(enemy.dealDamage());
+							printMessage("Your opponent dealt "+enemy.dealDamage()+"damage to you");
+						}
+						
+						if(enemy.health<=0)
+						{
+							printMessage("You defeated the "+makePurple(enemy.getName())+"\n");
+							fight=false;
+						}
+						
+						if(player.health<=0)
+						{
+							printMessage("You were defeated by the "+makePurple(enemy.getName())+"\n");
+							fight=false;
+						}
+					}
 				}
+				
+					
 			}
 			
 		}
 		
+	}
+	
+	public static help()
+	{
+		printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)", 15);
+		printMessage("'inventory' or 'i' : open inventory", 15);
+		printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index", 15);
+		printMessage("'look' or 'l' : look at your surroundings\n", 15);
+		printMessage("'pick up' or 'p' : pick up an item\n", 15);
+		printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n", 15);
+		printMessage("'move east' or 'e' : move to the eastern adjacent room (if valid)\n", 15);
+		printMessage("'move west' or 'w' : move to the western adjacent room (if valid)\n", 15);
+		printMessage("'move south' or 's' : move to the southern adjacent room (if valid)\n", 15);
+		printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n", 15);
+		printMessage("'attack' or 'a' : attacks an enemy while in battle\n", 15);
+		printMessage("\n", 15);
 	}
 	
 	//prints strings letter by letter to create a typing effect
