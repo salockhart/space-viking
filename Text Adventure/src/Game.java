@@ -160,10 +160,11 @@ public class Game {
 				//defense: 1
 			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
 			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
-						
+			
+			//Game loop
 			while(play)
 			{	
-				
+				//Get player input
 				printMessage("What will you do, "+player.getName()+"?\n");
 				String entry = keyboard.nextLine();
 				entry.toLowerCase();
@@ -213,13 +214,14 @@ public class Game {
 				}
 			}
 			
+			
+			//CREDITS
 			printMessage("\t\tCredits");
 			printMessage("\nGeoff Caven\t\tVice Admiral In Charge Of Breaking Shit");
 			printMessage("\nAlex Dunn\t\tSad BoIIIIIIIII");
 			printMessage("\nStanford Lockhart\tActual Cannibal Shia LeBeouf");
 			printMessage("\nNiclas Skaluum\t\tLiason to Asgard and Surrounding Suburbs");
 			printMessage("\nMatthew Trask\t\tHead of Lard");
-			
 			printMessage("\n\n\t\tSpecial Thanks");
 			printMessage("\nYung Lean");
 			printMessage("\nSad Boys");
@@ -235,6 +237,7 @@ public class Game {
 		}
 	}
 	
+	//Prints the set of options a user can input
 	public static void help() throws InterruptedException {
 		printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)", 15);
 		printMessage("'inventory' or 'i' : open inventory", 15);
