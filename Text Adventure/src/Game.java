@@ -171,7 +171,6 @@ public class Game {
 				if(entry.equals("help") || entry.equals("?"))	
 					help();
 				
-				//may be incorrect way to check for an enemy
 				if(map.getCurrentRoom().getEnemy()!=null)
 				{
 					Person enemy=map.getCurrentRoom().getEnemy();
