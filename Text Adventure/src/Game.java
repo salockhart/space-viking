@@ -62,161 +62,177 @@ public class Game {
 		
 		if(keyboard.nextLine().length() > -1) {	//Unconditionally is true as text will never be less than 0
 			
-			//creates the map
-			Map map = new Map();
+//			//creates the map
+//			Map map = new Map();
+//			
+//			//clears the console for a visually blank start
+//			System.out.print(CLEAN);
+//			System.out.println();
+//			
+//			//First email
+//			printMessage(makeRed("*** ALERT ***\n"));
+//			printMessage(makeRed("New E-mail Recieved!\n"));
+//			printMessage("From: odin@valhalla.no\n");
+//			printMessage("Subject: Hello Warrior\n");
+//			System.out.println();
+//			printMessage("Hello Warrior.\n");
+//			printMessage("I am "+makeRed("Odin")+", The All-Father. You have been in cryostasis since the "+makePurple("Information Age")+".\n");
+//			printMessage("It is the year "+makePurple("20XX PA (Post-Armageddon)")+", and you are drifting aboard the "+makeCyan("NS Fjord VValkyrie")+".\n");
+//			printMessage("Your vessel and crew have succumb to a "+makeYellow("terrible fate")+".\n");
+//			System.out.println();
+//			printMessage("Your crew was returning home from a raid on "+makeGreen("Neo-Dublin")+"\n");
+//			printMessage("when an unexpected nuclear fish-salting accident occurred and the main core overheated and caused\n");
+//			printMessage("a great explosion.\n");
+//			System.out.println();
+//			printMessage("Every member of your crew was either mutated or killed in the explosion\n");
+//			printMessage("and are now roaming the halls of this vessel, and may prove "+makeRed("dangerous")+".\n");
+//			System.out.println();
+//			
+//			//user's character inputs
+//			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
+//			System.out.println();
+//			printMessage(makeGreen("*** DRAFTING ***\n"));
+//			printMessage("To: odin@valhalla.no\n");
+//			printMessage("Subject: Re: Hello Warrior\n");
+//			String name = keyboard.nextLine();
+//			printMessage("\nSending");
+//			printMessage("..........", 125);
+//			printMessage(" Sent!\n");
+//			System.out.println();
+//			
+//			//Next email
+//			printMessage(makeRed("*** ALERT ***\n"));
+//			printMessage(makeRed("New E-mail Recieved!\n"));
+//			printMessage("From: odin@valhalla.no\n");
+//			printMessage("Subject: Re:Re: Hello Warrior\n\n");
+//			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
+//			System.out.println();
+//
+//			printMessage(makeGreen("*** DRAFTING ***\n"));
+//			
+//			//User's second input field
+//			printMessage("To: odin@valhalla.no\n");
+//			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
+//			String profession = keyboard.nextLine();
+//			printMessage("\nSending");
+//			printMessage("..........", 125);
+//			printMessage(" Sent!\n");
+//			System.out.println();
+//
+//			//Third email
+//			printMessage(makeRed("*** ALERT ***\n"));
+//			printMessage(makeRed("New E-mail Recieved!\n"));
+//			printMessage("From: odin@valhalla.no\n");
+//			printMessage("Subject: Re:Re:Re:Re: Hello Warrior\n\n");
+//			printMessage("Ah, "+makeCyan(name)+" the "+makeCyan(profession)+". Yes, I remember you.\n");
+//			System.out.println();
+//			printMessage("I call upon you now "+makeCyan(name)+", to go and rid this universe of your mutating vessel.\n");
+//			printMessage("You must reach the core and destroy it for good and finish this.\n");
+//			System.out.println();
+//			
+//			//prints the entire map
+//				//when map is viewed during the actual game only previously visited rooms
+//				//and adjacent rooms will show
+//			printMessage("Here on the wall is a map of the "+makeCyan("NSFVV")+", I have marked your position with a pre-age symbol: *\n");
+//			printMessage("It should look familiar to your time, it is called an asterisk.\n");
+//			System.out.println();
+//			System.out.println(map.fullMap());
+//			System.out.println();
+//			printMessage("This map will not be available to you after you leave this room, you will have\n");
+//			printMessage("to mark each room after you've visited them. ");
+//			printMessage("This is what your map will normally look like:\n");
+//			System.out.println();
+//			System.out.println(map);
+//			System.out.println();
+//			
+//
+//			//receive first weapon
+//			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
+//			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
+//			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
+//			printMessage("Finally, remember that your keen "+profession+"'s instinct allows you to seek for \"help\" at any time.");
+//			
+//			System.out.println(CLEAN);
+//			
+//			//new player created with the inputed name and profession
+//				//health: 10
+//				//strength: 1
+//				//defense: 1
+//			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
+//			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
+//						
+//			while(play)
+//			{	
+//				
+//				printMessage("What will you do, "+player.getName()+"?\n");
+//				String entry = keyboard.nextLine();
+//				entry.toLowerCase();
+//				
+//				if(entry.equals("help") || entry.equals("?"))	
+//					help();
+//				
+//				if(map.getCurrentRoom().getEnemy()!=null)
+//				{
+//					Person enemy=map.getCurrentRoom().getEnemy();
+//					printMessage("You have encountered a "+makePurple(enemy.getName())+"\n");
+//					boolean fight=true;
+//
+//					while(fight)
+//					{
+//						printMessage("What will you do?\n");
+//						String input=keyboard.nextLine();
+//						input.toLowerCase();
+//						
+//						if(input.equals("run")||input.equals("run away")||input.equals("flee"))
+//							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
+//									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
+//									+profession+" embarking on a "+makeRed("VIKING") +" related journey in the cold and unforgiving "
+//									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
+//									+" Hm? No, I thought not. Now go back and fight.\n");
+//						
+//						if(input.equals("fight")||input.equals("attack"))
+//						{
+//							enemy.takeDamage(player.dealDamage());
+//							printMessage("You dealt "+player.dealDamage()+" damage to your opponent.\n");
+//							player.takeDamage(enemy.dealDamage());
+//							printMessage("Your opponent dealt "+enemy.dealDamage()+"damage to you");
+//						}
+//						
+//						if(enemy.getHealth()<=0)
+//						{
+//							printMessage("You defeated the "+makePurple(enemy.getName())+"\n");
+//							fight=false;
+//						}
+//						
+//						if(player.getHealth()<=0)
+//						{
+//							printMessage("You were defeated by the "+makePurple(enemy.getName())+"\n");
+//							fight=false;
+//						}
+//					}
+//				}
+//			}
 			
-			//clears the console for a visually blank start
-			System.out.print(CLEAN);
-			System.out.println();
+			printMessage("\t\tCredits");
+			printMessage("\nGeoff Caven\t\tVice Admiral In Charge Of Breaking Shit");
+			printMessage("\nAlex Dunn\t\tSad BoIIIIIIIII");
+			printMessage("\nStanford Lockhart\tActual Cannibal Shia LeBeouf");
+			printMessage("\nNiclas Skaluum\t\tLiason to Asgard and Surrounding Suburbs");
+			printMessage("\nMatthew Trask\t\tHead of Lard");
 			
-			//First email
-			printMessage(makeRed("*** ALERT ***\n"));
-			printMessage(makeRed("New E-mail Recieved!\n"));
-			printMessage("From: odin@valhalla.no\n");
-			printMessage("Subject: Hello Warrior\n");
-			System.out.println();
-			printMessage("Hello Warrior.\n");
-			printMessage("I am "+makeRed("Odin")+", The All-Father. You have been in cryostasis since the "+makePurple("Information Age")+".\n");
-			printMessage("It is the year "+makePurple("20XX PA (Post-Armageddon)")+", and you are drifting aboard the "+makeCyan("NS Fjord VValkyrie")+".\n");
-			printMessage("Your vessel and crew have succumb to a "+makeYellow("terrible fate")+".\n");
-			System.out.println();
-			printMessage("Your crew was returning home from a raid on "+makeGreen("Neo-Dublin")+"\n");
-			printMessage("when an unexpected nuclear fish-salting accident occurred and the main core overheated and caused\n");
-			printMessage("a great explosion.\n");
-			System.out.println();
-			printMessage("Every member of your crew was either mutated or killed in the explosion\n");
-			printMessage("and are now roaming the halls of this vessel, and may prove "+makeRed("dangerous")+".\n");
-			System.out.println();
-			
-			//user's character inputs
-			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
-			System.out.println();
-			printMessage(makeGreen("*** DRAFTING ***\n"));
-			printMessage("To: odin@valhalla.no\n");
-			printMessage("Subject: Re: Hello Warrior\n");
-			String name = keyboard.nextLine();
-			printMessage("\nSending");
-			printMessage("..........", 125);
-			printMessage(" Sent!\n");
-			System.out.println();
-			
-			//Next email
-			printMessage(makeRed("*** ALERT ***\n"));
-			printMessage(makeRed("New E-mail Recieved!\n"));
-			printMessage("From: odin@valhalla.no\n");
-			printMessage("Subject: Re:Re: Hello Warrior\n\n");
-			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
-			System.out.println();
-
-			printMessage(makeGreen("*** DRAFTING ***\n"));
-			
-			//User's second input field
-			printMessage("To: odin@valhalla.no\n");
-			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
-			String profession = keyboard.nextLine();
-			printMessage("\nSending");
-			printMessage("..........", 125);
-			printMessage(" Sent!\n");
-			System.out.println();
-
-			//Third email
-			printMessage(makeRed("*** ALERT ***\n"));
-			printMessage(makeRed("New E-mail Recieved!\n"));
-			printMessage("From: odin@valhalla.no\n");
-			printMessage("Subject: Re:Re:Re:Re: Hello Warrior\n\n");
-			printMessage("Ah, "+makeCyan(name)+" the "+makeCyan(profession)+". Yes, I remember you.\n");
-			System.out.println();
-			printMessage("I call upon you now "+makeCyan(name)+", to go and rid this universe of your mutating vessel.\n");
-			printMessage("You must reach the core and destroy it for good and finish this.\n");
-			System.out.println();
-			
-			//prints the entire map
-				//when map is viewed during the actual game only previously visited rooms
-				//and adjacent rooms will show
-			printMessage("Here on the wall is a map of the "+makeCyan("NSFVV")+", I have marked your position with a pre-age symbol: *\n");
-			printMessage("It should look familiar to your time, it is called an asterisk.\n");
-			System.out.println();
-			System.out.println(map.fullMap());
-			System.out.println();
-			printMessage("This map will not be available to you after you leave this room, you will have\n");
-			printMessage("to mark each room after you've visited them. ");
-			printMessage("This is what your map will normally look like:\n");
-			System.out.println();
-			System.out.println(map);
-			System.out.println();
-			
-
-			//receive first weapon
-			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
-			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
-			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
-			printMessage("Finally, remember that your keen "+profession+"'s instinct allows you to seek for \"help\" at any time.");
-			
-			System.out.println(CLEAN);
-			
-			//new player created with the inputed name and profession
-				//health: 10
-				//strength: 1
-				//defense: 1
-			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
-			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
-						
-			while(play)
-			{	
-				
-				printMessage("What will you do, "+player.getName()+"?\n");
-				String entry = keyboard.nextLine();
-				entry.toLowerCase();
-				
-				if(entry.equals("help") || entry.equals("?"))	
-					help();
-				
-				if(map.getCurrentRoom().getEnemy()!=null)
-				{
-					Person enemy=map.getCurrentRoom().getEnemy();
-					printMessage("You have encountered a "+makePurple(enemy.getName())+"\n");
-					boolean fight=true;
-
-					while(fight)
-					{
-						printMessage("What will you do?\n");
-						String input=keyboard.nextLine();
-						input.toLowerCase();
-						
-						if(input.equals("run")||input.equals("run away")||input.equals("flee"))
-							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
-									+"narrating the deeds of a perpetually"+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
-										+profession+" embarking on a"+makeRed("VIKING") +"related journey in the cold and unforgiving "
-											+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
-												+"Hm? No, I thought not. Now go back and fight.\n");
-						
-						if(input.equals("fight")||input.equals("attack"))
-						{
-							enemy.takeDamage(player.dealDamage());
-							printMessage("You dealt "+player.dealDamage()+" damage to your opponent.\n");
-							player.takeDamage(enemy.dealDamage());
-							printMessage("Your opponent dealt "+enemy.dealDamage()+"damage to you");
-						}
-						
-						if(enemy.getHealth()<=0)
-						{
-							printMessage("You defeated the "+makePurple(enemy.getName())+"\n");
-							fight=false;
-						}
-						
-						if(player.getHealth()<=0)
-						{
-							printMessage("You were defeated by the "+makePurple(enemy.getName())+"\n");
-							fight=false;
-						}
-					}
-				}
-				
-					
-			}
+			printMessage("\n\n\t\tSpecial Thanks");
+			printMessage("\nYung Lean");
+			printMessage("\nSad Boys");
+			printMessage("\nGravity Boys Shield Gang");
+			printMessage("\nFidel Castro");
+			printMessage("\nMalcolm Flannigan");
+			printMessage("\nMalcolm in the Middle");
+			printMessage("\nCookie");
+			printMessage("\nStone Cold Steve Austin");
+			printMessage("\nLard Lord");
+			printMessage("\nGeoff says No");
 			
 		}
-		
 	}
 	
 	public static void help() throws InterruptedException {
