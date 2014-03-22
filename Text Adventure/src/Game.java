@@ -179,7 +179,7 @@ public class Game {
 
 					while(fight)
 					{
-						printMessage("What will you do?\n")
+						printMessage("What will you do?\n");
 						String input=keyboard.nextLine();
 						input.toLowerCase();
 						
@@ -187,12 +187,12 @@ public class Game {
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
 									+"narrating the deeds of a perpetually"+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
 										+profession+" embarking on a"+makeRed("VIKING") +"related journey in the cold and unforgiving "
-											+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latté and a foot massage on your way out?"
+											+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
 												+"Hm? No, I thought not. Now go back and fight.\n");
 						
 						if(input.equals("fight")||input.equals("attack"))
 						{
-							enemy.takeDamage(player.dealDamage()));
+							enemy.takeDamage(player.dealDamage());
 							printMessage("You dealt "+player.dealDamage()+" damage to your opponent.\n");
 							player.takeDamage(enemy.dealDamage());
 							printMessage("Your opponent dealt "+enemy.dealDamage()+"damage to you");
@@ -219,8 +219,7 @@ public class Game {
 		
 	}
 	
-	public static void help()
-	{
+	public static void help() throws InterruptedException {
 		printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)", 15);
 		printMessage("'inventory' or 'i' : open inventory", 15);
 		printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index", 15);
