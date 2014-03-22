@@ -174,13 +174,13 @@ public class Game {
 				//may be incorrect way to check for an enemy
 				if(map.getCurrentRoom().getEnemy()!=null)
 				{
-					person enemy=map.getCurrentRoom().getEnemy();
+					Person enemy=map.getCurrentRoom().getEnemy();
 					printMessage("You have encountered a "+makePurple(enemy.getName())+"\n");
 					boolean fight=true;
 
 					while(fight)
 					{
-						printMessage("What will you do?\n")
+						printMessage("What will you do?\n");
 						String input=keyboard.nextLine();
 						input.toLowerCase();
 						
@@ -188,24 +188,24 @@ public class Game {
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
 									+"narrating the deeds of a perpetually"+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
 										+profession+" embarking on a"+makeRed("VIKING") +"related journey in the cold and unforgiving "
-											+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latté and a foot massage on your way out?"
+											+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
 												+"Hm? No, I thought not. Now go back and fight.\n");
 						
 						if(input.equals("fight")||input.equals("attack"))
 						{
-							enemy.takeDamage(player.dealDamage()));
+							enemy.takeDamage(player.dealDamage());
 							printMessage("You dealt "+player.dealDamage()+" damage to your opponent.\n");
 							player.takeDamage(enemy.dealDamage());
 							printMessage("Your opponent dealt "+enemy.dealDamage()+"damage to you");
 						}
 						
-						if(enemy.health<=0)
+						if(enemy.getHealth()<=0)
 						{
 							printMessage("You defeated the "+makePurple(enemy.getName())+"\n");
 							fight=false;
 						}
 						
-						if(player.health<=0)
+						if(player.getHealth()<=0)
 						{
 							printMessage("You were defeated by the "+makePurple(enemy.getName())+"\n");
 							fight=false;
@@ -220,8 +220,7 @@ public class Game {
 		
 	}
 	
-	public static help()
-	{
+	public static void help() throws InterruptedException {
 		printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)", 15);
 		printMessage("'inventory' or 'i' : open inventory", 15);
 		printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index", 15);
