@@ -75,14 +75,14 @@ public class Person
 		this.profession=profession;
 	}
 	
-	public void takeDamage(int damage)
+	public void takeDamage(double damage)
 	{
 		health-=damage;
 	}
 	
-	public double dealDamage(int damage)
+	public double dealDamage()
 	{
-		return weapon.getWeight()+(.1*strength); //whatever damage formula ends up being
+		return weapon.getDataValue()+(.1*strength); //whatever damage formula ends up being
 	}
 	
 	public String toString()
