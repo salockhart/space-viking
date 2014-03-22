@@ -193,10 +193,12 @@ public class Game {
 						
 						if(input.equals("fight")||input.equals("attack"))
 						{
-							enemy.takeDamage(player.dealDamage());
-							printMessage("You dealt "+player.dealDamage()+" damage to your opponent.\n");
-							player.takeDamage(enemy.dealDamage());
-							printMessage("Your opponent dealt "+enemy.dealDamage()+"damage to you");
+							double damageDealt = player.dealDamage();
+							enemy.takeDamage(damageDealt);
+							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
+							double damageTaken = enemy.dealDamage();
+							player.takeDamage(damageTaken);
+							printMessage("Your opponent dealt "+damageTaken+"damage to you");
 						}
 						
 						if(enemy.getHealth()<=0)
@@ -212,6 +214,7 @@ public class Game {
 						}
 					}
 				}
+
 			}
 			
 			
