@@ -274,6 +274,9 @@ public class Game {
 		printMessage("initializing heart pump ", 15);
 		printMessage("... ", 120);
 		printMessage("done!\n", 15);
+		printMessage("inflating lung1 ", 15);
+		printMessage("... ", 94);
+		printMessage("done!\n", 15);		
 		printMessage("inflating lung2 ", 15);
 		printMessage("... ", 77);
 		printMessage("done!\n", 15);
@@ -288,7 +291,7 @@ public class Game {
 		printMessage("//////////////check ship status//////////////\n\n", 15);
 		printMessage("touch NS.bridge:\n\t", 15);
 		printMessage("status- 404 not found\n\t", 15);
-		printMessage("non-functional\n", 15);
+		printMessage("non-functional\n\n", 15);
 		printMessage("touch NS.hull:\n\t", 15);
 		printMessage("status- totally gnasty\n\t", 15);
 		printMessage("non-functional\n\n", 15);
