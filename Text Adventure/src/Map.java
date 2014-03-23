@@ -61,8 +61,8 @@ public class Map {
 		rooms[2][9] = null;
 		rooms[2][10] = null;
 		
-		rooms[3][0] = new Room(false, new ArrayList<Item>(), null,"Sleeping Quarters\nMost of the bunks have been torn to shreds. The trash can was carefully placed upside-down");
-		rooms[3][1] = new Room(false, new ArrayList<Item>(), null,"A storage closest\nA skull sits on the shelf. 'with love, mom' is written across the brow");
+		rooms[3][0] = new Room(false, new ArrayList<Item>(), null,"Sleeping Quarters, most of the bunks have been torn to shreds. The trash can was carefully placed upside-down");
+		rooms[3][1] = new Room(false, new ArrayList<Item>(), null,"A storage closest, a skull sits on the shelf. 'with love, mom' is written across the brow");
 		rooms[3][2] = null;
 		rooms[3][3] = new Room(false, new ArrayList<Item>(), null,"A narrow maintenance hallway");
 		rooms[3][4] = new Room(false, new ArrayList<Item>(), null,"The floor is covered in strewn human bones and viscera\n Horned helmets are piled against the north wall, though most have been broken");
@@ -71,25 +71,25 @@ public class Map {
 		rooms[3][7] = new Room(false, new ArrayList<Item>(), null,"A narrow maintenance hallway");
 		rooms[3][8] = null;
 		rooms[3][9] = new Room(true, new ArrayList<Item>(), null,"Capt. Ormskaeg's private room\n The Captain's belongings have been thrown onto the floor");
-		rooms[3][10] = new Room(false, new ArrayList<Item>(), null,"Sleeping quarters\nBunks are pushed against the north and east walls");
+		rooms[3][10] = new Room(false, new ArrayList<Item>(), null,"Sleeping quarters, bunks are pushed against the north and east walls");
 		
-		rooms[4][0] = new Room(false, new ArrayList<Item>(), null, "Sleeping quarters\nThe west and east walls are lined with bunks\nBlood on the floor is evidence of a recent fight.");
+		rooms[4][0] = new Room(false, new ArrayList<Item>(), null, "Sleeping quarters, the west and east walls are lined with bunks\nBlood on the floor is evidence of a recent fight.");
 		rooms[4][1] = null;
-		rooms[4][2] = new Room(false, new ArrayList<Item>(), null, "A large bathroom\nSomeone knocked over all the stall walls. How rude.");
+		rooms[4][2] = new Room(false, new ArrayList<Item>(), null, "A large bathroom, someone knocked over all the stall walls. How rude.");
 		rooms[4][3] = null;
 		rooms[4][4] = null;
-		rooms[4][5] = new Room(false, new ArrayList<Item>(), null, "A hallway\nThe door to the north has a sign on it: 'Engine Sector Access'");
+		rooms[4][5] = new Room(false, new ArrayList<Item>(), null, "A hallway, the door to the north has a sign on it: 'Engine Sector Access'");
 		rooms[4][6] = null;
 		rooms[4][7] = null;
 		rooms[4][8] = new Room(false, new ArrayList<Item>(), null, "A small alcove filled with shelves\nThe shelves are mostly filled with salted fish");
 		rooms[4][9] = null;
 		rooms[4][10] = new Room(false, new ArrayList<Item>(), null, "These were sleeping quarters, though all the beds seem to be missing");
 		
-		rooms[5][0] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[5][1] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[5][2] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[5][3] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[5][4] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[5][0] = new Room(false, new ArrayList<Item>(), null, "Sleeping quarters, the bunks are orderly and well made");
+		rooms[5][1] = new Room(false, new ArrayList<Item>(), null, "This is the west sleeping quarter wing, the bunks are all in place but someone tore all the sheets off");
+		rooms[5][2] = new Room(false, new ArrayList<Item>(), null, "A nice looking room, the shag carpet is an unfortunate shade of orange. Also its full of cockroaches or something");
+		rooms[5][3] = new Room(false, new ArrayList<Item>(), null, "A wide hallway. The walls are lined with elaborate oil paintings of the captain");
+		rooms[5][4] = new Room(false, new ArrayList<Item>(), null, "A wide hallway. The sides of the hall are lined with busts of the captain");
 		rooms[5][5] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[5][6] = null;
 		rooms[5][7] = new Room(false, new ArrayList<Item>(), null, "");
@@ -150,9 +150,9 @@ public class Map {
 		rooms[10][2] = null;
 		rooms[10][3] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[10][4] = null;
-		rooms[10][5] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[10][6] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[10][7] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[10][5] = new Room(false, new ArrayList<Item>(), null, "There aren't any more pods, but there are some awfully bloody controls here. Some intestines too.");
+		rooms[10][6] = new Room(false, new ArrayList<Item>(), null, "Even more cyrostatis pods, how many warriors do they have on hold?");
+		rooms[10][7] = new Room(false, new ArrayList<Item>(), null, "More cryostatis pods, this place is full of the things");
 		rooms[10][8] = null;
 		rooms[10][9] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[10][10] = null;
@@ -162,12 +162,12 @@ public class Map {
 		rooms[11][2] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[11][3] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[11][4] = null;
-		rooms[11][5] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[11][5] = new Room(false, new ArrayList<Item>(), null, "This is a service hallway, pretty boring really. A lot of metal here, as it happens");
 		rooms[11][6] = null;
-		rooms[11][7] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("BOB", "Ballistic Olfactory Bomb", 50, "Weapon", 10, true))), null, "The closet you took shelter in when it all went bad\nFor some reason it has extra radiation shielding");
+		rooms[11][7] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("BOB", "Ballistic Olfactory Bomb", 50, "Weapon", 10, true))), null, "The cryostatis chamber you woke up, other warriors from various ages are inanimate in their respective pods");
 		rooms[11][8] = null;
-		rooms[11][9] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[11][10] = new Room(true, new ArrayList<Item>(), null, "");
+		rooms[11][9] = new Room(false, new ArrayList<Item>(), null, "The hallway is lined with trophy cases. There are some trophies too.\n'Norse Soccer Champions 20XX-4', huh.");
+		rooms[11][10] = new Room(true, new ArrayList<Item>(), null, "This seems to be a treasure closet. A burlap sack in the corner is labelled 'swag bag'");
 		
 		rooms[12][0] = null;
 		rooms[12][1] = new Room(false, new ArrayList<Item>(), null, "");
@@ -177,21 +177,21 @@ public class Map {
 		rooms[12][5] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[12][6] = null;
 		rooms[12][7] = null;
-		rooms[12][8] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[12][9] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[12][8] = new Room(false, new ArrayList<Item>(), null, "Recreational quarters once upon a time, the room is full of severed heads now");
+		rooms[12][9] = new Room(false, new ArrayList<Item>(), null, "Recreational quarters, table tennis etc. Looks fun");
 		rooms[12][10] = null;
 		
 		rooms[13][0] = null;
 		rooms[13][1] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[13][2] = null;
-		rooms[13][3] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[13][4] = new Room(true, new ArrayList<Item>(), null, "");
-		rooms[13][5] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[13][6] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[13][7] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[13][8] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[13][9] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[13][10] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[13][3] = new Room(false, new ArrayList<Item>(), null, "The wall panelling is spread around the room, the pipes have been pulled out of the wall and are spraying superheated steam in the air");
+		rooms[13][4] = new Room(true, new ArrayList<Item>(), null, "A security room. It was locked down prety tight until you found the key.\n Someone already emptied the weapon cabinet");
+		rooms[13][5] = new Room(false, new ArrayList<Item>(), null, "A nice snack room, the vending machines are fully stocked.\n A bulkhead automatically sealed off access to the west");
+		rooms[13][6] = new Room(false, new ArrayList<Item>(), null, "The salt storage depository, someone took the time to smash all the salt jars. What a jerk.");
+		rooms[13][7] = new Room(false, new ArrayList<Item>(), null, "A rather pleasant hallway, rather 70s with some wood panelling");
+		rooms[13][8] = new Room(false, new ArrayList<Item>(), null, "Recreational quarters, or they were. More like a morgue now really. Pretty grizzly");
+		rooms[13][9] = new Room(false, new ArrayList<Item>(), null, "Recreational quarters, the rooms is filled with startlingly uncomfortable looking couches. ");
+		rooms[13][10] = new Room(false, new ArrayList<Item>(), null, "A bay window reveals a beautiful space vista. Someone taped a chore list to the window.\n It's Sveinbjorn's day to do the dishes, he probably won't though");
 		
 		rooms[14][0] = new Room(false, new ArrayList<Item>(), null, "The bow of the ship\nA large window to the south provides a view of passing asteroids");
 		rooms[14][1] = new Room(false, new ArrayList<Item>(), null, "The bow of the ship\nThe bulkhead to the south has sealed off access to the bridge\nThe room is full of comfortable chairs and piles of half-salted fish");
