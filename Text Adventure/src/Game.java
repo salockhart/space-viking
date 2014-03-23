@@ -69,6 +69,8 @@ public class Game {
 			System.out.print(CLEAN);
 			System.out.println();
 			
+			loadUp();
+			
 			//First email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
@@ -254,6 +256,54 @@ public class Game {
 		printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n", 15);
 		printMessage("'attack' or 'a' : attacks an enemy while in battle\n", 15);
 		printMessage("\n", 15);
+	}
+	
+	public static void loadUp() throws InterruptedException {
+		printMessage("//////////////////////////////////LOAD UP ERROR RECIEVED//////////////////////////////////\n\n", 15);
+		printMessage("*\n", 15);
+		printMessage("(34wpCD error recieved)\n", 15);
+		printMessage("//", 15);
+		printMessage(".....\n", 150);
+		printMessage("LOADING WINDOWS SERVICE PACK 4 >>>>>\n\n", 15);
+		printMessage("kernel 4.5.2 \"SUPER SPACE\"\n", 15);
+		printMessage("kernal ghost ignored\n\n", 15);
+		printMessage("...\n", 165);
+		printMessage("WINDOWS SERVICE PACK 4 COMPLETE::\n\n", 15);
+		printMessage("forced startup pushed from 25.223.196.168\n\n", 15);
+		printMessage("//////////////begin body wake up//////////////\n\n", 15);
+		printMessage("initializing heart pump ", 15);
+		printMessage("... ", 120);
+		printMessage("done!\n", 15);
+		printMessage("inflating lung2 ", 15);
+		printMessage("... ", 77);
+		printMessage("done!\n", 15);
+		printMessage("initializing brain spark ", 15);
+		printMessage("... ", 200);
+		printMessage("failed!\n", 15);
+		printMessage("\tinitializing brain spark ", 15);
+		printMessage("... ", 100);
+		printMessage("done!\n\n");
+		printMessage("ping central nervious system\n\t", 15);
+		printMessage("...\n\ttimeout 100% packet loss\n\n", 15);
+		printMessage("//////////////check ship status//////////////\n\n", 15);
+		printMessage("touch NS.bridge:\n\t", 15);
+		printMessage("status- 404 not found\n\t", 15);
+		printMessage("non-functional\n", 15);
+		printMessage("touch NS.hull:\n\t", 15);
+		printMessage("status- totally gnasty\n\t", 15);
+		printMessage("non-functional\n\n", 15);
+		printMessage("touch NS.mess:\n\t", 15);
+		printMessage("status- lil dirty\n\t", 15);
+		printMessage("functional\n\n", 15);
+		printMessage("touch NS.core:\n\t", 15);
+		printMessage("status- spewing radiation\n\t", 15);
+		printMessage("subnominal\n\n", 15);
+		printMessage("//////////////Ship check complete//////////////\n\n", 15);
+		printMessage("//////////////cryostatsus wakeup complete//////////////\n\n", 15);
+		printMessage("initializing email client");
+		printMessage("... \n", 175);
+		printMessage(CLEAN);
+		
 	}
 	
 	//prints strings letter by letter to create a typing effect
