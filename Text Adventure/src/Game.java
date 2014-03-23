@@ -160,10 +160,11 @@ public class Game {
 				//defense: 1
 			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
 			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
-						
+			
+			//Game loop
 			while(play)
 			{	
-				
+				//Get player input
 				printMessage("What will you do, "+player.getName()+"?\n");
 				String entry = keyboard.nextLine();
 				entry.toLowerCase();
@@ -185,17 +186,19 @@ public class Game {
 						
 						if(input.equals("run")||input.equals("run away")||input.equals("flee"))
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
-									+"narrating the deeds of a perpetually"+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
-										+profession+" embarking on a"+makeRed("VIKING") +"related journey in the cold and unforgiving "
-											+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
-												+"Hm? No, I thought not. Now go back and fight.\n");
+									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
+									+profession+" embarking on a "+makeRed("VIKING") +" related journey in the cold and unforgiving "
+									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
+									+" Hm? No, I thought not. Now go back and fight.\n");
 						
 						if(input.equals("fight")||input.equals("attack"))
 						{
-							enemy.takeDamage(player.dealDamage());
-							printMessage("You dealt "+player.dealDamage()+" damage to your opponent.\n");
-							player.takeDamage(enemy.dealDamage());
-							printMessage("Your opponent dealt "+enemy.dealDamage()+"damage to you");
+							double damageDealt = player.dealDamage();
+							enemy.takeDamage(damageDealt);
+							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
+							double damageTaken = enemy.dealDamage();
+							player.takeDamage(damageTaken);
+							printMessage("Your opponent dealt "+damageTaken+"damage to you");
 						}
 						
 						if(enemy.getHealth()<=0)
@@ -211,14 +214,33 @@ public class Game {
 						}
 					}
 				}
-				
-					
+
 			}
 			
+			
+			//CREDITS
+			printMessage("\t\tCredits");
+			printMessage("\nGeoff Caven\t\tVice Admiral In Charge Of Breaking Shit");
+			printMessage("\nAlex Dunn\t\tSad BoIIIIIIIII");
+			printMessage("\nStanford Lockhart\tActual Cannibal Shia LeBeouf");
+			printMessage("\nNiclas Skaluum\t\tLiason to Asgard and Surrounding Suburbs");
+			printMessage("\nMatthew Trask\t\tHead of Lard");
+			printMessage("\n\n\t\tSpecial Thanks");
+			printMessage("\nYung Lean");
+			printMessage("\nSad Boys");
+			printMessage("\nGravity Boys Shield Gang");
+			printMessage("\nFidel Castro");
+			printMessage("\nMalcolm Flannigan");
+			printMessage("\nMalcolm in the Middle");
+			printMessage("\nCookie");
+			printMessage("\nStone Cold Steve Austin");
+			printMessage("\nLard Lord");
+			printMessage("\nGeoff says No");
+			
 		}
-		
 	}
 	
+	//Prints the set of options a user can input
 	public static void help() throws InterruptedException {
 		printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)", 15);
 		printMessage("'inventory' or 'i' : open inventory", 15);
