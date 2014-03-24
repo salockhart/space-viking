@@ -184,7 +184,7 @@ public class Map {
 		rooms[13][0] = null;
 		rooms[13][1] = new Room(false, new ArrayList<Item>(), null, "");
 		rooms[13][2] = null;
-		rooms[13][3] = new Room(false, new ArrayList<Item>(), null, "The wall panelling is spread around the room, the pipes have been pulled out of the wall and are spraying superheated steam in the air");
+		rooms[13][3] = new Room(false, new ArrayList<Item>(), null, "The wall panelling is spread around the room.\nThe pipes have been pulled out of the wall and are spraying superheated steam in the air");
 		rooms[13][4] = new Room(true, new ArrayList<Item>(), null, "A security room. It was locked down prety tight until you found the key.\n Someone already emptied the weapon cabinet");
 		rooms[13][5] = new Room(false, new ArrayList<Item>(), null, "A nice snack room, the vending machines are fully stocked.\n A bulkhead automatically sealed off access to the west");
 		rooms[13][6] = new Room(false, new ArrayList<Item>(), null, "The salt storage depository, someone took the time to smash all the salt jars. What a jerk.");
