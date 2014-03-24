@@ -267,8 +267,9 @@ public class Game {
 		printMessage("LOADING WINDOWS XP SERVICE PACK 4 >>>>>\n\n", 15);
 		printMessage("kernel 4.5.2 \"SUPER SPACE\"\n", 15);
 		printMessage("kernal ghost ignored\n\n", 15);
+		printMessage("popping kernals\n\n", 15);
 		printMessage("...\n", 165);
-		printMessage("WINDOWS XP SERVICE PACK 4 COMPLETE::\n\n", 15);
+		printMessage("WINDOWS XP SERVICE PACK 4 BOOTUP COMPLETE::\n\n", 15);
 		printMessage("forced startup pushed from 25.223.196.168\n\n", 15);
 		printMessage("//////////////begin body wake up//////////////\n\n", 15);
 		printMessage("initializing heart pump ", 15);
