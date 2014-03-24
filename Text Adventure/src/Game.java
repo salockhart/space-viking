@@ -225,7 +225,7 @@ public class Game {
 			printMessage("\nGeoff Caven\t\tVice Admiral In Charge Of Breaking Shit");
 			printMessage("\nAlex Dunn\t\tSad BoIIIIIIIII");
 			printMessage("\nStanford Lockhart\tActual Cannibal Shia LeBeouf");
-			printMessage("\nNiclas Skaluum\t\tLiason to Asgard and Surrounding Suburbs");
+			printMessage("\nNiclas Skaaaaaluuuuuum\t\tLiason to Asgard and Surrounding Suburbs");
 			printMessage("\nMatthew Trask\t\tHead of Lard");
 			printMessage("\n\n\t\tSpecial Thanks");
 			printMessage("\nYung Lean");
@@ -264,11 +264,11 @@ public class Game {
 		printMessage("(34wpCD error recieved)\n", 15);
 		printMessage("//", 15);
 		printMessage(".....\n", 150);
-		printMessage("LOADING WINDOWS SERVICE PACK 4 >>>>>\n\n", 15);
+		printMessage("LOADING WINDOWS XP SERVICE PACK 4 >>>>>\n\n", 15);
 		printMessage("kernel 4.5.2 \"SUPER SPACE\"\n", 15);
 		printMessage("kernal ghost ignored\n\n", 15);
 		printMessage("...\n", 165);
-		printMessage("WINDOWS SERVICE PACK 4 COMPLETE::\n\n", 15);
+		printMessage("WINDOWS XP SERVICE PACK 4 COMPLETE::\n\n", 15);
 		printMessage("forced startup pushed from 25.223.196.168\n\n", 15);
 		printMessage("//////////////begin body wake up//////////////\n\n", 15);
 		printMessage("initializing heart pump ", 15);
