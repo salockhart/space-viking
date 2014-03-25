@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Game {
 	
 	public static boolean play;
+	public static boolean fight;
 	public static String RESET = "";
 	public static String BLACK = "";
 	public static String RED = "";
@@ -166,22 +167,57 @@ public class Game {
 			//Game loop
 			while(play)
 			{	
-				//Get player input
+				//Get player input (non-battle sequences)
 				printMessage("What will you do, "+player.getName()+"?\n");
 				String entry = keyboard.nextLine();
 				entry.toLowerCase();
 				
-				if(entry.equals("help") || entry.equals("?"))	
+				if(entry.equals("help") || entry.equals("?")) {
 					help();
+				}
+				else if (entry.equals("map") || entry.equals("m")) {
+					System.out.println(map);
+				}
+				else if (entry.equals("inventory") || entry.equals("i")) {
+					System.out.println(player.getInventory());
+				}
+				else if (entry.equals("equip") || entry.equals("eq")) {
+					printMessage("What item would you like to equip?");
+					//print inventory and let player select based on the index system
+				}
+				else if (entry.equals("look") || entry.equals("l")) {
+					map.look();
+				}
+				else if (entry.equals("pick up") || entry.equals("p")) {
+					player.pickupItem(map.getCurrentRoom().getItems().get(0));
+				}
+				else if (entry.equals("move north") || entry.equals("n")) {
+					map.moveNorth();
+				}
+				else if (entry.equals("move east") || entry.equals("e")) {
+					map.moveEast();
+				}
+				else if (entry.equals("move south") || entry.equals("s")) {
+					map.moveSouth();
+				}
+				else if (entry.equals("move west") || entry.equals("w")) {
+					map.moveWest();
+				}
+				else if (entry.equals("unlock") || entry.equals("u")) {
+					if(player.getInventory().contains("key")) {
+						map.getCurrentRoom().unlock();
+					}
+				}
 				
 				if(map.getCurrentRoom().getEnemy()!=null)
 				{
 					Person enemy=map.getCurrentRoom().getEnemy();
 					printMessage("You have encountered a "+makePurple(enemy.getName())+"\n");
-					boolean fight=true;
+					fight=true;
 
 					while(fight)
-					{
+					{	
+						//get player input (for battle sequences)
 						printMessage("What will you do?\n");
 						String input=keyboard.nextLine();
 						input.toLowerCase();
@@ -229,6 +265,7 @@ public class Game {
 			printMessage("\nMatthew Trask\t\tHead of Lard");
 			printMessage("\n\n\t\tSpecial Thanks");
 			printMessage("\nYung Lean");
+			printMessage("\nECCO2K1");
 			printMessage("\nSad Boys");
 			printMessage("\nGravity Boys Shield Gang");
 			printMessage("\nFidel Castro");
@@ -238,24 +275,31 @@ public class Game {
 			printMessage("\nStone Cold Steve Austin");
 			printMessage("\nLard Lord");
 			printMessage("\nGeoff says No");
+			printMessage("The RKO");
 			
 		}
 	}
 	
 	//Prints the set of options a user can input
 	public static void help() throws InterruptedException {
-		printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)", 15);
-		printMessage("'inventory' or 'i' : open inventory", 15);
-		printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index", 15);
-		printMessage("'look' or 'l' : look at your surroundings\n", 15);
-		printMessage("'pick up' or 'p' : pick up an item\n", 15);
-		printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n", 15);
-		printMessage("'move east' or 'e' : move to the eastern adjacent room (if valid)\n", 15);
-		printMessage("'move west' or 'w' : move to the western adjacent room (if valid)\n", 15);
-		printMessage("'move south' or 's' : move to the southern adjacent room (if valid)\n", 15);
-		printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n", 15);
-		printMessage("'attack' or 'a' : attacks an enemy while in battle\n", 15);
-		printMessage("\n", 15);
+		if(!fight) {
+			//not battle inputs
+			printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)\n", 15);
+			printMessage("'inventory' or 'i' : open inventory\n", 15);
+			printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index\n", 15);
+			printMessage("'look' or 'l' : look at your surroundings\n", 15);
+			printMessage("'pick up' or 'p' : pick up an item\n", 15);
+			printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n", 15);
+			printMessage("'move east' or 'e' : move to the eastern adjacent room (if valid)\n", 15);
+			printMessage("'move west' or 'w' : move to the western adjacent room (if valid)\n", 15);
+			printMessage("'move south' or 's' : move to the southern adjacent room (if valid)\n", 15);
+			printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n", 15);
+			printMessage("\n", 15);
+		} else {
+			//battle inputs
+			printMessage("'attack' or 'a' : attacks an enemy while in battle\n", 15);
+			printMessage("'run' or 'run away' or 'flee' : flees from an enemy while in battle\n", 15);
+		}
 	}
 	
 	public static void loadUp() throws InterruptedException {
