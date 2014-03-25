@@ -359,6 +359,20 @@ public class Map {
 	}
 	
 	/**
+	 * Unlock all adjacent rooms
+	 */
+	public void unlock(){
+		if (isDoor[0])
+			rooms[currentY - 1][currentX].unlock();
+		if (isDoor[1])
+			rooms[currentY][currentX + 1].unlock();
+		if (isDoor[2])
+			rooms[currentY + 1][currentX].unlock();
+		if (isDoor[3])
+			rooms[currentY][currentX - 1].unlock();
+	}
+	
+	/**
 	 * @return the entire map, regardless of whether or not a room has been visited
 	 */
 	public String fullMap(){
