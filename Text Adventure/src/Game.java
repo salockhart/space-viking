@@ -225,7 +225,7 @@ public class Game {
 			printMessage("\nGeoff Caven\t\tVice Admiral In Charge Of Breaking Shit");
 			printMessage("\nAlex Dunn\t\tSad BoIIIIIIIII");
 			printMessage("\nStanford Lockhart\tActual Cannibal Shia LeBeouf");
-			printMessage("\nNiclas Skaluum\t\tLiason to Asgard and Surrounding Suburbs");
+			printMessage("\nNiclas Skaaaaaluuuuuum\t\tLiason to Asgard and Surrounding Suburbs");
 			printMessage("\nMatthew Trask\t\tHead of Lard");
 			printMessage("\n\n\t\tSpecial Thanks");
 			printMessage("\nYung Lean");
