@@ -164,7 +164,7 @@ public class Map {
 		rooms[11][4] = null;
 		rooms[11][5] = new Room(false, new ArrayList<Item>(), null, "This is a service hallway, pretty boring really. A lot of metal here, as it happens");
 		rooms[11][6] = null;
-		rooms[11][7] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("BOB", "Ballistic Olfactory Bomb", 50, "Weapon", 10, true))), null, "The cryostatis chamber you woke up, other warriors from various ages are inanimate in their respective pods");
+		rooms[11][7] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("BOB", "Ballistic Olfactory Bomb", 50, "Weapon", 1, true))), (new Person("Reginald","Polite Viking",3,1,1,(new Item("BOB", "Ballistic Olfactory Bomb", 50, "Weapon", 1, true)))), "The cryostatis chamber you woke up, other warriors from various ages are inanimate in their respective pods");
 		rooms[11][8] = null;
 		rooms[11][9] = new Room(false, new ArrayList<Item>(), null, "The hallway is lined with trophy cases. There are some trophies too.\n'Norse Soccer Champions 20XX-4', huh.");
 		rooms[11][10] = new Room(true, new ArrayList<Item>(), null, "This seems to be a treasure closet. A burlap sack in the corner is labelled 'swag bag'");

@@ -200,7 +200,7 @@ public class Game {
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
 							double damageTaken = enemy.dealDamage();
 							player.takeDamage(damageTaken);
-							printMessage("Your opponent dealt "+damageTaken+"damage to you");
+							printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 						}
 						
 						if(enemy.getHealth()<=0)
@@ -266,7 +266,7 @@ public class Game {
 		printMessage(".....\n", 150);
 		printMessage("LOADING WINDOWS XP SERVICE PACK 4 >>>>>\n\n", 15);
 		printMessage("kernel 4.5.2 \"SUPER SPACE\"\n", 15);
-		printMessage("kernal ghost ignored\n\n", 15);
+		printMessage("busting shell ghost\n", 15);
 		printMessage("popping kernals\n\n", 15);
 		printMessage("...\n", 165);
 		printMessage("WINDOWS XP SERVICE PACK 4 BOOTUP COMPLETE::\n\n", 15);
