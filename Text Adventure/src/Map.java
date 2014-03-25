@@ -354,6 +354,22 @@ public class Map {
 			else
 				System.out.println("There is a door to the West");
 		}
+		if (!currentRoom.getItems().isEmpty())
+			System.out.println("The room has the following items:\n" + currentRoom.getItems());
+	}
+	
+	/**
+	 * Unlock all adjacent rooms
+	 */
+	public void unlock(){
+		if (isDoor[0])
+			rooms[currentY - 1][currentX].unlock();
+		if (isDoor[1])
+			rooms[currentY][currentX + 1].unlock();
+		if (isDoor[2])
+			rooms[currentY + 1][currentX].unlock();
+		if (isDoor[3])
+			rooms[currentY][currentX - 1].unlock();
 	}
 	
 	/**

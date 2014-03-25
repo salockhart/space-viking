@@ -45,7 +45,7 @@ public class Room {
 	 * @param isLocked
 	 * Unlocks the room
 	 */
-	public void unLock() {
+	public void unlock() {
 		this.isLocked = false;
 	}
 	
