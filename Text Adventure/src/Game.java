@@ -69,6 +69,8 @@ public class Game {
 			System.out.print(CLEAN);
 			System.out.println();
 			
+			loadUp();
+			
 			//First email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
@@ -160,10 +162,11 @@ public class Game {
 				//defense: 1
 			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
 			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
-						
+			
+			//Game loop
 			while(play)
 			{	
-				
+				//Get player input
 				printMessage("What will you do, "+player.getName()+"?\n");
 				String entry = keyboard.nextLine();
 				entry.toLowerCase();
@@ -185,10 +188,10 @@ public class Game {
 						
 						if(input.equals("run")||input.equals("run away")||input.equals("flee"))
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
-									+"narrating the deeds of a perpetually"+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
-										+profession+" embarking on a"+makeRed("VIKING") +"related journey in the cold and unforgiving "
-											+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
-												+"Hm? No, I thought not. Now go back and fight.\n");
+									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
+									+profession+" embarking on a "+makeRed("VIKING") +" related journey in the cold and unforgiving "
+									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
+									+" Hm? No, I thought not. Now go back and fight.\n");
 						
 						if(input.equals("fight")||input.equals("attack"))
 						{
@@ -213,13 +216,33 @@ public class Game {
 						}
 					}
 				}
-					
+
 			}
 			
+			
+			//CREDITS
+			printMessage("\t\tCredits");
+			printMessage("\nGeoff Caven\t\tVice Admiral In Charge Of Breaking Shit");
+			printMessage("\nAlex Dunn\t\tSad BoIIIIIIIII");
+			printMessage("\nStanford Lockhart\tActual Cannibal Shia LeBeouf");
+			printMessage("\nNiclas Skaaaaaluuuuuum\t\tLiason to Asgard and Surrounding Suburbs");
+			printMessage("\nMatthew Trask\t\tHead of Lard");
+			printMessage("\n\n\t\tSpecial Thanks");
+			printMessage("\nYung Lean");
+			printMessage("\nSad Boys");
+			printMessage("\nGravity Boys Shield Gang");
+			printMessage("\nFidel Castro");
+			printMessage("\nMalcolm Flannigan");
+			printMessage("\nMalcolm in the Middle");
+			printMessage("\nCookie");
+			printMessage("\nStone Cold Steve Austin");
+			printMessage("\nLard Lord");
+			printMessage("\nGeoff says No");
+			
 		}
-		
 	}
 	
+	//Prints the set of options a user can input
 	public static void help() throws InterruptedException {
 		printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)", 15);
 		printMessage("'inventory' or 'i' : open inventory", 15);
@@ -233,6 +256,58 @@ public class Game {
 		printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n", 15);
 		printMessage("'attack' or 'a' : attacks an enemy while in battle\n", 15);
 		printMessage("\n", 15);
+	}
+	
+	public static void loadUp() throws InterruptedException {
+		printMessage("//////////////////////////////////LOAD UP ERROR RECIEVED//////////////////////////////////\n\n", 15);
+		printMessage("*\n", 15);
+		printMessage("(34wpCD error recieved)\n", 15);
+		printMessage("//", 15);
+		printMessage(".....\n", 150);
+		printMessage("LOADING WINDOWS XP SERVICE PACK 4 >>>>>\n\n", 15);
+		printMessage("kernel 4.5.2 \"SUPER SPACE\"\n", 15);
+		printMessage("kernal ghost ignored\n\n", 15);
+		printMessage("popping kernals\n\n", 15);
+		printMessage("...\n", 165);
+		printMessage("WINDOWS XP SERVICE PACK 4 BOOTUP COMPLETE::\n\n", 15);
+		printMessage("forced startup pushed from 25.223.196.168\n\n", 15);
+		printMessage("//////////////begin body wake up//////////////\n\n", 15);
+		printMessage("initializing heart pump ", 15);
+		printMessage("... ", 120);
+		printMessage("done!\n", 15);
+		printMessage("inflating lung1 ", 15);
+		printMessage("... ", 94);
+		printMessage("done!\n", 15);		
+		printMessage("inflating lung2 ", 15);
+		printMessage("... ", 77);
+		printMessage("done!\n", 15);
+		printMessage("initializing brain spark ", 15);
+		printMessage("... ", 200);
+		printMessage("failed!\n", 15);
+		printMessage("\tinitializing brain spark ", 15);
+		printMessage("... ", 100);
+		printMessage("done!\n\n");
+		printMessage("ping central nervious system\n\t", 15);
+		printMessage("...\n\ttimeout 100% packet loss\n\n", 15);
+		printMessage("//////////////check ship status//////////////\n\n", 15);
+		printMessage("touch NS.bridge:\n\t", 15);
+		printMessage("status- 404 not found\n\t", 15);
+		printMessage("non-functional\n\n", 15);
+		printMessage("touch NS.hull:\n\t", 15);
+		printMessage("status- totally gnasty\n\t", 15);
+		printMessage("non-functional\n\n", 15);
+		printMessage("touch NS.mess:\n\t", 15);
+		printMessage("status- lil dirty\n\t", 15);
+		printMessage("functional\n\n", 15);
+		printMessage("touch NS.core:\n\t", 15);
+		printMessage("status- spewing radiation\n\t", 15);
+		printMessage("subnominal\n\n", 15);
+		printMessage("//////////////Ship check complete//////////////\n\n", 15);
+		printMessage("//////////////cryostatsus wakeup complete//////////////\n\n", 15);
+		printMessage("initializing email client");
+		printMessage("... \n", 175);
+		printMessage(CLEAN);
+		
 	}
 	
 	//prints strings letter by letter to create a typing effect
