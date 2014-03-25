@@ -99,26 +99,26 @@ public class Map {
 		
 		rooms[6][0] = null;
 		rooms[6][1] = null;
-		rooms[6][2] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[6][2] = new Room(false, new ArrayList<Item>(), null, "What looks to be an abandoned living room.  Some of the pillows look like they  have been shredded by some beast..");
 		rooms[6][3] = null;
 		rooms[6][4] = null;
-		rooms[6][5] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[6][6] = new Room(false, new ArrayList<Item>(), null, "");
-		rooms[6][7] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[6][5] = new Room(false, new ArrayList<Item>(), null, "Backed into a corner, this dust filled room has nothing of importance.");
+		rooms[6][6] = new Room(false, new ArrayList<Item>(), null, "An open hallway,, branching into three different rooms.");
+		rooms[6][7] = new Room(false, new ArrayList<Item>(), null, "Backed into a corner, this dust filled room has nothing of importance.");
 		rooms[6][8] = null;
 		rooms[6][9] = null;
 		rooms[6][10] = null;
 		
-		rooms[7][0] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[7][0] = new Room(false, new ArrayList<Item>(), null, "The space janitor was kind enough to leave his door unlocked before perishing; hopefully he left his keys too.");
 		rooms[7][1] = null;
-		rooms[7][2] = new Room(true, new ArrayList<Item>(), null, "");
-		rooms[7][3] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[7][2] = new Room(true, new ArrayList<Item>(), null, "Backed into a corner, this dust filled room has nothing of importance.");
+		rooms[7][3] = new Room(false, new ArrayList<Item>(), null, "Backed into a corner, this dust filled room has nothing of importance.");
 		rooms[7][4] = null;
 		rooms[7][5] = null;
 		rooms[7][6] = null;
-		rooms[7][7] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[7][7] = new Room(false, new ArrayList<Item>(), null, "The room, with its rust covered walls dripping with radioactive slime, feels almost alive.");
 		rooms[7][8] = null;
-		rooms[7][9] = new Room(false, new ArrayList<Item>(), null, "");
+		rooms[7][9] = new Room(false, new ArrayList<Item>(), null, "Stepping closer to the center of the room brings the sensation of hundreds of screaming voices gasping their final breaths.");
 		rooms[7][10] = null;
 		
 		rooms[8][0] = new Room(false, new ArrayList<Item>(), null, "");
