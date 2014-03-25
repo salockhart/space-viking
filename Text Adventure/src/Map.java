@@ -354,6 +354,8 @@ public class Map {
 			else
 				System.out.println("There is a door to the West");
 		}
+		if (!currentRoom.getItems().isEmpty())
+			System.out.println("The room has the following items:\n" + currentRoom.getItems());
 	}
 	
 	/**
