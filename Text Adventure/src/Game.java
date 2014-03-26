@@ -151,7 +151,7 @@ public class Game {
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
-			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
+			Item soedekilling = new Item("Soedekilling", "Your trusty lyn-gladius, its been with you through thick and thin...blood, that is", 1, "Weapon", 1, true);
 			printMessage("Finally, remember that your keen "+profession+"'s instinct allows you to seek for \"help\" at any time.");
 			
 			System.out.println(CLEAN);
