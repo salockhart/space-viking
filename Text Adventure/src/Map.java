@@ -25,38 +25,38 @@ public class Map {
 	 * No args constructor, creates the map in the 2D array and sets all variables for first room
 	 */
 	public Map() {
-		rooms[0][0] = new Room(false, new ArrayList<Item>(),null, "A small box of maintenance supplies is overturned on the floor.");
+		rooms[0][0] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("Rusty Key", "A rusty, old key that doesn't look like its been used recently.", 1, "Key", 0, true))), null, "A small box of maintenance supplies is overturned on the floor.");
 		rooms[0][1] = null;
-		rooms[0][2] = new Room(false, new ArrayList<Item>(),null ,"The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side.");
-		rooms[0][3] = new Room(false, new ArrayList<Item>(),null ,"The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side.");
+		rooms[0][2] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("Statue of Nisk", "The statue fills you with an unkown power; you feel like even more of a Viking. Defense +5", 1, "Statue", 0, true))), null, "The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side.");
+		rooms[0][3] = new Room(false, new ArrayList<Item>(), null, "The rear of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side.");
 		rooms[0][4] = null;
-		rooms[0][5] = new Room(true, new ArrayList<Item>(),null ,"The nuclear core is in view. The room is bathed in the green glow of the unshielded core.");
+		rooms[0][5] = new Room(true, new ArrayList<Item>(), null, "The nuclear core is in view. The room is bathed in the green glow of the unshielded core.");
 		rooms[0][6] = null;
-		rooms[0][7] = new Room(false, new ArrayList<Item>(),null ,"The stern of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side.");
-		rooms[0][8] = new Room(false, new ArrayList<Item>(),null ,"The stern of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side.");
+		rooms[0][7] = new Room(false, new ArrayList<Item>(), null, "The stern of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side.");
+		rooms[0][8] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("Fiskefrikadeller", "A hallowed pair of lyn-nunchuks - be sure to use them wisely.", 8, "Weapon", 8, true))), null, "The stern of the ship\nLarge windows allow a view of the stars beyond, while massive nuclear thrusters loom to each side.");
 		rooms[0][9] = null;
-		rooms[0][10] = new Room(false, new ArrayList<Item>(),null,"A line of keyhooks labeled 'Core Access' is on the wall, though only one key is hanging on it.");
+		rooms[0][10] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("Light Key", "This key spits out a burst of light, opening any door ahead.", 1, "Key", 0, true))), null, "A line of keyhooks labeled 'Core Access' is on the wall, though only one key is hanging on it.");
 		
-		rooms[1][0] = new Room(false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls. A severed foot is lodged in between two pipes.");
-		rooms[1][1] = new Room(false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls.");
-		rooms[1][2] = new Room(false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls. It smells of spoiled milk.");
-		rooms[1][3] = new Room(false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls.");
-		rooms[1][4] = new Room(false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls.\nA green glow is leaking under the door from the room to the east.");
-		rooms[1][5] = new Room(true, new ArrayList<Item>(),null,"The door to the north has a sign: 'Central Drive Core Chamber'.\nA green glow emanates from under the door and reflects around the room.");
-		rooms[1][6] = new Room(false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls.\n\nA green glow is leaking under the door from the room to the west.");
-		rooms[1][7] = new Room(false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls.");
-		rooms[1][8] = new Room(false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls.");
-		rooms[1][9] = new Room(false, new ArrayList<Item>(),null, "A gray metal hallway\nCore exhaust pipes run along the walls. A bloody lyn-saber was snapped in half and left on the floor");
-		rooms[1][10] = new Room(false, new ArrayList<Item>(),null,"A gray metal hallway\nCore exhaust pipes run along the walls.");
+		rooms[1][0] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls. A severed foot is lodged in between two pipes.");
+		rooms[1][1] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls.");
+		rooms[1][2] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls. It smells of spoiled milk.");
+		rooms[1][3] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls.");
+		rooms[1][4] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls.\nA green glow is leaking under the door from the room to the east.");
+		rooms[1][5] = new Room(true, new ArrayList<Item>(), null, "The door to the north has a sign: 'Central Drive Core Chamber'.\nA green glow emanates from under the door and reflects around the room.");
+		rooms[1][6] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls.\n\nA green glow is leaking under the door from the room to the west.");
+		rooms[1][7] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls.");
+		rooms[1][8] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls.");
+		rooms[1][9] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls. A bloody lyn-saber was snapped in half and left on the floor");
+		rooms[1][10] = new Room(false, new ArrayList<Item>(), null, "A gray metal hallway\nCore exhaust pipes run along the walls.");
 		
 		rooms[2][0] = null;
 		rooms[2][1] = null;
 		rooms[2][2] = null;
-		rooms[2][3] = new Room(false, new ArrayList<Item>(), null,"A narrow maintenance hallway\nA small porthole on the west wall provides a scenic view of a passing nebula.");
+		rooms[2][3] = new Room(false, new ArrayList<Item>(), null, "A narrow maintenance hallway\nA small porthole on the west wall provides a scenic view of a passing nebula.");
 		rooms[2][4] = null;
 		rooms[2][5] = null;
 		rooms[2][6] = null;
-		rooms[2][7] = new Room(false, new ArrayList<Item>(), null,"A narrow maintenance hallway\nThe walls have been smeared with someone's surplus blood.");
+		rooms[2][7] = new Room(false, new ArrayList<Item>(), null, "A narrow maintenance hallway\nThe walls have been smeared with someone's surplus blood.");
 		rooms[2][8] = null;
 		rooms[2][9] = null;
 		rooms[2][10] = null;
@@ -64,14 +64,14 @@ public class Map {
 		rooms[3][0] = new Room(false, new ArrayList<Item>(), null,"Sleeping Quarters, most of the bunks have been torn to shreds. The trash can was carefully placed upside-down.");
 		rooms[3][1] = new Room(false, new ArrayList<Item>(), null,"A storage closest, a skull sits on the shelf. 'with love, from mom' is written across the brow.");
 		rooms[3][2] = null;
-		rooms[3][3] = new Room(false, new ArrayList<Item>(), null,"A narrow maintenance hallway");
-		rooms[3][4] = new Room(false, new ArrayList<Item>(), null,"The floor is covered in strewn human bones and viscera\n Horned helmets are piled against the north wall, though most have been broken.");
-		rooms[3][5] = new Room(true, new ArrayList<Item>(), null,"A central maintenance room\nDoors to the west and east provide access to the engine sector.");
-		rooms[3][6] = new Room(false, new ArrayList<Item>(), null,"This room is spotless\nSomeone even took the time to clean the ceilings.");
-		rooms[3][7] = new Room(false, new ArrayList<Item>(), null,"A narrow maintenance hallway");
+		rooms[3][3] = new Room(false, new ArrayList<Item>(), null, "A narrow maintenance hallway");
+		rooms[3][4] = new Room(false, new ArrayList<Item>(), null, "The floor is covered in strewn human bones and viscera\n Horned helmets are piled against the north wall, though most have been broken.");
+		rooms[3][5] = new Room(true, new ArrayList<Item>(), null, "A central maintenance room\nDoors to the west and east provide access to the engine sector.");
+		rooms[3][6] = new Room(false, new ArrayList<Item>(), null, "This room is spotless\nSomeone even took the time to clean the ceilings.");
+		rooms[3][7] = new Room(false, new ArrayList<Item>(), null, "A narrow maintenance hallway");
 		rooms[3][8] = null;
-		rooms[3][9] = new Room(true, new ArrayList<Item>(), null,"Capt. Ormskaeg's private room\n The Captain's belongings have been thrown onto the floor.");
-		rooms[3][10] = new Room(false, new ArrayList<Item>(), null,"Sleeping quarters, bunks are pushed against the north and east walls.");
+		rooms[3][9] = new Room(true, new ArrayList<Item>(), null, "Capt. Ormskaeg's private room\n The Captain's belongings have been thrown onto the floor.");
+		rooms[3][10] = new Room(false, new ArrayList<Item>(), null, "Sleeping quarters, bunks are pushed against the north and east walls.");
 		
 		rooms[4][0] = new Room(false, new ArrayList<Item>(), null, "Sleeping quarters, the west and east walls are lined with bunks\nBlood on the floor is evidence of a recent fight.");
 		rooms[4][1] = null;
@@ -164,7 +164,7 @@ public class Map {
 		rooms[11][4] = null;
 		rooms[11][5] = new Room(false, new ArrayList<Item>(), null, "This is a service hallway, pretty boring really. A lot of metal here, as it happens.");
 		rooms[11][6] = null;
-		rooms[11][7] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("Sjoraeningi", "A dullish lyn-cutlass, more fit for a pirate than a viking", 5, "Weapon", 2, true))), (new Person("Reginald","Polite Viking",3,1,1,(new Item("Sjoraeningi", "A dullish lyn-cutlass, more fit for a pirate than a viking", 5, "Weapon", 2, true)))), "The cryostatis chamber you woke up, other warriors from various ages are inanimate in their respective pods.");
+		rooms[11][7] = new Room(false, new ArrayList<Item>(Arrays.asList(new Item("Sjoraeningi", "A dullish lyn-cutlass, more fit for a pirate than a viking", 5, "Weapon", 1, true))), (new Person("Reginald","Polite Viking",3,1,1, rooms[11][7].getItems().get(0))), "The cryostatis chamber you woke up, other warriors from various ages are inanimate in their respective pods.");
 		rooms[11][8] = null;
 		rooms[11][9] = new Room(false, new ArrayList<Item>(), null, "The hallway is lined with trophy cases. There are some trophies too.\n'Norse Soccer Champions 20XX-4', huh.");
 		rooms[11][10] = new Room(true, new ArrayList<Item>(), null, "This seems to be a treasure closet. A burlap sack in the corner is labelled 'swag bag'.");
