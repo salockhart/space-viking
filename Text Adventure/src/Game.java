@@ -200,7 +200,8 @@ public class Game {
 						
 						if(enemy.getHealth()<=0)
 						{
-							printMessage("You defeated the "+makePurple(enemy.getName())+"\n");
+							printMessage("You defeated "+makePurple(enemy.getName()) + " " + makePurple(enemy.getProfession()) +"\n");
+							map.getCurrentRoom().setEnemy(null);
 							fight=false;
 						}
 						

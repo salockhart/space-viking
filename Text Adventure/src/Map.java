@@ -215,7 +215,7 @@ public class Map {
 		rooms[8][7] = null;
 		rooms[8][8] = new Room(false, new ArrayList<Item>(Arrays.asList(key6)), null, "A dusty, forgotton little room. Someone was keeping their collection of loose keys in here, though most of them are pretty bent.");
 		rooms[8][9] = new Room(false, new ArrayList<Item>(), null, "A tall, airy chamber. The ceiling has a stained glass cupola.\nApparently the captain stole it off some Neo-British station way back.");
-		rooms[8][10] = new Room(false, new ArrayList<Item>(Arrays.asList(weapon2)), null, "Backed into a corner, this dust filled room has nothing of importance.");
+		rooms[8][10] = new Room(false, new ArrayList<Item>(Arrays.asList(weapon3)), null, "Backed into a corner, this dust filled room has nothing of importance.");
 		
 		rooms[9][0] = new Room(false, new ArrayList<Item>(), null, "A maintenance hallway, the space janitor left his tools here in a hurry.");
 		rooms[9][1] = new Room(false, new ArrayList<Item>(), medium[rand.nextInt(7)], "This room is full of card tables. The decks have thrown around the room.");
@@ -360,6 +360,7 @@ public class Map {
 		if (isDoor[0] && !isLocked[0]){
 			currentY--;
 			currentRoom = rooms[currentY][currentX];
+			currentRoom.playerVisits();
 			setAdjacentRooms();
 		} else if (!isDoor[0])
 			System.out.println("There is no door in that direction");
@@ -374,6 +375,7 @@ public class Map {
 		if (isDoor[1] && !isLocked[1]){
 			currentX++;
 			currentRoom = rooms[currentY][currentX];
+			currentRoom.playerVisits();
 			setAdjacentRooms();
 		} else if (!isDoor[1])
 			System.out.println("There is no door in that direction");
@@ -388,6 +390,7 @@ public class Map {
 		if (isDoor[2] && !isLocked[2]){
 			currentY++;
 			currentRoom = rooms[currentY][currentX];
+			currentRoom.playerVisits();
 			setAdjacentRooms();
 		} else if (!isDoor[2])
 			System.out.println("There is no door in that direction");
@@ -402,6 +405,7 @@ public class Map {
 		if (isDoor[3] && !isLocked[3]){
 			currentX--;
 			currentRoom = rooms[currentY][currentX];
+			currentRoom.playerVisits();
 			setAdjacentRooms();
 		} else if (!isDoor[3])
 			System.out.println("There is no door in that direction");
