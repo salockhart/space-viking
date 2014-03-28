@@ -80,7 +80,7 @@ public class Map {
 		new Person("Baldr", "", 25, 7, 7, lynFlamethrower),
 		new Person("Eir", "", 25, 7, 7, lynFlamethrower),
 		new Person("Frea", "", 25, 7, 7, lynNunchuk),
-		new Person("Hildr", "", 25, 7, 7, lynNunchuk),
+		new Person("Hildr", "", 25, 7, 7, lynNunchuk)
 	};
 	
 	//Create boss
@@ -359,7 +359,7 @@ public class Map {
 	public void moveNorth(){
 		if (isDoor[0] && !isLocked[0]){
 			currentY++;
-			currentRoom = rooms[currentX][currentY];
+			currentRoom = rooms[currentY][currentX];
 			setAdjacentRooms();
 		} else if (!isDoor[0])
 			System.out.println("There is no door in that direction");
@@ -373,7 +373,7 @@ public class Map {
 	public void moveEast(){
 		if (isDoor[1] && !isLocked[1]){
 			currentX++;
-			currentRoom = rooms[currentX][currentY];
+			currentRoom = rooms[currentY][currentX];
 			setAdjacentRooms();
 		} else if (!isDoor[1])
 			System.out.println("There is no door in that direction");
@@ -387,7 +387,7 @@ public class Map {
 	public void moveSouth(){
 		if (isDoor[2] && !isLocked[2]){
 			currentY--;
-			currentRoom = rooms[currentX][currentY];
+			currentRoom = rooms[currentY][currentX];
 			setAdjacentRooms();
 		} else if (!isDoor[2])
 			System.out.println("There is no door in that direction");
@@ -401,7 +401,7 @@ public class Map {
 	public void moveWest(){
 		if (isDoor[3] && !isLocked[3]){
 			currentX--;
-			currentRoom = rooms[currentX][currentY];
+			currentRoom = rooms[currentY][currentX];
 			setAdjacentRooms();
 		} else if (!isDoor[3])
 			System.out.println("There is no door in that direction");
