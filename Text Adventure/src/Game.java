@@ -196,6 +196,8 @@ public class Game {
 							double damageTaken = enemy.dealDamage();
 							player.takeDamage(damageTaken);
 							printMessage("Your opponent dealt "+damageTaken+"damage to you\n");
+						} else {
+							printMessage("Now's not a very good time for that.");
 						}
 						
 						if(enemy.getHealth()<=0)
