@@ -80,7 +80,7 @@ public class Map {
 		new Person("Baldr", "", 25, 7, 7, lynFlamethrower),
 		new Person("Eir", "", 25, 7, 7, lynFlamethrower),
 		new Person("Frea", "", 25, 7, 7, lynNunchuk),
-		new Person("Hildr", "", 25, 7, 7, lynNunchuk),
+		new Person("Hildr", "", 25, 7, 7, lynNunchuk)
 	};
 	
 	//Create boss
