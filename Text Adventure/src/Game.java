@@ -171,7 +171,7 @@ public class Game {
 				if(map.getCurrentRoom().getEnemy()!=null)
 				{
 					Person enemy=map.getCurrentRoom().getEnemy();
-					printMessage("You have encountered "+makePurple(enemy.getName()) + makePurple(enemy.getProfession()) +"\n");
+					printMessage("You have encountered "+makePurple(enemy.getName()) + " " + makePurple(enemy.getProfession()) +"\n");
 					fight=true;
 
 					while(fight)
