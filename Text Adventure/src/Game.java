@@ -27,6 +27,9 @@ public class Game {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
+		//Instance variables
+		String entry;
+		
 		//if user is not running windows the colour take effect
 			//(ANSI colour codes do not work in command prompt)
 		if (!System.getProperty("os.name").contains("Windows")){
@@ -195,7 +198,7 @@ public class Game {
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
 							double damageTaken = enemy.dealDamage();
 							player.takeDamage(damageTaken);
-							printMessage("Your opponent dealt "+damageTaken+"damage to you\n");
+							printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 						} else {
 							printMessage("Now's not a very good time for that.\n");
 						}
@@ -211,16 +214,19 @@ public class Game {
 						{
 							printMessage("You were defeated by the "+makePurple(enemy.getName())+"\n");
 							play = false;
-							printMessage("GAME OVER");
-							fight=false;
+							printMessage("GAME OVER\n");
+							fight = false;
 						}
 					}
 				}
 				
 				//Get player input (non-battle sequences)
-				printMessage("What will you do, "+player.getName()+"?\n");
-				String entry = keyboard.nextLine();
-				entry.toLowerCase();
+				if (play){
+					printMessage("What will you do, "+player.getName()+"?\n");
+					entry = keyboard.nextLine();
+					entry.toLowerCase();
+				} else
+					entry = "";
 				
 				if(entry.equals("help") || entry.equals("?")) {
 					help();
@@ -261,9 +267,8 @@ public class Game {
 
 			}
 			
-			
 			//CREDITS
-			printMessage("\t\tCredits");
+			printMessage("\n\n\n\n\t\tCredits");
 			printMessage("\nGeoff Caven\t\tVice Admiral In Charge Of Breaking Shit");
 			printMessage("\nAlex Dunn\t\tSad BoIIIIIIIII");
 			printMessage("\nStanford Lockhart\tActual Cannibal Shia LeBeouf");
@@ -281,7 +286,7 @@ public class Game {
 			printMessage("\nStone Cold Steve Austin");
 			printMessage("\nLard Lord");
 			printMessage("\nGeoff says No");
-			printMessage("The RKO");
+			printMessage("\nThe RKO");
 			
 		}
 	}
