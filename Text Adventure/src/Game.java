@@ -197,7 +197,7 @@ public class Game {
 							player.takeDamage(damageTaken);
 							printMessage("Your opponent dealt "+damageTaken+"damage to you\n");
 						} else {
-							printMessage("Now's not a very good time for that.");
+							printMessage("Now's not a very good time for that.\n");
 						}
 						
 						if(enemy.getHealth()<=0)
@@ -210,6 +210,8 @@ public class Game {
 						if(player.getHealth()<=0)
 						{
 							printMessage("You were defeated by the "+makePurple(enemy.getName())+"\n");
+							play = false;
+							printMessage("GAME OVER");
 							fight=false;
 						}
 					}
