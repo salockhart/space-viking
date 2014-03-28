@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Game.java
  * @author Alex Dunn
@@ -311,7 +310,7 @@ public class Game {
 		printMessage(".....\n", 150);
 		printMessage("LOADING WINDOWS XP SERVICE PACK 4 >>>>>\n\n", 15);
 		printMessage("kernel 4.5.2 \"SUPER SPACE\"\n", 15);
-		printMessage("kernal ghost ignored\n\n", 15);
+		printMessage("kernel ghost ignored\n\n", 15);
 		printMessage("popping kernals\n\n", 15);
 		printMessage("...\n", 165);
 		printMessage("WINDOWS XP SERVICE PACK 4 BOOTUP COMPLETE::\n\n", 15);
@@ -348,7 +347,7 @@ public class Game {
 		printMessage("status- spewing radiation\n\t", 15);
 		printMessage("subnominal\n\n", 15);
 		printMessage("//////////////Ship check complete//////////////\n\n", 15);
-		printMessage("//////////////cryostatsus wakeup complete//////////////\n\n", 15);
+		printMessage("//////////////cryo-status wakeup complete//////////////\n\n", 15);
 		printMessage("initializing email client");
 		printMessage("... \n", 175);
 		printMessage(CLEAN);
