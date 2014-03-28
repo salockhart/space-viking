@@ -358,7 +358,7 @@ public class Map {
 	 */
 	public void moveNorth(){
 		if (isDoor[0] && !isLocked[0]){
-			currentY++;
+			currentY--;
 			currentRoom = rooms[currentY][currentX];
 			setAdjacentRooms();
 		} else if (!isDoor[0])
@@ -386,7 +386,7 @@ public class Map {
 	 */
 	public void moveSouth(){
 		if (isDoor[2] && !isLocked[2]){
-			currentY--;
+			currentY++;
 			currentRoom = rooms[currentY][currentX];
 			setAdjacentRooms();
 		} else if (!isDoor[2])
