@@ -180,8 +180,10 @@ public class Game {
 					while(fight)
 					{	
 						//get player input (for battle sequences)
-						printMessage("What will you do?\n");
+						printMessage("\nWhat will you do?\n");
+						System.out.print(CYAN+ "> ");
 						String input=keyboard.nextLine();
+						System.out.print(RESET);
 						input.toLowerCase();
 						
 						if(input.equals("help")||input.equals("?")) {
@@ -219,7 +221,7 @@ public class Game {
 						{
 							printMessage("You were defeated by the "+makePurple(enemy.getName())+"\n");
 							play = false;
-							printMessage("GAME OVER\n");
+							printMessage("\nGAME OVER\n");
 							fight = false;
 						}
 					}
@@ -227,8 +229,10 @@ public class Game {
 				
 				//Get player input (non-battle sequences)
 				if (play){
-					printMessage("What will you do, "+player.getName()+"?\n");
+					printMessage("\nWhat will you do, "+player.getName()+"?\n");
+					System.out.print(CYAN+ "> ");
 					entry = keyboard.nextLine();
+					System.out.print(RESET);
 					entry.toLowerCase();
 				} else
 					entry = "";
