@@ -184,14 +184,19 @@ public class Game {
 						String input=keyboard.nextLine();
 						input.toLowerCase();
 						
-						if(input.equals("run")||input.equals("run away")||input.equals("flee"))
+						if(input.equals("help")||input.equals("?")) {
+							printMessage("'attack' or 'fight' : attacks the perilous foe.", 15);
+							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.", 15);
+						}
+						
+						else if(input.equals("run")||input.equals("run away")||input.equals("flee"))
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
 									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
 									+profession+" embarking on a "+makeRed("VIKING") +" related journey in the cold and unforgiving "
 									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
 									+" Hm? No, I thought not. Now go back and fight.\n");
 						
-						if(input.equals("fight")||input.equals("attack"))
+						else if(input.equals("fight")||input.equals("attack"))
 						{
 							double damageDealt = player.dealDamage();
 							enemy.takeDamage(damageDealt);
