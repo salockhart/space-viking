@@ -183,18 +183,19 @@ public class Game {
 						printMessage("What will you do?\n");
 						String input=keyboard.nextLine();
 						input.toLowerCase();
+						System.out.println("\n");
 						
 						if(input.equals("help")||input.equals("?")) {
 							printMessage("'attack' or 'fight' : attacks the perilous foe.", 15);
-							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.", 15);
+							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.\n", 15);
 						}
 						
 						else if(input.equals("run")||input.equals("run away")||input.equals("flee"))
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
-									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", as opposed to a powerful "
-									+profession+" embarking on a "+makeRed("VIKING") +" related journey in the cold and unforgiving "
-									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte and a foot massage on your way out?"
-									+" Hm? No, I thought not. Now go back and fight.\n");
+									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", \nas opposed to a powerful "
+									+profession+" embarking on a "+makeRed("VIKING") +" related journey \nin the cold and unforgiving "
+									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte \nand a foot massage on your way out?"
+									+" Hm? No, I thought not. \nNow go back and fight.\n");
 						
 						else if(input.equals("fight")||input.equals("attack"))
 						{
@@ -272,6 +273,8 @@ public class Game {
 
 			}
 			
+			System.out.println(CLEAN);
+			
 			//CREDITS
 			printMessage("\n\n\n\n\t\tCredits");
 			printMessage("\nGeoff Caven\t\tVice Admiral In Charge Of Breaking Shit");
@@ -291,7 +294,7 @@ public class Game {
 			printMessage("\nStone Cold Steve Austin");
 			printMessage("\nLard Lord");
 			printMessage("\nGeoff says No");
-			printMessage("\nThe RKO");
+			printMessage("\nThe RKO\n");
 			
 		}
 	}
