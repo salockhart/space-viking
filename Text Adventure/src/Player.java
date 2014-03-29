@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Player extends Person
 {
@@ -11,6 +12,15 @@ public class Player extends Person
 		super(name,profession,health,strength,defense,weapon);
 		this.saint=saint;
 		inventory=new ArrayList<Item>();
+	}
+	
+	public int getInventoryWeight() {
+		int weight= 0;
+		
+		for(int i=0; i<inventory.size(); i++) {
+			weight+= inventory.get(i).getWeight();
+		}
+		return weight;
 	}
 
 	public void dropItem(int index)
@@ -41,5 +51,17 @@ public class Player extends Person
 	public void setSaint(String saint)
 	{
 		this.saint=saint;
+	}
+	
+	public double dealDamage()	//overrides person dealDamage method
+	{
+		Random gen= new Random();
+		int damage;
+		
+		double factor= gen.nextInt(5)+1;
+		
+		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(0.1*this.getStrength())+ 25*Math.log(this.getStrength()/this.getInventoryWeight()));
+		
+		return damage;
 	}
 }
