@@ -275,8 +275,15 @@ public class Game {
 					}
 				} else if(entry.equals("clean")) {
 					System.out.println(CLEAN);
-				} else {
-					printMessage("There is no time for that now.");
+				}
+				//GOD MODE
+				else if(entry.equals("):")) {
+					player.setStrength(500);
+					player.setDefense(500);
+					player.setHealth(500);
+				} 
+				else {
+					printMessage("There is no time for that now.\n");
 				}
 
 			}
