@@ -273,6 +273,10 @@ public class Game {
 					if(player.getInventory().contains("key")) {
 						map.getCurrentRoom().unlock();
 					}
+				} else if(entry.equals("clean")) {
+					System.out.println(CLEAN);
+				} else {
+					printMessage("There is no time for that now.");
 				}
 
 			}
