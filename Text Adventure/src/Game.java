@@ -256,6 +256,7 @@ public class Game {
 				}
 				else if (entry.equals("pick up") || entry.equals("p")) {
 					player.pickupItem(map.getCurrentRoom().getItems().get(0));
+					map.getCurrentRoom().removeItems(0);
 				}
 				else if (entry.equals("move north") || entry.equals("n")) {
 					map.moveNorth();

@@ -68,10 +68,8 @@ public class Room {
 	 * Removes given Item from item list
 	 * @param itemName
 	 */
-	public void removeItems(String itemName) {
-		if(items.contains(itemName)) {	
-			items.remove(itemName);
-		}
+	public void removeItems(int index) {
+		items.remove(index);
 	}
 	
 	/**
