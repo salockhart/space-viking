@@ -270,12 +270,14 @@ public class Game {
 					map.moveWest();
 				}
 				else if (entry.equals("unlock") || entry.equals("u")) {
-					if(player.getInventory().contains("key")) {
+					if(player.hasKey()) {
 						map.getCurrentRoom().unlock();
+						player.deleteItem("Key");
 					}
 				} else if(entry.equals("clean")) {
 					System.out.println(CLEAN);
 				}
+				
 				//GOD MODE
 				else if(entry.equals("):")) {
 					player.setStrength(500);

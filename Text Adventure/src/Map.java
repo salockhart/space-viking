@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-/*
+/**
  * Map.java
  * @author Stanford Lockhart
  * B00646015
