@@ -396,7 +396,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(0);
+			Thread.sleep(50);
 		}
 	}
 	
@@ -404,7 +404,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(0);
+			Thread.sleep(time);
 		}
 	}
 	
