@@ -272,7 +272,7 @@ public class Game {
 				}
 				else if (entry.equals("unlock") || entry.equals("u")) {
 					if(player.hasKey()) {
-						map.getCurrentRoom().unlock();
+						map.unlock();
 						player.deleteItem("Key");
 					}
 				} else if(entry.equals("clean")) {
@@ -396,7 +396,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(50);
+			Thread.sleep(0);
 		}
 	}
 	
@@ -404,7 +404,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(time);
+			Thread.sleep(0);
 		}
 	}
 	
