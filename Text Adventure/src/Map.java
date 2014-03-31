@@ -270,7 +270,7 @@ public class Map {
 		rooms[13][2] = null;
 		rooms[13][3] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "The wall panelling is spread around the room.\nThe pipes have been pulled out of the wall and are spraying superheated steam in the air.");
 		rooms[13][4] = new Room(true, new ArrayList<Item>(), null, "A security room. It was locked down prety tight until you found the key.\n Someone already emptied the weapon cabinet.");
-		rooms[13][5] = new Room(false, new ArrayList<Item>(), null, "A nice snack room, the vending machines are fully stocked.\n A bulkhead automatically sealed off access to the west.");
+		rooms[13][5] = new Room(false, new ArrayList<Item>(), null, "A nice snack room, the vending machines are fully stocked.\nA bulkhead automatically sealed off access to the west.");
 		rooms[13][6] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(7)], "The salt storage depository, someone took the time to smash all the salt jars. What a jerk.");
 		rooms[13][7] = new Room(false, new ArrayList<Item>(), null, "A rather pleasant hallway, rather 70s with some wood panelling.");
 		rooms[13][8] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(7)], "Recreational quarters, or they were. More like a morgue now really. Pretty grizzly.");

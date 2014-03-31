@@ -155,7 +155,7 @@ public class Game {
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
-			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
+			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
 			printMessage("Finally, remember that your keen "+profession+"'s instinct allows you to seek for \"help\" at any time.");
 			
 			System.out.println(CLEAN);
@@ -164,7 +164,7 @@ public class Game {
 				//health: 10
 				//strength: 1
 				//defense: 1
-			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
+			Player player = new Player(name, profession, 500, 45, 10, soedekilling, null);			
 			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
 			
 			//Game loop
