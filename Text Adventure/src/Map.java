@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-/*
+/**
  * Map.java
  * @author Stanford Lockhart
  * B00646015
@@ -450,14 +450,22 @@ public class Map {
 	 * Unlock all adjacent rooms
 	 */
 	public void unlock(){
-		if (isDoor[0])
+		if (isDoor[0]){
 			rooms[currentY - 1][currentX].unlock();
-		if (isDoor[1])
+			isLocked[0] = false;
+		}
+		if (isDoor[1]){
 			rooms[currentY][currentX + 1].unlock();
-		if (isDoor[2])
+			isLocked[1] = false;
+		}
+		if (isDoor[2]){
 			rooms[currentY + 1][currentX].unlock();
-		if (isDoor[3])
+			isLocked[2] = false;
+		}
+		if (isDoor[3]){
 			rooms[currentY][currentX - 1].unlock();
+			isLocked[3] = false;
+		}
 	}
 	
 	/**

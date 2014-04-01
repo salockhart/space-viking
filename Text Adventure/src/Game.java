@@ -256,6 +256,7 @@ public class Game {
 				}
 				else if (entry.equals("pick up") || entry.equals("p")) {
 					player.pickupItem(map.getCurrentRoom().getItems().get(0));
+					map.getCurrentRoom().removeItems(0);
 				}
 				else if (entry.equals("move north") || entry.equals("n")) {
 					map.moveNorth();
@@ -270,12 +271,14 @@ public class Game {
 					map.moveWest();
 				}
 				else if (entry.equals("unlock") || entry.equals("u")) {
-					if(player.getInventory().contains("key")) {
-						map.getCurrentRoom().unlock();
+					if(player.hasKey()) {
+						map.unlock();
+						player.deleteItem("Key");
 					}
 				} else if(entry.equals("clean")) {
 					System.out.println(CLEAN);
 				}
+				
 				//GOD MODE
 				else if(entry.equals("):")) {
 					player.setStrength(500);
