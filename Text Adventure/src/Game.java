@@ -210,6 +210,8 @@ public class Game {
 								player.takeDamage(damageTaken);
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
+						} else if(input.contains("stats") || input.contains("health")) {
+							printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense());
 						} else {
 							printMessage("Now's not a very good time for that.\n");
 						}
