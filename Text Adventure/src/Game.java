@@ -204,9 +204,11 @@ public class Game {
 							double damageDealt = player.dealDamage();
 							enemy.takeDamage(damageDealt);
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
-							double damageTaken = enemy.dealDamage();
-							player.takeDamage(damageTaken);
-							printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
+							if(enemy.getHealth()>0) {
+								double damageTaken = enemy.dealDamage();
+								player.takeDamage(damageTaken);
+								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
+							}
 						} else {
 							printMessage("Now's not a very good time for that.\n");
 						}
