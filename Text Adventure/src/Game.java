@@ -155,7 +155,7 @@ public class Game {
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
-			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
+			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
 			printMessage("Finally, remember that your keen "+profession+"'s instinct allows you to seek for \"help\" at any time.");
 			
 			System.out.println(CLEAN);
@@ -164,7 +164,7 @@ public class Game {
 				//health: 10
 				//strength: 1
 				//defense: 1
-			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
+			Player player = new Player(name, profession, 500, 45, 10, soedekilling, null);			
 			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
 			
 			//Game loop
@@ -204,9 +204,11 @@ public class Game {
 							double damageDealt = player.dealDamage();
 							enemy.takeDamage(damageDealt);
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
-							double damageTaken = enemy.dealDamage();
-							player.takeDamage(damageTaken);
-							printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
+							if(enemy.getHealth()>0) {
+								double damageTaken = enemy.dealDamage();
+								player.takeDamage(damageTaken);
+								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
+							}
 						} else {
 							printMessage("Now's not a very good time for that.\n");
 						}
@@ -256,6 +258,7 @@ public class Game {
 				}
 				else if (entry.equals("pick up") || entry.equals("p")) {
 					player.pickupItem(map.getCurrentRoom().getItems().get(0));
+					map.getCurrentRoom().removeItems(0);
 				}
 				else if (entry.equals("move north") || entry.equals("n")) {
 					map.moveNorth();
@@ -270,12 +273,14 @@ public class Game {
 					map.moveWest();
 				}
 				else if (entry.equals("unlock") || entry.equals("u")) {
-					if(player.getInventory().contains("key")) {
-						map.getCurrentRoom().unlock();
+					if(player.hasKey()) {
+						map.unlock();
+						player.deleteItem("Key");
 					}
 				} else if(entry.equals("clean")) {
 					System.out.println(CLEAN);
 				}
+				
 				//GOD MODE
 				else if(entry.equals("):")) {
 					player.setStrength(500);
