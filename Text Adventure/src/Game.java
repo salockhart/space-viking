@@ -158,6 +158,7 @@ public class Game {
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
 			printMessage("Finally, remember that your keen "+profession+"'s instinct allows you to seek for \"help\" at any time.");
 			
+			Thread.sleep(1000);
 			System.out.println(CLEAN);
 			
 			//new player created with the inputed name and profession
@@ -279,6 +280,8 @@ public class Game {
 					}
 				} else if(entry.equals("clean")) {
 					System.out.println(CLEAN);
+				} else if(entry.contains("stats") || entry.contains("health")) {
+					printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense());
 				}
 				
 				//GOD MODE
@@ -370,7 +373,7 @@ public class Game {
 		printMessage("\tinitializing brain spark ", 15);
 		printMessage("... ", 100);
 		printMessage("done!\n\n");
-		printMessage("ping central nervious system\n\t", 15);
+		printMessage("ping central nervous system\n\t", 15);
 		printMessage("...\n\ttimeout 100% packet loss\n\n", 15);
 		printMessage("//////////////check ship status//////////////\n\n", 15);
 		printMessage("touch NS.bridge:\n\t", 15);
