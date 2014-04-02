@@ -221,6 +221,7 @@ public class Game {
 							printMessage("You defeated "+makePurple(enemy.getName()) + " " + makePurple(enemy.getProfession()) +"\n");
 							map.getCurrentRoom().setEnemy(null);
 							fight=false;
+							map.resetEnemies();
 						}
 						
 						if(player.getHealth()<=0)
