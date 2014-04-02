@@ -261,8 +261,11 @@ public class Game {
 					map.look();
 				}
 				else if (entry.equals("pick up") || entry.equals("p")) {
-					player.pickupItem(map.getCurrentRoom().getItems().get(0));
-					map.getCurrentRoom().removeItems(0);
+					if (!map.getCurrentRoom().getItems().isEmpty()){
+						player.pickupItem(map.getCurrentRoom().getItems().get(0));
+						map.getCurrentRoom().removeItems(0);
+					} else
+						System.out.println("There is nothing to pick up.");
 				}
 				else if (entry.equals("move north") || entry.equals("n")) {
 					map.moveNorth();
@@ -339,6 +342,7 @@ public class Game {
 			printMessage("'move west' or 'w' : move to the western adjacent room (if valid)\n", 15);
 			printMessage("'move south' or 's' : move to the southern adjacent room (if valid)\n", 15);
 			printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n", 15);
+			printMessage("'stats' or 'health' : displays current character stats\n", 15);
 			printMessage("\n", 15);
 		} else {
 			//battle inputs
