@@ -188,19 +188,19 @@ public class Game {
 						input.toLowerCase();
 						System.out.println("\n");
 						
-						if(input.equals("help")||input.equals("?")) {
+						if(input.contains("help")||input.equals("?")) {
 							printMessage("'attack' or 'fight' : attacks the perilous foe.", 15);
 							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.\n", 15);
 						}
 						
-						else if(input.equals("run")||input.equals("run away")||input.equals("flee"))
+						else if(input.contains("run")||input.contains("flee"))
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
 									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", \nas opposed to a powerful "
 									+profession+" embarking on a "+makeRed("VIKING") +" related journey \nin the cold and unforgiving "
 									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte \nand a foot massage on your way out?"
 									+" Hm? No, I thought not. \nNow go back and fight.\n");
 						
-						else if(input.equals("fight")||input.equals("attack"))
+						else if(input.contains("fight")||input.contains("attack"))
 						{
 							double damageDealt = player.dealDamage();
 							enemy.takeDamage(damageDealt);
@@ -244,42 +244,42 @@ public class Game {
 				} else
 					entry = "";
 				
-				if(entry.equals("help") || entry.equals("?")) {
+				if(entry.contains("help") || entry.equals("?")) {
 					help();
 				}
-				else if (entry.equals("map") || entry.equals("m")) {
+				else if (entry.contains("map") || entry.equals("m")) {
 					System.out.println(map);
 				}
-				else if (entry.equals("inventory") || entry.equals("i")) {
+				else if (entry.contains("inventory") ||entry.contains("items") || entry.equals("i")) {
 					System.out.println(player.getInventory());
 				}
-				else if (entry.equals("equip") || entry.equals("eq")) {
+				else if (entry.contains("equip") || entry.equals("eq")) {
 					printMessage("What item would you like to equip?");
 					//print inventory and let player select based on the index system
 				}
-				else if (entry.equals("look") || entry.equals("l")) {
+				else if (entry.contains("look") || entry.equals("l")) {
 					map.look();
 				}
-				else if (entry.equals("pick up") || entry.equals("p")) {
+				else if (entry.contains("pick up") || entry.equals("p")) {
 					if (!map.getCurrentRoom().getItems().isEmpty()){
 						player.pickupItem(map.getCurrentRoom().getItems().get(0));
 						map.getCurrentRoom().removeItems(0);
 					} else
 						System.out.println("There is nothing to pick up.");
 				}
-				else if (entry.equals("move north") || entry.equals("n")) {
+				else if (entry.contains("north") || entry.equals("n")) {
 					map.moveNorth();
 				}
-				else if (entry.equals("move east") || entry.equals("e")) {
+				else if (entry.contains("east") || entry.equals("e")) {
 					map.moveEast();
 				}
-				else if (entry.equals("move south") || entry.equals("s")) {
+				else if (entry.contains("south") || entry.equals("s")) {
 					map.moveSouth();
 				}
-				else if (entry.equals("move west") || entry.equals("w")) {
+				else if (entry.contains("west") || entry.equals("w")) {
 					map.moveWest();
 				}
-				else if (entry.equals("unlock") || entry.equals("u")) {
+				else if (entry.contains("unlock") || entry.equals("u")) {
 					if(player.hasKey()) {
 						map.unlock();
 						player.deleteItem("Key");
