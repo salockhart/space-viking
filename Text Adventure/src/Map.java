@@ -46,6 +46,7 @@ public class Map {
 	private Item lynReactor = new Item("The reactor core.", "", 0, "Weapon", 10, false);
 	
 	//Create generic enemies
+	//If health values change, be sure to change the resetEnemies method below
 	private Person[] easy = {
 		new Person("Ali", "The Wicked", 10, 1, 1, lynGladius),
 		new Person("Svertingr", "The Blacksmith", 10, 1, 1, lynGladius),
@@ -77,10 +78,10 @@ public class Map {
 	};
 	
 	private Person[] tough = {
-		new Person("Baldr", "", 25, 7, 7, lynFlamethrower),
-		new Person("Eir", "", 25, 7, 7, lynFlamethrower),
-		new Person("Frea", "", 25, 7, 7, lynNunchuk),
-		new Person("Hildr", "", 25, 7, 7, lynNunchuk)
+		new Person("Baldr", "The First", 25, 7, 7, lynFlamethrower),
+		new Person("Eir", "The Second", 25, 7, 7, lynFlamethrower),
+		new Person("Frea", "The Third", 25, 7, 7, lynNunchuk),
+		new Person("Hildr", "The Fourth", 25, 7, 7, lynNunchuk)
 	};
 	
 	//Create boss
@@ -584,7 +585,6 @@ public class Map {
 		return false;
 	}
 
-	
 	/**
 	 * Sets whether adjacent rooms exist and/or are locked
 	 */
@@ -713,5 +713,19 @@ public class Map {
 					isLocked[3] = rooms[currentY][currentX - 1].isLocked();
 			}
 		}
+	}
+
+	/**
+	 * Resets enemy health to original to prepare for next encounter
+	 */
+	public void resetEnemies(){
+		for (Person e : easy)
+			e.setHealth(10);
+		for (Person e : medium)
+			e.setHealth(15);
+		for (Person e : hard)
+			e.setHealth(20);
+		for (Person e : tough)
+			e.setHealth(25);
 	}
 }
