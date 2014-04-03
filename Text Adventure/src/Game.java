@@ -287,7 +287,8 @@ public class Game {
 				} else if(entry.equals("clean")) {
 					System.out.println(CLEAN);
 				} else if(entry.contains("stats") || entry.contains("health")) {
-					printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense());
+					printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ 
+							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength());
 				}
 				
 				//GOD MODE
@@ -296,6 +297,9 @@ public class Game {
 					player.setDefense(500);
 					player.setHealth(500);
 				} 
+				else if(entry.equals("quit")) {
+					System.exit(0);
+				}
 				else {
 					printMessage("There is no time for that now.\n");
 				}
