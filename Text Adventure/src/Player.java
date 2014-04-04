@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Player extends Person
 {
-	private ArrayList<Item>inventory;
+	private ArrayList<Item> inventory;
 	private String saint;
 
 	public Player(String name,String profession,int health,int strength,
@@ -51,6 +51,28 @@ public class Player extends Person
 	public void setSaint(String saint)
 	{
 		this.saint=saint;
+	}
+	
+	/**
+	 * @return whether the inventory contains a key
+	 */
+	public boolean hasKey(){
+		for (Item i : inventory)
+			if (i.getType().equals("Key"))
+				return true;
+		return false;
+	}
+	
+	/**
+	 * Delete the first occurrence of the specified item type in the inventory
+	 * @param n
+	 */
+	public void deleteItem(String n){
+		for (int i = 0; i < inventory.size(); i++)
+			if (inventory.get(i).getType().equals(n)){
+				inventory.remove(i);
+				return;
+			}
 	}
 	
 	public double dealDamage()	//overrides person dealDamage method

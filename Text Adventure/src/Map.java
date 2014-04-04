@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-/*
+/**
  * Map.java
  * @author Stanford Lockhart
  * B00646015
@@ -46,6 +46,7 @@ public class Map {
 	private Item lynReactor = new Item("The reactor core.", "", 0, "Weapon", 10, false);
 	
 	//Create generic enemies
+	//If health values change, be sure to change the resetEnemies method below
 	private Person[] easy = {
 		new Person("Ali", "The Wicked", 10, 1, 1, lynGladius),
 		new Person("Svertingr", "The Blacksmith", 10, 1, 1, lynGladius),
@@ -77,10 +78,10 @@ public class Map {
 	};
 	
 	private Person[] tough = {
-		new Person("Baldr", "", 25, 7, 7, lynFlamethrower),
-		new Person("Eir", "", 25, 7, 7, lynFlamethrower),
-		new Person("Frea", "", 25, 7, 7, lynNunchuk),
-		new Person("Hildr", "", 25, 7, 7, lynNunchuk)
+		new Person("Baldr", "The First", 25, 7, 7, lynFlamethrower),
+		new Person("Eir", "The Second", 25, 7, 7, lynFlamethrower),
+		new Person("Frea", "The Third", 25, 7, 7, lynNunchuk),
+		new Person("Hildr", "The Fourth", 25, 7, 7, lynNunchuk)
 	};
 	
 	//Create boss
@@ -270,7 +271,7 @@ public class Map {
 		rooms[13][2] = null;
 		rooms[13][3] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "The wall panelling is spread around the room.\nThe pipes have been pulled out of the wall and are spraying superheated steam in the air.");
 		rooms[13][4] = new Room(true, new ArrayList<Item>(), null, "A security room. It was locked down prety tight until you found the key.\n Someone already emptied the weapon cabinet.");
-		rooms[13][5] = new Room(false, new ArrayList<Item>(), null, "A nice snack room, the vending machines are fully stocked.\n A bulkhead automatically sealed off access to the west.");
+		rooms[13][5] = new Room(false, new ArrayList<Item>(), null, "A nice snack room, the vending machines are fully stocked.\nA bulkhead automatically sealed off access to the west.");
 		rooms[13][6] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(7)], "The salt storage depository, someone took the time to smash all the salt jars. What a jerk.");
 		rooms[13][7] = new Room(false, new ArrayList<Item>(), null, "A rather pleasant hallway, rather 70s with some wood panelling.");
 		rooms[13][8] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(7)], "Recreational quarters, or they were. More like a morgue now really. Pretty grizzly.");
@@ -450,14 +451,22 @@ public class Map {
 	 * Unlock all adjacent rooms
 	 */
 	public void unlock(){
-		if (isDoor[0])
+		if (isDoor[0]){
 			rooms[currentY - 1][currentX].unlock();
-		if (isDoor[1])
+			isLocked[0] = false;
+		}
+		if (isDoor[1]){
 			rooms[currentY][currentX + 1].unlock();
-		if (isDoor[2])
+			isLocked[1] = false;
+		}
+		if (isDoor[2]){
 			rooms[currentY + 1][currentX].unlock();
-		if (isDoor[3])
+			isLocked[2] = false;
+		}
+		if (isDoor[3]){
 			rooms[currentY][currentX - 1].unlock();
+			isLocked[3] = false;
+		}
 	}
 	
 	/**
@@ -576,7 +585,6 @@ public class Map {
 		return false;
 	}
 
-	
 	/**
 	 * Sets whether adjacent rooms exist and/or are locked
 	 */
@@ -705,5 +713,19 @@ public class Map {
 					isLocked[3] = rooms[currentY][currentX - 1].isLocked();
 			}
 		}
+	}
+
+	/**
+	 * Resets enemy health to original to prepare for next encounter
+	 */
+	public void resetEnemies(){
+		for (Person e : easy)
+			e.setHealth(10);
+		for (Person e : medium)
+			e.setHealth(15);
+		for (Person e : hard)
+			e.setHealth(20);
+		for (Person e : tough)
+			e.setHealth(25);
 	}
 }

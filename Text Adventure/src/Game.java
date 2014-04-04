@@ -155,16 +155,17 @@ public class Game {
 			//receive first weapon
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
-			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 1, "Weapon", 2, true);
+			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
 			printMessage("Finally, remember that your keen "+profession+"'s instinct allows you to seek for \"help\" at any time.");
 			
+			Thread.sleep(1000);
 			System.out.println(CLEAN);
 			
 			//new player created with the inputed name and profession
 				//health: 10
 				//strength: 1
 				//defense: 1
-			Player player = new Player(name, profession, 10, 1, 1, soedekilling, null);			
+			Player player = new Player(name, profession, 500, 45, 10, soedekilling, null);			
 			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
 			
 			//Game loop
@@ -187,26 +188,30 @@ public class Game {
 						input.toLowerCase();
 						System.out.println("\n");
 						
-						if(input.equals("help")||input.equals("?")) {
+						if(input.contains("help")||input.equals("?")) {
 							printMessage("'attack' or 'fight' : attacks the perilous foe.", 15);
 							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.\n", 15);
 						}
 						
-						else if(input.equals("run")||input.equals("run away")||input.equals("flee"))
+						else if(input.contains("run")||input.contains("flee"))
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
 									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", \nas opposed to a powerful "
 									+profession+" embarking on a "+makeRed("VIKING") +" related journey \nin the cold and unforgiving "
 									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte \nand a foot massage on your way out?"
 									+" Hm? No, I thought not. \nNow go back and fight.\n");
 						
-						else if(input.equals("fight")||input.equals("attack"))
+						else if(input.contains("fight")||input.contains("attack"))
 						{
 							double damageDealt = player.dealDamage();
 							enemy.takeDamage(damageDealt);
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
-							double damageTaken = enemy.dealDamage();
-							player.takeDamage(damageTaken);
-							printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
+							if(enemy.getHealth()>0) {
+								double damageTaken = enemy.dealDamage();
+								player.takeDamage(damageTaken);
+								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
+							}
+						} else if(input.contains("stats") || input.contains("health")) {
+							printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense());
 						} else {
 							printMessage("Now's not a very good time for that.\n");
 						}
@@ -216,6 +221,7 @@ public class Game {
 							printMessage("You defeated "+makePurple(enemy.getName()) + " " + makePurple(enemy.getProfession()) +"\n");
 							map.getCurrentRoom().setEnemy(null);
 							fight=false;
+							map.resetEnemies();
 						}
 						
 						if(player.getHealth()<=0)
@@ -238,50 +244,62 @@ public class Game {
 				} else
 					entry = "";
 				
-				if(entry.equals("help") || entry.equals("?")) {
+				if(entry.contains("help") || entry.equals("?")) {
 					help();
 				}
-				else if (entry.equals("map") || entry.equals("m")) {
+				else if (entry.contains("map") || entry.equals("m")) {
 					System.out.println(map);
 				}
-				else if (entry.equals("inventory") || entry.equals("i")) {
+				else if (entry.contains("inventory") ||entry.contains("items") || entry.equals("i")) {
 					System.out.println(player.getInventory());
 				}
-				else if (entry.equals("equip") || entry.equals("eq")) {
+				else if (entry.contains("equip") || entry.equals("eq")) {
 					printMessage("What item would you like to equip?");
 					//print inventory and let player select based on the index system
 				}
-				else if (entry.equals("look") || entry.equals("l")) {
+				else if (entry.contains("look") || entry.equals("l")) {
 					map.look();
 				}
-				else if (entry.equals("pick up") || entry.equals("p")) {
-					player.pickupItem(map.getCurrentRoom().getItems().get(0));
+				else if (entry.contains("pick up") || entry.equals("p")) {
+					if (!map.getCurrentRoom().getItems().isEmpty()){
+						player.pickupItem(map.getCurrentRoom().getItems().get(0));
+						map.getCurrentRoom().removeItems(0);
+					} else
+						System.out.println("There is nothing to pick up.");
 				}
-				else if (entry.equals("move north") || entry.equals("n")) {
+				else if (entry.contains("north") || entry.equals("n")) {
 					map.moveNorth();
 				}
-				else if (entry.equals("move east") || entry.equals("e")) {
+				else if (entry.contains("east") || entry.equals("e")) {
 					map.moveEast();
 				}
-				else if (entry.equals("move south") || entry.equals("s")) {
+				else if (entry.contains("south") || entry.equals("s")) {
 					map.moveSouth();
 				}
-				else if (entry.equals("move west") || entry.equals("w")) {
+				else if (entry.contains("west") || entry.equals("w")) {
 					map.moveWest();
 				}
-				else if (entry.equals("unlock") || entry.equals("u")) {
-					if(player.getInventory().contains("key")) {
-						map.getCurrentRoom().unlock();
+				else if (entry.contains("unlock") || entry.equals("u")) {
+					if(player.hasKey()) {
+						map.unlock();
+						player.deleteItem("Key");
 					}
 				} else if(entry.equals("clean")) {
 					System.out.println(CLEAN);
+				} else if(entry.contains("stats") || entry.contains("health")) {
+					printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ 
+							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength());
 				}
+				
 				//GOD MODE
-				else if(entry.equals("):")) {
+				else if(entry.equals("):") || entry.equals(":(")) {
 					player.setStrength(500);
 					player.setDefense(500);
 					player.setHealth(500);
 				} 
+				else if(entry.equals("quit")) {
+					System.exit(0);
+				}
 				else {
 					printMessage("There is no time for that now.\n");
 				}
@@ -328,6 +346,7 @@ public class Game {
 			printMessage("'move west' or 'w' : move to the western adjacent room (if valid)\n", 15);
 			printMessage("'move south' or 's' : move to the southern adjacent room (if valid)\n", 15);
 			printMessage("'unlock' or 'u' : unlocks an adjacent locked room\n", 15);
+			printMessage("'stats' or 'health' : displays current character stats\n", 15);
 			printMessage("\n", 15);
 		} else {
 			//battle inputs
@@ -365,7 +384,7 @@ public class Game {
 		printMessage("\tinitializing brain spark ", 15);
 		printMessage("... ", 100);
 		printMessage("done!\n\n");
-		printMessage("ping central nervious system\n\t", 15);
+		printMessage("ping central nervous system\n\t", 15);
 		printMessage("...\n\ttimeout 100% packet loss\n\n", 15);
 		printMessage("//////////////check ship status//////////////\n\n", 15);
 		printMessage("touch NS.bridge:\n\t", 15);
