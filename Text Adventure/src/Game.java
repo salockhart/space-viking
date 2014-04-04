@@ -292,7 +292,7 @@ public class Game {
 				}
 				
 				//GOD MODE
-				else if(entry.equals("):")) {
+				else if(entry.equals("):") || entry.equals(":(")) {
 					player.setStrength(500);
 					player.setDefense(500);
 					player.setHealth(500);
