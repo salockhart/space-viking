@@ -403,7 +403,7 @@ public class Game {
 					}
 						
 				} else if(entry.equals("quit")) {
-					System.exit(0);
+					play = false;
 				} else {
 					printMessage("There is no time for that now.\n");
 				}
@@ -432,6 +432,7 @@ public class Game {
 			printMessage("\nLard Lord");
 			printMessage("\nGeoff says No");
 			printMessage("\nThe RKO\n");
+			Thread.sleep(1000);
 			
 		}
 	}
