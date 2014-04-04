@@ -310,8 +310,10 @@ public class Game {
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
 							if (player.getInventory().get(index).equals("Potion")){
+								printMessage("You drank the potion and restored some health.");
 								player.heal(5);
 							} else if (player.getInventory().get(index).equals("Statue")){
+								printMessage("The statue's blessings wash over you. You feel uncomfortably moist.");
 								Item statue = player.getInventory().get(index);
 								if (statue.getName().contains("Nisk"))
 									player.setDefense(player.getDefense() + 5);
