@@ -310,7 +310,20 @@ public class Game {
 							if (player.getInventory().get(index).equals("Potion")){
 								
 							} else if (player.getInventory().get(index).equals("Statue")){
-								
+								Item statue = player.getInventory().get(index);
+								if (statue.getName().contains("Nisk"))
+									player.setDefense(player.getDefense() + 5);
+								else if (statue.getName().contains("Caeven"))
+									player.setStrength(player.getStrength() + 5);
+								else if (statue.getName().contains("Lockhaert")){
+									player.setDefense(player.getDefense() + 2);
+									player.setStrength(player.getStrength() + 2);
+								} else if (statue.getName().contains("Traesk"))
+									//Add 5 to health
+									player.getHealth();
+								else if (statue.getName().contains("Duenn"))
+									player.setDefense(player.getDefense() + 5);
+									
 							}
 							inventory = false;
 							
