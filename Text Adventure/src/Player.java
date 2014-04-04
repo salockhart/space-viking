@@ -38,16 +38,16 @@ public class Player extends Person
 	
 	public void setHealth(int health)
 	{
-		this.health=health;
-		if(health>maxHealth)
-			health=maxHealth;
+		setHealth(health);
+		if(getHealth()>maxHealth)
+			setHealth(maxHealth);
 	}
 	
 	public void heal(int health)
 	{
-		this.health+=health;
-		if(health>maxHealth)
-			health=maxHealth;
+		setHealth(getHealth() + health);
+		if(getHealth()>maxHealth)
+			setHealth(maxHealth);
 	}
 	
 	public void dropItem(int index)
