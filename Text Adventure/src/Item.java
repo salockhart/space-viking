@@ -68,10 +68,9 @@ public class Item {
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString() {
-		return "Item\nname: " + name + "\ndetail: " + detail + "\nweight: "
-				+ weight + "\ntype: " + type + "\ndataValue: " + dataValue
-				+ "\npickupAble: " + pickupAble;
+	public String toString()
+	{
+		return getName();
 	}
 	
 }
