@@ -64,7 +64,7 @@ public class Game {
 		printMessage("Press Enter to Continue.");
 		
 		play = true;
-		
+
 		if(keyboard.nextLine().length() > -1) {	//Unconditionally is true as text will never be less than 0
 			
 			//creates the map
@@ -379,7 +379,22 @@ public class Game {
 					player.setStrength(500);
 					player.setDefense(500);
 					player.setHealth(500);
-				} 
+				} else if (entry.equals("~") || entry.equals("cheat")){
+					System.out.println("How do you want to break the game?\n");
+					System.out.print(CYAN+ "> ");
+					entry = keyboard.next();
+					System.out.println(RESET);
+					entry.toLowerCase();
+					if (entry.equals("teleport")){
+						int why, ecks;
+						why = keyboard.nextInt();
+						ecks = keyboard.nextInt();
+						map.setCurrentRoom(map.getRooms()[why][ecks]);
+						map.getCurrentRoom().playerVisits();
+						map.setAdjacentRooms();
+					}
+						
+				}
 				else if(entry.equals("quit")) {
 					System.exit(0);
 				}
@@ -495,7 +510,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(50);
+			Thread.sleep(0);
 		}
 	}
 	
@@ -503,7 +518,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(time);
+			Thread.sleep(0);
 		}
 	}
 	

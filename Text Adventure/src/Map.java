@@ -323,7 +323,8 @@ public class Map {
 	 * @param currentRoom the currentRoom to set
 	 */
 	public void setCurrentRoom(Room currentRoom) {
-		this.currentRoom = currentRoom;
+		if (currentRoom != null)
+			this.currentRoom = currentRoom;
 	}
 
 	/**
@@ -588,7 +589,7 @@ public class Map {
 	/**
 	 * Sets whether adjacent rooms exist and/or are locked
 	 */
-	private void setAdjacentRooms(){
+	public void setAdjacentRooms(){
 		if (currentX == 0){
 			if (currentY == 0){
 				isDoor[0] = false;
