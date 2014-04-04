@@ -232,6 +232,9 @@ public class Game {
 							printMessage("\nGAME OVER\n");
 							fight = false;
 						}
+						
+						if(!fight)
+							player.setHealth(player.getHealth()+(0.05*player.getMaxHealth()));							
 					}
 				}
 				
