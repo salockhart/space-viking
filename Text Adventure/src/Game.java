@@ -234,7 +234,7 @@ public class Game {
 						}
 						
 						if(!fight)
-							player.setHealth(player.getHealth()+(0.05*player.getMaxHealth()));							
+							player.heal(0.05*player.getMaxHealth());							
 					}
 				}
 				

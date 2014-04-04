@@ -25,6 +25,7 @@ public class Player extends Person
 		return weight;
 	}
 	
+	//health methods
 	public void setMaxHealth(int maxHealth)
 	{
 		this.maxHealth=maxHealth;
@@ -38,6 +39,13 @@ public class Player extends Person
 	public void setHealth(int health)
 	{
 		this.health=health;
+		if(health>maxHealth)
+			health=maxHealth;
+	}
+	
+	public void heal(int health)
+	{
+		this.health+=health;
 		if(health>maxHealth)
 			health=maxHealth;
 	}
