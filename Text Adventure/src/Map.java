@@ -54,7 +54,11 @@ public class Map {
 		new Person("Tofa", "The Warmaiden", 10, 1, 1, lynCutlass),
 		new Person("Thorve", "The Clan Mother", 10, 1, 1, lynCutlass),
 		new Person("Kvistr", "The Quick", 10, 1, 1, lynCutlass),
-		new Person("Thorvidr", "The Oarman", 10, 1, 1, lynCutlass)
+		new Person("Thorvidr", "The Oarman", 10, 1, 1, lynCutlass),
+		new Person("Oskar","The Quartermaster", 10, 1, 1, lynCutlass),
+		new Person("Karl","The Lackey", 10, 1, 1, lynCutlass),
+		new Person("Lars","The Hurried", 10, 1, 1, lynGladius),
+		new Person("Egil","The Scholar", 10, 1, 1, lynGladius)
 	};
 	
 	private Person[] medium = {
@@ -155,7 +159,7 @@ public class Map {
 		rooms[3][6] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "This room is spotless\nSomeone even took the time to clean the ceilings.");
 		rooms[3][7] = new Room(false, new ArrayList<Item>(), null, "A narrow maintenance hallway");
 		rooms[3][8] = null;
-		rooms[3][9] = new Room(true, new ArrayList<Item>(Arrays.asList(caeven)), null, "Capt. Ormskaeg's private room\n The Captain's belongings have been thrown onto the floor.");
+		rooms[3][9] = new Room(true, new ArrayList<Item>(Arrays.asList(caeven)), null, "Capt. Ormskaeg's private room\nThe Captain's belongings have been thrown onto the floor.");
 		rooms[3][10] = new Room(false, new ArrayList<Item>(), hard[rand.nextInt(7)], "Sleeping quarters, bunks are pushed against the north and east walls.");
 		
 		rooms[4][0] = new Room(false, new ArrayList<Item>(), null, "Sleeping quarters, the west and east walls are lined with bunks\nBlood on the floor is evidence of a recent fight.");
@@ -201,7 +205,7 @@ public class Map {
 		rooms[7][4] = null;
 		rooms[7][5] = null;
 		rooms[7][6] = null;
-		rooms[7][7] = new Room(false, new ArrayList<Item>(Arrays.asList(lockhaert)), null, "The room, with its rust covered walls dripping with radioactive slime, feels almost alive.");
+		rooms[7][7] = new Room(false, new ArrayList<Item>(Arrays.asList(lockhaert)), null, "The room, though very much delapitated like the rest of the ship, bears the sweet, sweet musk of achievement.");
 		rooms[7][8] = null;
 		rooms[7][9] = new Room(false, new ArrayList<Item>(), medium[rand.nextInt(7)], "Stepping closer to the center of the room brings the sensation of hundreds of screaming voices gasping their final breaths.\nGnarsty.");
 		rooms[7][10] = null;
