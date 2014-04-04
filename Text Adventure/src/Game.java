@@ -13,6 +13,7 @@ public class Game {
 	
 	public static boolean play;
 	public static boolean fight;
+	public static boolean inventory;
 	public static String RESET = "";
 	public static String BLACK = "";
 	public static String RED = "";
@@ -191,7 +192,7 @@ public class Game {
 						System.out.println("\n");
 						
 						if(input.contains("help")||input.equals("?")) {
-							printMessage("'attack' or 'fight' : attacks the perilous foe.", 15);
+							printMessage("'attack' or 'fight' : attacks the perilous foe.\n", 15);
 							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.\n", 15);
 						}
 						
@@ -233,6 +234,9 @@ public class Game {
 							printMessage("\nGAME OVER\n");
 							fight = false;
 						}
+						
+						if(!fight)
+							player.heal((int)(0.05*player.getMaxHealth()));							
 					}
 				}
 				
@@ -243,6 +247,7 @@ public class Game {
 					entry = keyboard.nextLine();
 					System.out.print(RESET);
 					entry.toLowerCase();
+					System.out.println("\n");
 				} else
 					entry = "";
 				
@@ -252,13 +257,91 @@ public class Game {
 				else if (entry.contains("map") || entry.equals("m")) {
 					System.out.println(map);
 				}
-				else if (entry.contains("inventory") ||entry.contains("items") || entry.equals("i")) {
-					System.out.println(player.getInventory());
+				else if (entry.contains("inventory") || entry.contains("items") || entry.equals("i")) {
+					inventory = true;
+					while(inventory) {
+						
+						printMessage("What will you do with your inventory?\n");
+						System.out.print(CYAN+ "> ");
+						entry = keyboard.nextLine();
+						System.out.println(RESET);
+						entry.toLowerCase();
+						
+						if (entry.contains("help") || entry.equals("?")) {
+							printMessage("'see' or 's' : view the contents of your inventory\n");
+							printMessage("'use' or 'u' : use an item from your inventory\n");
+							printMessage("'equip' or 'e' : equip a weapon from your inventory\n");
+							printMessage("'drop' or 'd' : drop an item or weapon from yout inventory\n");
+							printMessage("'exit' : leave the inventory\n");
+						} else if (entry.contains("equip") || entry.equals("eq")) {
+							
+							printMessage("What item would you like to equip?\nEnter the number of your selection:\n");
+							for (int i = 0; i < player.getInventory().size(); i++)
+								if (player.getInventory().get(i).getType().equals("Weapon"))
+									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+							System.out.print(CYAN+ "> ");
+							int index = keyboard.nextInt() - 1;
+							//Return current item to inventory
+							player.pickupItem(player.getWeapon());
+							//Set weapon to selection
+							player.setWeapon(player.getInventory().get(index));
+							//Remove selection from inventory
+							player.getInventory().remove(index);
+							printMessage(makeBlue(player.getInventory().get(index).getName()) + " equipped.");
+							inventory = false;
+							
+						} else if (entry.contains("drop") || entry.equals("d")) {
+							
+							printMessage("What item would you like to drop?\nEnter the number of your selection:\n");
+							for (int i = 0; i < player.getInventory().size(); i++)
+								System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+							System.out.print(CYAN+ "> ");
+							int index = keyboard.nextInt() - 1;
+							printMessage(makeBlue(player.getInventory().get(index).getName()) + " dropped.");
+							player.getInventory().remove(index);
+							inventory = false;
+							
+						} else if (entry.contains("use") || entry.equals("u")) {
+							
+							printMessage("What item would you like to use?\nEnter the number of your selection:\n");
+							for (int i = 0; i < player.getInventory().size(); i++)
+								if (player.getInventory().get(i).getDetail().equals("Potion") || player.getInventory().get(i).getDetail().equals("Statue"))
+									System.out.println((i + 1) + " - " + player.getInventory().get(i));
+							System.out.print(CYAN+ "> ");
+							int index = keyboard.nextInt() - 1;
+							if (player.getInventory().get(index).equals("Potion")){
+								player.heal(5);
+							} else if (player.getInventory().get(index).equals("Statue")){
+								Item statue = player.getInventory().get(index);
+								if (statue.getName().contains("Nisk"))
+									player.setDefense(player.getDefense() + 5);
+								else if (statue.getName().contains("Caeven"))
+									player.setStrength(player.getStrength() + 5);
+								else if (statue.getName().contains("Lockhaert")){
+									player.setDefense(player.getDefense() + 2);
+									player.setStrength(player.getStrength() + 2);
+								} else if (statue.getName().contains("Traesk"))
+									//Add 5 to health
+									player.setMaxHealth(player.getMaxHealth() + 5);
+								else if (statue.getName().contains("Duenn"))
+									player.setDefense(player.getDefense() + 5);
+							}
+							inventory = false;
+							player.getInventory().remove(index);
+							
+						} else if (entry.contains("see") || entry.contains("view") || entry.contains("look") || entry.equals("s")) {
+							for (int i = 0; i < player.getInventory().size(); i++)
+								System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+							System.out.println();
+						} else if (entry.contains("exit")) {
+							inventory = false;
+						} else {
+							printMessage("There is no time for that now.\n");
+						}
+						
+					}
 				}
-				else if (entry.contains("equip") || entry.equals("eq")) {
-					printMessage("What item would you like to equip?");
-					//print inventory and let player select based on the index system
-				}
+
 				else if (entry.contains("look") || entry.equals("l")) {
 					map.look();
 				}
