@@ -38,7 +38,7 @@ public class Player extends Person
 	
 	public void setHealth(int health)
 	{
-		setHealth(health);
+		super.setHealth(health);
 		if(getHealth()>maxHealth)
 			setHealth(maxHealth);
 	}
@@ -46,7 +46,7 @@ public class Player extends Person
 	public void heal(int health)
 	{
 		setHealth(getHealth() + health);
-		if(getHealth()>maxHealth)
+		if(getHealth() > maxHealth)
 			setHealth(maxHealth);
 	}
 	
