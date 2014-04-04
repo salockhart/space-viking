@@ -234,7 +234,7 @@ public class Game {
 						}
 						
 						if(!fight)
-							player.heal(0.05*player.getMaxHealth());							
+							player.heal((int)(0.05*player.getMaxHealth()));							
 					}
 				}
 				
@@ -308,7 +308,7 @@ public class Game {
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
 							if (player.getInventory().get(index).equals("Potion")){
-								
+								player.heal(5);
 							} else if (player.getInventory().get(index).equals("Statue")){
 								Item statue = player.getInventory().get(index);
 								if (statue.getName().contains("Nisk"))
@@ -320,12 +320,12 @@ public class Game {
 									player.setStrength(player.getStrength() + 2);
 								} else if (statue.getName().contains("Traesk"))
 									//Add 5 to health
-									player.getHealth();
+									player.setMaxHealth(player.getMaxHealth() + 5);
 								else if (statue.getName().contains("Duenn"))
 									player.setDefense(player.getDefense() + 5);
-									
 							}
 							inventory = false;
+							player.getInventory().remove(index);
 							
 						} else if (entry.contains("see") || entry.contains("view") || entry.contains("look") || entry.equals("s")) {
 							for (int i = 0; i < player.getInventory().size(); i++)
@@ -495,7 +495,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(0);
+			Thread.sleep(50);
 		}
 	}
 	
@@ -503,7 +503,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(0);
+			Thread.sleep(time);
 		}
 	}
 	
