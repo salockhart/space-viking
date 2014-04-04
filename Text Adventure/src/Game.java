@@ -296,6 +296,9 @@ public class Game {
 					player.setStrength(500);
 					player.setDefense(500);
 					player.setHealth(500);
+					Item topDog = new Item("Digested Hot Dog of Death", "This stunning treasure is the most powerful weapon bestowed upon man. Digested by Odin himself!", 0, "weapon", 1000, true);
+					player.pickupItem(topDog);
+					player.setWeapon(topDog);
 				} 
 				else if(entry.equals("quit")) {
 					System.exit(0);
