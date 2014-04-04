@@ -64,7 +64,7 @@ public class Game {
 		printMessage("Press Enter to Continue.");
 		
 		play = true;
-		
+
 		if(keyboard.nextLine().length() > -1) {	//Unconditionally is true as text will never be less than 0
 			
 			//creates the map
@@ -384,11 +384,25 @@ public class Game {
 					Item topDog = new Item("Digested Hot Dog of Death", "This stunning treasure is the most powerful weapon bestowed upon man. Digested by Odin himself!", 0, "weapon", 1000, true);
 					player.pickupItem(topDog);
 					player.setWeapon(topDog);
-				} 
-				else if(entry.equals("quit")) {
+                    
+				} else if (entry.equals("~") || entry.equals("cheat")){
+					System.out.println("How do you want to break the game?\n");
+					System.out.print(CYAN+ "> ");
+					entry = keyboard.next();
+					System.out.println(RESET);
+					entry.toLowerCase();
+					if (entry.equals("teleport")){
+						int why, ecks;
+						why = keyboard.nextInt();
+						ecks = keyboard.nextInt();
+						map.setCurrentRoom(map.getRooms()[why][ecks]);
+						map.getCurrentRoom().playerVisits();
+						map.setAdjacentRooms();
+					}
+						
+				} else if(entry.equals("quit")) {
 					System.exit(0);
-				}
-				else {
+				} else {
 					printMessage("There is no time for that now.\n");
 				}
 
