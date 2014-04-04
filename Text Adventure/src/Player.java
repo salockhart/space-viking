@@ -5,6 +5,7 @@ public class Player extends Person
 {
 	private ArrayList<Item> inventory;
 	private String saint;
+	private int maxHealth;
 
 	public Player(String name,String profession,int health,int strength,
 			int defense,Item weapon,String saint)
@@ -12,6 +13,7 @@ public class Player extends Person
 		super(name,profession,health,strength,defense,weapon);
 		this.saint=saint;
 		inventory=new ArrayList<Item>();
+		maxHealth=health;
 	}
 	
 	public int getInventoryWeight() {
@@ -22,7 +24,32 @@ public class Player extends Person
 		}
 		return weight;
 	}
-
+	
+	//health methods
+	public void setMaxHealth(int maxHealth)
+	{
+		this.maxHealth=maxHealth;
+	}
+	
+	public int getMaxHealth()
+	{
+		return maxHealth;
+	}
+	
+	public void setHealth(int health)
+	{
+		this.health=health;
+		if(health>maxHealth)
+			health=maxHealth;
+	}
+	
+	public void heal(int health)
+	{
+		this.health+=health;
+		if(health>maxHealth)
+			health=maxHealth;
+	}
+	
 	public void dropItem(int index)
 	{
 		inventory.remove(index);
