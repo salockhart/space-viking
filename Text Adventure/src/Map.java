@@ -155,7 +155,7 @@ public class Map {
 		rooms[3][6] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "This room is spotless\nSomeone even took the time to clean the ceilings.");
 		rooms[3][7] = new Room(false, new ArrayList<Item>(), null, "A narrow maintenance hallway");
 		rooms[3][8] = null;
-		rooms[3][9] = new Room(true, new ArrayList<Item>(Arrays.asList(caeven)), null, "Capt. Ormskaeg's private room\n The Captain's belongings have been thrown onto the floor.");
+		rooms[3][9] = new Room(true, new ArrayList<Item>(Arrays.asList(caeven)), null, "Capt. Ormskaeg's private room\nThe Captain's belongings have been thrown onto the floor.");
 		rooms[3][10] = new Room(false, new ArrayList<Item>(), hard[rand.nextInt(7)], "Sleeping quarters, bunks are pushed against the north and east walls.");
 		
 		rooms[4][0] = new Room(false, new ArrayList<Item>(), null, "Sleeping quarters, the west and east walls are lined with bunks\nBlood on the floor is evidence of a recent fight.");
