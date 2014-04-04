@@ -154,24 +154,26 @@ public class Game {
 			
 
 			//receive first weapon
-			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
+			
 			printMessage("And here take "+makeBlue("this")+", you may find it useful on your quest.\n");
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
+			printMessage(makeRed("Odin has bestowed upon thee, Soedekilling. A lyn-gladius that is given to novice warriors.\n"));
 			printMessage("Finally, remember that your keen "+profession+"'s instinct allows you to seek for \"help\" at any time.");
+			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			
 			Thread.sleep(1000);
 			System.out.println(CLEAN);
 			
 			//new player created with the inputed name and profession
-				//health: 10
-				//strength: 1
-				//defense: 1
-			Player player = new Player(name, profession, 500, 45, 10, soedekilling, null);			
+				//health: 400
+				//strength: 25
+				//defense: 10
+			Player player = new Player(name, profession, 400, 25, 10, soedekilling, null);			
 			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
 			
 			//Game loop
 			while(play)
-			{	
+			{
 				//Check for an enemy in the room
 				if(map.getCurrentRoom().getEnemy()!=null)
 				{
@@ -379,6 +381,9 @@ public class Game {
 					player.setStrength(500);
 					player.setDefense(500);
 					player.setHealth(500);
+					Item topDog = new Item("Digested Hot Dog of Death", "This stunning treasure is the most powerful weapon bestowed upon man. Digested by Odin himself!", 0, "weapon", 1000, true);
+					player.pickupItem(topDog);
+					player.setWeapon(topDog);
 				} 
 				else if(entry.equals("quit")) {
 					System.exit(0);
