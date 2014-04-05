@@ -22,7 +22,10 @@ public class Player extends Person
 		for(int i=0; i<inventory.size(); i++) {
 			weight+= inventory.get(i).getWeight();
 		}
-		return weight;
+		if (weight == 0)
+			return 1;
+		else
+			return weight;
 	}
 	
 	//health methods
