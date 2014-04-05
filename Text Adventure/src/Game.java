@@ -309,7 +309,11 @@ public class Game {
 									System.out.println((i + 1) + " - " + player.getInventory().get(i));
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
-							if (player.getInventory().get(index).equals("Potion")){
+							
+							//error check
+							if(index>player.getInventory().size())
+								printMessage("You do not have that item.");
+							else if (player.getInventory().get(index).equals("Potion")){
 								printMessage("You drank the potion and restored some health.");
 								player.heal(5);
 							} else if (player.getInventory().get(index).equals("Statue")){
@@ -329,7 +333,9 @@ public class Game {
 									player.setDefense(player.getDefense() + 5);
 							}
 							inventory = false;
-							player.getInventory().remove(index);
+							
+							if(index<=player.getInventory().size())
+								player.getInventory().remove(index);
 							
 						} else if (entry.contains("see") || entry.contains("view") || entry.contains("look") || entry.equals("s")) {
 							for (int i = 0; i < player.getInventory().size(); i++)
