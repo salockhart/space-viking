@@ -281,6 +281,10 @@ public class Game {
 									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
+							if(index>player.getInventory().size())
+								printMessage("You do not have that item.");
+							else
+							{
 							//Return current item to inventory
 							player.pickupItem(player.getWeapon());
 							//Set weapon to selection
@@ -288,6 +292,7 @@ public class Game {
 							//Remove selection from inventory
 							player.getInventory().remove(index);
 							printMessage(makeBlue(player.getInventory().get(index).getName()) + " equipped.");
+							}
 							inventory = false;
 							
 						} else if (entry.contains("drop") || entry.equals("d")) {
@@ -297,8 +302,12 @@ public class Game {
 								System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
-							printMessage(makeBlue(player.getInventory().get(index).getName()) + " dropped.");
-							player.getInventory().remove(index);
+							if(index>player.getInventory().size())
+								printMessage("You do not have that item");
+							else
+								printMessage(makeBlue(player.getInventory().get(index).getName()) + " dropped.");
+							if(index<=player.getInventory().size())
+								player.getInventory().remove(index);
 							inventory = false;
 							
 						} else if (entry.contains("use") || entry.equals("u")) {
