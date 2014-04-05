@@ -298,6 +298,7 @@ public class Game {
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
 							printMessage(makeBlue(player.getInventory().get(index).getName()) + " dropped.");
+							map.getCurrentRoom().addItems(player.getInventory().get(index));
 							player.getInventory().remove(index);
 							inventory = false;
 							
@@ -335,9 +336,11 @@ public class Game {
 							System.out.println();
 						} else if (entry.contains("exit")) {
 							inventory = false;
-						} else {
+						} else if (!entry.equals("")){
 							printMessage("There is no time for that now.\n");
 						}
+						
+						entry = keyboard.nextLine();
 						
 					}
 				}
@@ -347,10 +350,16 @@ public class Game {
 				}
 				else if (entry.contains("pick up") || entry.equals("p")) {
 					if (!map.getCurrentRoom().getItems().isEmpty()){
-						player.pickupItem(map.getCurrentRoom().getItems().get(0));
-						map.getCurrentRoom().removeItems(0);
+						printMessage("Enter the number of your selection:\n");
+						for (int i = 0; i < map.getCurrentRoom().getItems().size(); i++)
+							System.out.println((i + 1) + " - " + map.getCurrentRoom().getItems().get(i) + "\n");
+						System.out.print(CYAN+ "> ");
+						int index = keyboard.nextInt() - 1;
+						player.pickupItem(map.getCurrentRoom().getItems().get(index));
+						map.getCurrentRoom().removeItems(index);
 					} else
 						System.out.println("There is nothing to pick up.");
+					entry = keyboard.nextLine();
 				}
 				else if (entry.contains("north") || entry.equals("n")) {
 					map.moveNorth();
@@ -373,7 +382,7 @@ public class Game {
 					System.out.println(CLEAN);
 				} else if(entry.contains("stats") || entry.contains("health")) {
 					printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ 
-							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength());
+							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength() + "\n");
 				}
 				
 				//GOD MODE
@@ -402,7 +411,7 @@ public class Game {
 						
 				} else if(entry.equals("quit")) {
 					System.exit(0);
-				} else {
+				} else if (!entry.equals("")) {
 					printMessage("There is no time for that now.\n");
 				}
 
