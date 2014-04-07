@@ -22,7 +22,10 @@ public class Player extends Person
 		for(int i=0; i<inventory.size(); i++) {
 			weight+= inventory.get(i).getWeight();
 		}
-		return weight;
+		if (weight == 0)
+			return 1;
+		else
+			return weight;
 	}
 	
 	//health methods
@@ -38,7 +41,7 @@ public class Player extends Person
 	
 	public void setHealth(int health)
 	{
-		setHealth(health);
+		super.setHealth(health);
 		if(getHealth()>maxHealth)
 			setHealth(maxHealth);
 	}
@@ -46,7 +49,7 @@ public class Player extends Person
 	public void heal(int health)
 	{
 		setHealth(getHealth() + health);
-		if(getHealth()>maxHealth)
+		if(getHealth() > maxHealth)
 			setHealth(maxHealth);
 	}
 	

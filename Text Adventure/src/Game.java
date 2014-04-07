@@ -64,7 +64,7 @@ public class Game {
 		printMessage("Press Enter to Continue.");
 		
 		play = true;
-		
+
 		if(keyboard.nextLine().length() > -1) {	//Unconditionally is true as text will never be less than 0
 			
 			//creates the map
@@ -270,12 +270,14 @@ public class Game {
 						entry.toLowerCase();
 						
 						if (entry.contains("help") || entry.equals("?")) {
+							
 							printMessage("'see' or 's' : view the contents of your inventory\n");
 							printMessage("'use' or 'u' : use an item from your inventory\n");
 							printMessage("'equip' or 'e' : equip a weapon from your inventory\n");
 							printMessage("'drop' or 'd' : drop an item or weapon from yout inventory\n");
 							printMessage("'exit' : leave the inventory\n");
-						} else if (entry.contains("equip") || entry.equals("eq")) {
+						
+						} else if (entry.contains("equip") || entry.equals("e")) {
 							
 							printMessage("What item would you like to equip?\nEnter the number of your selection:\n");
 							for (int i = 0; i < player.getInventory().size(); i++)
@@ -283,6 +285,10 @@ public class Game {
 									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
+							if(index>player.getInventory().size())
+								printMessage("You do not have that item.");
+							else
+							{
 							//Return current item to inventory
 							player.pickupItem(player.getWeapon());
 							//Set weapon to selection
@@ -290,7 +296,9 @@ public class Game {
 							//Remove selection from inventory
 							player.getInventory().remove(index);
 							printMessage(makeBlue(player.getInventory().get(index).getName()) + " equipped.");
+							}
 							inventory = false;
+							entry = keyboard.nextLine();
 							
 						} else if (entry.contains("drop") || entry.equals("d")) {
 							
@@ -299,21 +307,33 @@ public class Game {
 								System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
-							printMessage(makeBlue(player.getInventory().get(index).getName()) + " dropped.");
-							player.getInventory().remove(index);
-							inventory = false;
+							if(index>player.getInventory().size())
+								printMessage("You do not have that item");
+							else {
+								printMessage(makeBlue(player.getInventory().get(index).getName()) + " dropped.");
+								map.getCurrentRoom().addItems(player.getInventory().get(index));
+								player.getInventory().remove(index);
+								inventory = false;
+								entry = keyboard.nextLine();
+								System.out.println();
+							}
 							
 						} else if (entry.contains("use") || entry.equals("u")) {
 							
 							printMessage("What item would you like to use?\nEnter the number of your selection:\n");
 							for (int i = 0; i < player.getInventory().size(); i++)
-								if (player.getInventory().get(i).getDetail().equals("Potion") || player.getInventory().get(i).getDetail().equals("Statue"))
+								if (player.getInventory().get(i).getType().equals("Potion") || player.getInventory().get(i).getType().equals("Statue"))
 									System.out.println((i + 1) + " - " + player.getInventory().get(i));
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
-							if (player.getInventory().get(index).equals("Potion")){
+							//error check
+							if(index>player.getInventory().size())
+								printMessage("You do not have that item.");
+							else if (player.getInventory().get(index).getName().equals("Health Potion")){
+								printMessage("You drank the potion and restored some health.");
 								player.heal(5);
-							} else if (player.getInventory().get(index).equals("Statue")){
+							} else if (player.getInventory().get(index).getType().equals("Statue")){
+								printMessage("The statue's blessings wash over you. You feel uncomfortably moist.");
 								Item statue = player.getInventory().get(index);
 								if (statue.getName().contains("Nisk"))
 									player.setDefense(player.getDefense() + 5);
@@ -329,53 +349,87 @@ public class Game {
 									player.setDefense(player.getDefense() + 5);
 							}
 							inventory = false;
-							player.getInventory().remove(index);
+							if(index<=player.getInventory().size())
+								player.getInventory().remove(index);
+							entry = keyboard.nextLine();
 							
 						} else if (entry.contains("see") || entry.contains("view") || entry.contains("look") || entry.equals("s")) {
-							for (int i = 0; i < player.getInventory().size(); i++)
-								System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
-							System.out.println();
+							
+							if (!player.getInventory().isEmpty()){
+								for (int i = 0; i < player.getInventory().size(); i++)
+									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+								System.out.println();
+							} else
+								printMessage("There is nothing here.\n");
+							
 						} else if (entry.contains("exit")) {
+							
 							inventory = false;
-						} else {
+							
+						} else if (!entry.equals("")){
+							
 							printMessage("There is no time for that now.\n");
+							
 						}
-						
 					}
 				}
 
 				else if (entry.contains("look") || entry.equals("l")) {
+					
 					map.look();
+					
 				}
 				else if (entry.contains("pick up") || entry.equals("p")) {
+					
 					if (!map.getCurrentRoom().getItems().isEmpty()){
-						player.pickupItem(map.getCurrentRoom().getItems().get(0));
-						map.getCurrentRoom().removeItems(0);
+						printMessage("Enter the number of your selection:\n");
+						for (int i = 0; i < map.getCurrentRoom().getItems().size(); i++)
+							System.out.println((i + 1) + " - " + map.getCurrentRoom().getItems().get(i) + "\n");
+						System.out.print(CYAN+ "> ");
+						int index = keyboard.nextInt() - 1;
+						player.pickupItem(map.getCurrentRoom().getItems().get(index));
+						map.getCurrentRoom().removeItems(index);
 					} else
 						System.out.println("There is nothing to pick up.");
+					entry = keyboard.nextLine();
+				
 				}
 				else if (entry.contains("north") || entry.equals("n")) {
+					
 					map.moveNorth();
+				
 				}
 				else if (entry.contains("east") || entry.equals("e")) {
+					
 					map.moveEast();
+				
 				}
 				else if (entry.contains("south") || entry.equals("s")) {
+					
 					map.moveSouth();
+				
 				}
 				else if (entry.contains("west") || entry.equals("w")) {
+					
 					map.moveWest();
+				
 				}
 				else if (entry.contains("unlock") || entry.equals("u")) {
+					
 					if(player.hasKey()) {
 						map.unlock();
 						player.deleteItem("Key");
 					}
+				
 				} else if(entry.equals("clean")) {
+					
 					System.out.println(CLEAN);
+				
 				} else if(entry.contains("stats") || entry.contains("health")) {
+					
 					printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ 
-							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength());
+							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength() + "\n");
+				
 				}
 				
 				//GOD MODE
@@ -386,11 +440,27 @@ public class Game {
 					Item topDog = new Item("Digested Hot Dog of Death", "This stunning treasure is the most powerful weapon bestowed upon man. Digested by Odin himself!", 0, "weapon", 1000, true);
 					player.pickupItem(topDog);
 					player.setWeapon(topDog);
-				} 
-				else if(entry.equals("quit")) {
-					System.exit(0);
-				}
-				else {
+                    
+				} else if (entry.equals("~") || entry.equals("cheat")){
+					
+					System.out.println("How do you want to break the game?\n");
+					System.out.print(CYAN+ "> ");
+					entry = keyboard.next();
+					System.out.println(RESET);
+					entry.toLowerCase();
+					if (entry.equals("teleport")){
+						int why, ecks;
+						why = keyboard.nextInt();
+						ecks = keyboard.nextInt();
+						map.setCurrentRoom(map.getRooms()[why][ecks], why, ecks);
+						map.getCurrentRoom().playerVisits();
+						map.setAdjacentRooms();
+						entry = keyboard.nextLine();
+					}
+						
+				} else if(entry.equals("quit")) {
+					play = false;
+				} else {
 					printMessage("There is no time for that now.\n");
 				}
 
@@ -418,6 +488,7 @@ public class Game {
 			printMessage("\nLard Lord");
 			printMessage("\nGeoff says No");
 			printMessage("\nThe RKO\n");
+			Thread.sleep(1000);
 			
 		}
 	}
