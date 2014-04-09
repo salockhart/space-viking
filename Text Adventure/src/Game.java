@@ -196,6 +196,7 @@ public class Game {
 						if(input.contains("help")||input.equals("?")) {
 							printMessage("'attack' or 'fight' : attacks the perilous foe.\n", 15);
 							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.\n", 15);
+							printMessage("'stats' or 'health' : view your current condition.\n", 15);
 						}
 						
 						else if(input.contains("run")||input.contains("flee"))
@@ -216,7 +217,7 @@ public class Game {
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
 						} else if(input.contains("stats") || input.contains("health")) {
-							printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense());
+							printMessage("Health: " + player.getHealth()+ "/"+ player.getMaxHealth()+ "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ "\nInventory weight: "+ player.getInventoryWeight()+"/"+ player.getDefense()+ "\nEquiped Weapon: "+ player.getWeapon()+ "\n");
 						} else {
 							printMessage("Now's not a very good time for that.\n");
 						}
@@ -427,8 +428,8 @@ public class Game {
 				
 				} else if(entry.contains("stats") || entry.contains("health")) {
 					
-					printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ 
-							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength() + "\n");
+					printMessage("Health: " + player.getHealth()+ "/"+ player.getMaxHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ 
+							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength() + "\nEquipped weapon: "+ player.getWeapon()+ "\n");
 				
 				}
 				
@@ -441,7 +442,7 @@ public class Game {
 					player.pickupItem(topDog);
 					player.setWeapon(topDog);
                     
-				} else if (entry.equals("~") || entry.equals("cheat")){
+				} else if (entry.equals("~") || entry.contains("cheat")){
 					
 					System.out.println("How do you want to break the game?\n");
 					System.out.print(CYAN+ "> ");
@@ -499,7 +500,6 @@ public class Game {
 			//not battle inputs
 			printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)\n", 15);
 			printMessage("'inventory' or 'i' : open inventory\n", 15);
-			printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index\n", 15);
 			printMessage("'look' or 'l' : look at your surroundings\n", 15);
 			printMessage("'pick up' or 'p' : pick up an item\n", 15);
 			printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n", 15);
