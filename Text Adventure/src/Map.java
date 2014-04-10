@@ -326,9 +326,12 @@ public class Map {
 	/**
 	 * @param currentRoom the currentRoom to set
 	 */
-	public void setCurrentRoom(Room currentRoom) {
-		if (currentRoom != null)
+	public void setCurrentRoom(Room currentRoom, int y, int x) {
+		if (currentRoom != null){
 			this.currentRoom = currentRoom;
+			currentY = y;
+			currentX = x;
+		}
 	}
 
 	/**
