@@ -76,14 +76,15 @@ public class Person
 		this.profession=profession;
 	}
 	
-	public void takeDamage(double damage)
+	public double takeDamage(double damage)
 	{
 		double temp;
-		temp= damage- (0.3*this.getDefense());
+		temp= damage+ (0.3*this.getDefense());
 		if(temp<0) 
 			temp= 0;
 		
 		health-= (int)Math.round(temp);
+		return (int)Math.round(temp);
 	}
 	
 	public double dealDamage()
