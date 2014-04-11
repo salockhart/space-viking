@@ -208,12 +208,11 @@ public class Game {
 						
 						else if(input.contains("fight")||input.contains("attack"))
 						{
-							double damageDealt = player.dealDamage();
-							enemy.takeDamage(damageDealt);
+							double damageDealt = enemy.takeDamage(player.dealDamage());
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
+							
 							if(enemy.getHealth()>0) {
-								double damageTaken = enemy.dealDamage();
-								player.takeDamage(damageTaken);
+								double damageTaken = player.takeDamage(enemy.dealDamage());
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
 						} else if(input.contains("stats") || input.contains("health")) {
