@@ -1,3 +1,4 @@
+import java.util.Random;
 public class Person
 {
 	private String name,profession;
@@ -87,7 +88,14 @@ public class Person
 	
 	public double dealDamage()
 	{
-		return weapon.getDataValue()+(.1*strength); //whatever damage formula ends up being
+		Random gen= new Random();
+		int damage;
+		
+		double factor= gen.nextInt(5)+1;
+		
+		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(0.2*this.getStrength()));
+		
+		return damage;
 	}
 	
 	public String toString()
