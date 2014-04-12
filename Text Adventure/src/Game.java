@@ -208,11 +208,11 @@ public class Game {
 						
 						else if(input.contains("fight")||input.contains("attack"))
 						{
-							double damageDealt = enemy.takeDamage(player.dealDamage());
+							int damageDealt = enemy.takeDamage(player.dealDamage());
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
 							
 							if(enemy.getHealth()>0) {
-								double damageTaken = player.takeDamage(enemy.dealDamage());
+								int damageTaken = player.takeDamage(enemy.dealDamage());
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
 						} else if(input.contains("stats") || input.contains("health")) {
@@ -298,6 +298,7 @@ public class Game {
 							printMessage(makeBlue(player.getInventory().get(index).getName()) + " equipped.");
 							}
 							inventory = false;
+							System.out.println(RESET);
 							entry = keyboard.nextLine();
 							
 						} else if (entry.contains("drop") || entry.equals("d")) {
@@ -314,6 +315,7 @@ public class Game {
 								map.getCurrentRoom().addItems(player.getInventory().get(index));
 								player.getInventory().remove(index);
 								inventory = false;
+								System.out.println(RESET);
 								entry = keyboard.nextLine();
 								System.out.println();
 							}
@@ -343,7 +345,6 @@ public class Game {
 									player.setDefense(player.getDefense() + 2);
 									player.setStrength(player.getStrength() + 2);
 								} else if (statue.getName().contains("Traesk"))
-									//Add 5 to health
 									player.setMaxHealth(player.getMaxHealth() + 5);
 								else if (statue.getName().contains("Duenn"))
 									player.setDefense(player.getDefense() + 5);
@@ -351,6 +352,7 @@ public class Game {
 							inventory = false;
 							if(index<=player.getInventory().size())
 								player.getInventory().remove(index);
+							System.out.println(RESET);
 							entry = keyboard.nextLine();
 							
 						} else if (entry.contains("see") || entry.contains("view") || entry.contains("look") || entry.equals("s")) {
@@ -391,6 +393,7 @@ public class Game {
 						map.getCurrentRoom().removeItems(index);
 					} else
 						System.out.println("There is nothing to pick up.");
+					System.out.println(RESET);
 					entry = keyboard.nextLine();
 				
 				}
@@ -455,6 +458,7 @@ public class Game {
 						map.setCurrentRoom(map.getRooms()[why][ecks], why, ecks);
 						map.getCurrentRoom().playerVisits();
 						map.setAdjacentRooms();
+						System.out.println(RESET);
 						entry = keyboard.nextLine();
 					}
 						
@@ -572,7 +576,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(50);
+			Thread.sleep(0);
 		}
 	}
 	
@@ -580,7 +584,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(time);
+			Thread.sleep(0);
 		}
 	}
 	

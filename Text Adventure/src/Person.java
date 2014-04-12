@@ -143,7 +143,7 @@ public class Person
 	 * @param damage
 	 * @return
 	 */
-	public double takeDamage(double damage)
+	public int takeDamage(int damage)
 	{
 		double temp;
 		temp= damage+ (0.3*this.getDefense());
@@ -158,12 +158,12 @@ public class Person
 	 * Deal damage based on weapon and strength
 	 * @return damage
 	 */
-	public double dealDamage()
+	public int dealDamage()
 	{
 		Random gen= new Random();
 		int damage;
 		
-		double factor= gen.nextInt(5)+1;
+		int factor= gen.nextInt(5)+1;
 		
 		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(0.2*this.getStrength()));
 		

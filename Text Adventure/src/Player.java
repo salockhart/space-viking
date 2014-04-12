@@ -164,12 +164,12 @@ public class Player extends Person
 	/**
 	 * Calculate the damage done by the player
 	 */
-	public double dealDamage()	//overrides person dealDamage method
+	public int dealDamage()	//overrides person dealDamage method
 	{
 		Random gen= new Random();
 		int damage;
 		
-		double factor= gen.nextInt(5)+1;
+		int factor= gen.nextInt(5)+1;
 		
 		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(0.1*this.getStrength())+ 25*Math.log(this.getStrength()/this.getInventoryWeight()));
 		
