@@ -1,12 +1,32 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Person.java
+ * @author Niclas Skaalum
+ * B00
+ * Mar 6, 2014
+ * Dalhousie University
+ * Faculty of Computer Science
+ */
+
 public class Player extends Person
 {
+	//Instance Variables
 	private ArrayList<Item> inventory;
 	private String saint;
 	private int maxHealth;
 
+	/**
+	 * Constructor to create the Player (Calls Person)
+	 * @param name
+	 * @param profession
+	 * @param health
+	 * @param strength
+	 * @param defense
+	 * @param weapon
+	 * @param saint
+	 */
 	public Player(String name,String profession,int health,int strength,
 			int defense,Item weapon,String saint)
 	{
@@ -16,6 +36,9 @@ public class Player extends Person
 		maxHealth=health;
 	}
 	
+	/**
+	 * @return the weight of the items in the inventory
+	 */
 	public int getInventoryWeight() {
 		int weight= 0;
 		
@@ -28,17 +51,26 @@ public class Player extends Person
 			return weight;
 	}
 	
-	//health methods
+	/**
+	 * Set the maximum health the player can have
+	 * @param maxHealth
+	 */
 	public void setMaxHealth(int maxHealth)
 	{
 		this.maxHealth=maxHealth;
 	}
 	
+	/**
+	 * @return the max player health
+	 */
 	public int getMaxHealth()
 	{
 		return maxHealth;
 	}
 	
+	/**
+	 * Change player health, ensuring it is within the maximum
+	 */
 	public void setHealth(int health)
 	{
 		super.setHealth(health);
@@ -46,38 +78,62 @@ public class Player extends Person
 			setHealth(maxHealth);
 	}
 	
+	/**
+	 * Increment the player's health by a value, ensuring it is within the maximum
+	 * @param health
+	 */
 	public void heal(int health)
 	{
 		setHealth(getHealth() + health);
-		if(getHealth() > maxHealth)
-			setHealth(maxHealth);
 	}
 	
+	/**
+	 * Remove the specified item from the inventory
+	 * @param index
+	 */
 	public void dropItem(int index)
 	{
 		inventory.remove(index);
 	}
 
+	/**
+	 * Add input item to inventory
+	 * @param item
+	 */
 	public void pickupItem(Item item)
 	{
 		inventory.add(item);
 	}
 
+	/**
+	 * Return the inventory arraylist
+	 * @return
+	 */
 	public ArrayList<Item> getInventory()
 	{
 		return inventory;
 	}
 
+	/**
+	 * Print the inventory name
+	 */
 	public void printInventory()
 	{
 		System.out.println("\n\ninventory\n");
 	}
 
+	/**
+	 * @return the player's chosen saint (DEPRECATED)
+	 */
 	public String getSaint()
 	{
 		return saint;
 	}
 
+	/**
+	 * Set the player's chosen saint (DEPRECATED)
+	 * @param saint
+	 */
 	public void setSaint(String saint)
 	{
 		this.saint=saint;
@@ -105,14 +161,17 @@ public class Player extends Person
 			}
 	}
 	
-	public double dealDamage()	//overrides person dealDamage method
+	/**
+	 * Calculate the damage done by the player
+	 */
+	public int dealDamage()	//overrides person dealDamage method
 	{
 		Random gen= new Random();
 		int damage;
 		
-		double factor= gen.nextInt(5)+1;
+		int factor= gen.nextInt(5);
 		
-		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(0.1*this.getStrength())+ 25*Math.log(this.getStrength()/this.getInventoryWeight()));
+		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(this.getStrength())+ 25*Math.log(this.getStrength()/this.getInventoryWeight()));
 		
 		return damage;
 	}
