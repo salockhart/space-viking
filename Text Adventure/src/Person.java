@@ -146,11 +146,11 @@ public class Person
 	public int takeDamage(int damage)
 	{
 		double temp;
-		temp= damage+ (0.3*this.getDefense());
-		if(temp<0) 
-			temp= 0;
+		temp = damage - (0.5*this.getDefense());
+		if (temp < 0) 
+			temp = 0;
 		
-		health-= (int)Math.round(temp);
+		health -= (int)Math.round(temp);
 		return (int)Math.round(temp);
 	}
 	
@@ -163,9 +163,9 @@ public class Person
 		Random gen= new Random();
 		int damage;
 		
-		int factor= gen.nextInt(5)+1;
+		int factor= gen.nextInt(5);
 		
-		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(0.2*this.getStrength()));
+		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(0.8*this.getStrength()) + 25*Math.log(0.25*this.getStrength()));
 		
 		return damage;
 	}

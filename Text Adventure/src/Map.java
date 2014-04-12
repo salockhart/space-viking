@@ -24,72 +24,72 @@ public class Map {
 	private Random rand = new Random();
 	
 	//Create all player items for the game
-	private Item weapon2 = new Item("Sjoraeningi", "A dull lyn-cutlass, more fit for a pirate than a viking", 7, "Weapon", 2, true);
-	private Item weapon3 = new Item("Vejmon's Edge", "You can tell by the make of the lyn-saber that this used to belong to your friend, Vejmon.\nHow many others has Odin sent to their deaths before you?", 10, "Weapon", 3, true);
-	private Item weapon4 = new Item("The Bjoernkrammer", "Solid metal lyn-gauntlets, for punching this ship right back to hell.", 12, "Weapon", 4, true);
-	private Item weapon5 = new Item("Hestespiser", "A brutal looking axe, although from the stains it looks a tad used.", 14, "Weapon", 5, true);
-	private Item weapon6 = new Item("Andetaender", "A set of lyn-daggers, very useful for throwing at enemies from a distance.\nToo bad you can't throw.", 10, "Weapon", 6, true);
-	private Item weapon7 = new Item("Solvarmer", "Painted with a crude drawing of a shark, this lyn-flamethrower will pack a punch.", 15, "Weapon", 7, true);
-	private Item weapon8 = new Item("Fiskefrikadeller", "A hallowed pair of lyn-nunchuks - be sure to use them wisely.", 16, "Weapon", 8, true);
+	private Item weapon2 = new Item("Sjoraeningi", "A dull lyn-cutlass, more fit for a pirate than a viking", 7, "Weapon", 30, true);
+	private Item weapon3 = new Item("Vejmon's Edge", "You can tell by the make of the lyn-saber that this used to belong to your friend, Vejmon.\nHow many others has Odin sent to their deaths before you?", 40, "Weapon", 3, true);
+	private Item weapon4 = new Item("The Bjoernkrammer", "Solid metal lyn-gauntlets, for punching this ship right back to hell.", 12, "Weapon", 50, true);
+	private Item weapon5 = new Item("Hestespiser", "A brutal looking axe, although from the stains it looks a tad used.", 14, "Weapon", 60, true);
+	private Item weapon6 = new Item("Andetaender", "A set of lyn-daggers, very useful for throwing at enemies from a distance.\nToo bad you can't throw.", 10, "Weapon", 70, true);
+	private Item weapon7 = new Item("Solvarmer", "Painted with a crude drawing of a shark, this lyn-flamethrower will pack a punch.", 15, "Weapon", 80, true);
+	private Item weapon8 = new Item("Fiskefrikadeller", "A hallowed pair of lyn-nunchuks - be sure to use them wisely.", 16, "Weapon", 90, true);
 	
 	//Create all generic enemy weapons in the game
-	private Item lynGladius = new Item("lyn-gladius", "", 0, "Weapon", 1, false);
-	private Item lynCutlass = new Item("lyn-cutlass", "", 0, "Weapon", 2, false);
-	private Item lynSaber = new Item("lyn-saber", "", 0, "Weapon", 3, false);
-	private Item lynGauntlets = new Item("lyn-gauntlets", "", 0, "Weapon", 4, false);
-	private Item lynAxe = new Item("lyn-axe", "", 0, "Weapon", 5, false);
-	private Item lynDagger = new Item("lyn-dagger", "", 0, "Weapon", 6, false);
-	private Item lynFlamethrower = new Item("lyn-flamethrower", "", 0, "Weapon", 7, false);
-	private Item lynNunchuk = new Item("lyn-nunchuk", "", 0, "Weapon", 8, false);
+	private Item lynGladius = new Item("lyn-gladius", "", 0, "Weapon", 20, false);
+	private Item lynCutlass = new Item("lyn-cutlass", "", 0, "Weapon", 30, false);
+	private Item lynSaber = new Item("lyn-saber", "", 0, "Weapon", 40, false);
+	private Item lynGauntlets = new Item("lyn-gauntlets", "", 0, "Weapon", 50, false);
+	private Item lynAxe = new Item("lyn-axe", "", 0, "Weapon", 60, false);
+	private Item lynDagger = new Item("lyn-dagger", "", 0, "Weapon", 70, false);
+	private Item lynFlamethrower = new Item("lyn-flamethrower", "", 0, "Weapon", 80, false);
+	private Item lynNunchuk = new Item("lyn-nunchuk", "", 0, "Weapon", 90, false);
 	
 	//Boss weapon
-	private Item lynReactor = new Item("The reactor core.", "", 0, "Weapon", 10, false);
+	private Item lynReactor = new Item("The reactor core.", "", 0, "Weapon", 100, false);
 	
 	//Create generic enemies
 	//If health values change, be sure to change the resetEnemies method below
 	private Person[] easy = {
-		new Person("Ali", "The Wicked", 10, 1, 1, lynGladius),
-		new Person("Svertingr", "The Blacksmith", 10, 1, 1, lynGladius),
-		new Person("Kiotvi", "The Warrior", 10, 1, 1, lynGladius),
-		new Person("Tofa", "The Warmaiden", 10, 1, 1, lynCutlass),
-		new Person("Thorve", "The Clan Mother", 10, 1, 1, lynCutlass),
-		new Person("Kvistr", "The Quick", 10, 1, 1, lynCutlass),
-		new Person("Thorvidr", "The Oarman", 10, 1, 1, lynCutlass),
-		new Person("Oskar","The Quartermaster", 10, 1, 1, lynCutlass),
-		new Person("Karl","The Lackey", 10, 1, 1, lynCutlass),
-		new Person("Lars","The Hurried", 10, 1, 1, lynGladius),
-		new Person("Egil","The Scholar", 10, 1, 1, lynGladius)
+		new Person("Ali", "The Wicked", 200, 20, 5, lynGladius),
+		new Person("Svertingr", "The Blacksmith", 200, 21, 5, lynGladius),
+		new Person("Kiotvi", "The Warrior", 200, 22, 5, lynGladius),
+		new Person("Tofa", "The Warmaiden", 200, 23, 10, lynCutlass),
+		new Person("Thorve", "The Clan Mother", 200, 24, 10, lynCutlass),
+		new Person("Kvistr", "The Quick", 200, 25, 10, lynCutlass),
+		new Person("Thorvidr", "The Oarman", 200, 26, 15, lynCutlass),
+		new Person("Oskar","The Quartermaster", 200, 27, 15, lynCutlass),
+		new Person("Karl","The Lackey", 200, 28, 15, lynCutlass),
+		new Person("Lars","The Hurried", 200, 29, 20, lynGladius),
+		new Person("Egil","The Scholar", 200, 30, 20, lynGladius)
 	};
 	
 	private Person[] medium = {
-		new Person("Cynbel", "The Forgotten", 15, 3, 3, lynSaber),
-		new Person("Tomas", "Bjornsson", 15, 3, 3, lynSaber),
-		new Person("Sindri", "The Tactician", 15, 3, 3, lynSaber),
-		new Person("Fi", "The Piper", 15, 3, 3, lynGauntlets),
-		new Person("Orjan", "The Butcher", 15, 3, 3, lynGauntlets),
-		new Person("Thorbjorn", "The Invader", 15, 3, 3, lynGauntlets),
-		new Person("Gry", "The Farmer", 15, 3, 3, lynGauntlets)
+		new Person("Cynbel", "The Forgotten", 300, 30, 20, lynSaber),
+		new Person("Tomas", "Bjornsson", 300, 32, 25, lynSaber),
+		new Person("Sindri", "The Tactician", 300, 34, 25, lynSaber),
+		new Person("Fi", "The Piper", 300, 36, 25, lynGauntlets),
+		new Person("Orjan", "The Butcher", 300, 38, 30, lynGauntlets),
+		new Person("Thorbjorn", "The Invader", 300, 39, 30, lynGauntlets),
+		new Person("Gry", "The Farmer", 300, 40, 30, lynGauntlets)
 	};
 	
 	private Person[] hard = {
-		new Person("Egil", "The Woodsman", 20, 5, 5, lynAxe),
-		new Person("Ylva", "The Carpenter", 20, 5, 5, lynAxe),
-		new Person("Gunhild", "The Shield Bearer", 20, 5, 5, lynAxe),
-		new Person("Sonja", "The Priestess", 20, 5, 5, lynDagger),
-		new Person("Harald", "The Old", 20, 5, 5, lynDagger),
-		new Person("Svea", "The Small", 20, 5, 5, lynDagger),
-		new Person("Terje", "The Prince", 20, 5, 5, lynDagger)
+		new Person("Egil", "The Woodsman", 400, 40, 35, lynAxe),
+		new Person("Ylva", "The Carpenter", 400, 40, 35, lynAxe),
+		new Person("Gunhild", "The Shield Bearer", 400, 41, 35, lynAxe),
+		new Person("Sonja", "The Priestess", 400, 41, 40, lynDagger),
+		new Person("Harald", "The Old", 400, 42, 40, lynDagger),
+		new Person("Svea", "The Small", 400, 43, 40, lynDagger),
+		new Person("Terje", "The Prince", 400, 44, 45, lynDagger)
 	};
 	
 	private Person[] tough = {
-		new Person("Baldr", "The First", 25, 7, 7, lynFlamethrower),
-		new Person("Eir", "The Second", 25, 7, 7, lynFlamethrower),
-		new Person("Frea", "The Third", 25, 7, 7, lynNunchuk),
-		new Person("Hildr", "The Fourth", 25, 7, 7, lynNunchuk)
+		new Person("Baldr", "The First", 500, 45, 45, lynFlamethrower),
+		new Person("Eir", "The Second", 500, 45, 45, lynFlamethrower),
+		new Person("Frea", "The Third", 500, 45, 45, lynNunchuk),
+		new Person("Hildr", "The Fourth", 500, 45, 45, lynNunchuk)
 	};
 	
 	//Create boss
-	private Person boss = new Person("R.A.I.D.", "THE REACTOR ARTIFICIAL INTELLIGENCE DESIGNATE", 35, 10, 10, lynReactor);
+	private Person boss = new Person("R.A.I.D.", "THE REACTOR ARTIFICIAL INTELLIGENCE DESIGNATE", 600, 50, 50, lynReactor);
 	
 	//Create all keys
 	private Item key1 = new Item("Rusty Key", "A rusty, old key that doesn't look like its been used recently.", 1, "Key", 0, true);
@@ -101,14 +101,14 @@ public class Map {
 	private Item key7 = new Item("Trophy Key", "\"For first place in the Viking Unlocking Doors Championship", 1, "Key", 0, true);
 	
 	//Create potion
-	private Item potion = new Item("Health Potion", "Restores 5 Health", 1, "Potion", 5, true);
+	private Item potion = new Item("Health Potion", "Restores Half of Maximum Health", 1, "Potion", 1, true);
 	
 	//Create all statues
-	private Item nisk = new Item("Statue of Nisk", "The statue fills you with an unknown power; you feel like even more of a Viking. Defense +5", 1, "Statue", 0, true);
-	private Item caeven = new Item("Statue of Caeven", "The statue fills you with an unknown power; you feel stronger than ever before. Strength +5", 1, "Statue", 0, true);	
-	private Item lockhaert = new Item("State of Lockhaert", "The statue fills you with an unknown power; you feel better than you just did a second ago. Strength +2 Defense +2", 1, "Statue", 0, true);
-	private Item traesk = new Item("Statue of Traesk", "The statue fills you with lard, er, an unknown power; you can feel old wounds begin to heal and shut. Health +5", 1, "Statue", 0, true);
-	private Item duenn = new Item("Statue of Duenn", "The statue fills you with a longing for hats. Defense +5", 1, "Statue", 0, true);
+	private Item nisk = new Item("Statue of Nisk", "The statue fills you with an unknown power; you feel like even more of a Viking. Defense +10 Strength +5", 1, "Statue", 0, true);
+	private Item caeven = new Item("Statue of Caeven", "The statue fills you with an unknown power; you feel stronger than ever before. Strength +15", 1, "Statue", 0, true);	
+	private Item lockhaert = new Item("State of Lockhaert", "The statue fills you with an unknown power; you feel better than you just did a second ago. Defense +10 Strength +5", 1, "Statue", 0, true);
+	private Item traesk = new Item("Statue of Traesk", "The statue fills you with lard, er, an unknown power; you can feel old wounds begin to heal and shut. Health +200", 1, "Statue", 0, true);
+	private Item duenn = new Item("Statue of Duenn", "The statue fills you with a longing for hats. Defense +5 Health +100", 1, "Statue", 0, true);
 	
 	/**
 	 * No args constructor, creates the map in the 2D array and sets all variables for first room
@@ -728,12 +728,12 @@ public class Map {
 	 */
 	public void resetEnemies(){
 		for (Person e : easy)
-			e.setHealth(10);
+			e.setHealth(200);
 		for (Person e : medium)
-			e.setHealth(15);
+			e.setHealth(300);
 		for (Person e : hard)
-			e.setHealth(20);
+			e.setHealth(400);
 		for (Person e : tough)
-			e.setHealth(25);
+			e.setHealth(500);
 	}
 }

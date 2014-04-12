@@ -169,9 +169,9 @@ public class Player extends Person
 		Random gen= new Random();
 		int damage;
 		
-		int factor= gen.nextInt(5)+1;
+		int factor= gen.nextInt(5);
 		
-		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(0.1*this.getStrength())+ 25*Math.log(this.getStrength()/this.getInventoryWeight()));
+		damage= (int)Math.round(this.getWeapon().getDataValue()+ factor*(this.getStrength())+ 25*Math.log(this.getStrength()/this.getInventoryWeight()));
 		
 		return damage;
 	}
