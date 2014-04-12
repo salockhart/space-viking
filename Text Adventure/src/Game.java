@@ -360,8 +360,13 @@ public class Game {
 						} else if (entry.contains("see") || entry.contains("view") || entry.contains("look") || entry.equals("s")) {
 							
 							if (!player.getInventory().isEmpty()){
-								for (int i = 0; i < player.getInventory().size(); i++)
-									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+								for (int i = 0; i < player.getInventory().size(); i++){
+									printMessage((i + 1) + " - " + player.getInventory().get(i) + "\n");
+									printMessage("\t" + player.getInventory().get(i).getDetail() + "\n\t Weight: " + player.getInventory().get(i).getWeight());
+									if (player.getInventory().get(i).getType().equals("Weapon"))
+										printMessage("\n\t Damage: " + player.getInventory().get(i).getDataValue());
+									printMessage("\n");
+								}
 								System.out.println();
 							} else
 								printMessage("There is nothing here.\n");
