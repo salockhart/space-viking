@@ -169,9 +169,8 @@ public class Game {
 			//new player created with the inputed name and profession
 				//health: 400
 				//strength: 25
-				//defense: 10
-			Player player = new Player(name, profession, 400, 25, 10, soedekilling, null);			
-			player.pickupItem(soedekilling); //adds starter weapon to inventory arraylist
+				//defense: 25
+			Player player = new Player(name, profession, 400, 25, 25, soedekilling, null);			
 			
 			//Game loop
 			while(play)
@@ -187,7 +186,7 @@ public class Game {
 					{	
 						//get player input (for battle sequences)
 						printMessage("\nWhat will you do, "+makeYellow(player.getName())+"?\n", 30);
-						System.out.print(CYAN+ "> ");
+						System.out.print(RED+ "> ");
 						String input=keyboard.nextLine();
 						System.out.print(RESET);
 						input.toLowerCase();
@@ -208,11 +207,11 @@ public class Game {
 						
 						else if(input.contains("fight")||input.contains("attack"))
 						{
-							double damageDealt = enemy.takeDamage(player.dealDamage());
+							int damageDealt = enemy.takeDamage(player.dealDamage());
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
 							
 							if(enemy.getHealth()>0) {
-								double damageTaken = player.takeDamage(enemy.dealDamage());
+								int damageTaken = player.takeDamage(enemy.dealDamage());
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
 						} else if(input.contains("stats") || input.contains("health")) {
@@ -285,8 +284,10 @@ public class Game {
 									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN + "> ");
 							int index = keyboard.nextInt() - 1;
-							if(index>player.getInventory().size())
-								printMessage("You do not have that item.");
+							if(index >= player.getInventory().size())
+								printMessage("You do not have that item.\n");
+							else if (!player.getInventory().get(index).getType().equals("Weapon"))
+								printMessage("You can only equip weapons, using the numbers above.");
 							else
 							{
 							//Return current item to inventory
@@ -295,9 +296,10 @@ public class Game {
 							player.setWeapon(player.getInventory().get(index));
 							//Remove selection from inventory
 							player.getInventory().remove(index);
-							printMessage(makeBlue(player.getInventory().get(index).getName()) + " equipped.");
+							printMessage(makeBlue(player.getWeapon().toString()) + " equipped.");
 							}
 							inventory = false;
+							System.out.println(RESET);
 							entry = keyboard.nextLine();
 							
 						} else if (entry.contains("drop") || entry.equals("d")) {
@@ -307,16 +309,17 @@ public class Game {
 								System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
-							if(index>player.getInventory().size())
-								printMessage("You do not have that item");
+							if(index >= player.getInventory().size())
+								printMessage("You do not have that item\n");
 							else {
 								printMessage(makeBlue(player.getInventory().get(index).getName()) + " dropped.");
 								map.getCurrentRoom().addItems(player.getInventory().get(index));
 								player.getInventory().remove(index);
 								inventory = false;
-								entry = keyboard.nextLine();
-								System.out.println();
 							}
+							System.out.println(RESET);
+							entry = keyboard.nextLine();
+							System.out.println();
 							
 						} else if (entry.contains("use") || entry.equals("u")) {
 							
@@ -327,37 +330,45 @@ public class Game {
 							System.out.print(YELLOW+ "> ");
 							int index = keyboard.nextInt() - 1;
 							//error check
-							if(index>player.getInventory().size())
-								printMessage("You do not have that item.");
+							if(index >= player.getInventory().size())
+								printMessage("You do not have that item.\n");
 							else if (player.getInventory().get(index).getName().equals("Health Potion")){
 								printMessage("You drank the potion and restored some health.");
-								player.heal(5);
+								player.heal(player.getMaxHealth()/2);
 							} else if (player.getInventory().get(index).getType().equals("Statue")){
 								printMessage("The statue's blessings wash over you. You feel uncomfortably moist.");
 								Item statue = player.getInventory().get(index);
-								if (statue.getName().contains("Nisk"))
-									player.setDefense(player.getDefense() + 5);
-								else if (statue.getName().contains("Caeven"))
+								if (statue.getName().contains("Nisk")){
+									player.setDefense(player.getDefense() + 10);
 									player.setStrength(player.getStrength() + 5);
+								} else if (statue.getName().contains("Caeven"))
+									player.setStrength(player.getStrength() + 15);
 								else if (statue.getName().contains("Lockhaert")){
-									player.setDefense(player.getDefense() + 2);
-									player.setStrength(player.getStrength() + 2);
+									player.setDefense(player.getDefense() + 10);
+									player.setStrength(player.getStrength() + 5);
 								} else if (statue.getName().contains("Traesk"))
-									//Add 5 to health
-									player.setMaxHealth(player.getMaxHealth() + 5);
-								else if (statue.getName().contains("Duenn"))
+									player.setMaxHealth(player.getMaxHealth() + 200);
+								else if (statue.getName().contains("Duenn")){
 									player.setDefense(player.getDefense() + 5);
+									player.setMaxHealth(player.getMaxHealth() + 100);
+								}
 							}
 							inventory = false;
-							if(index<=player.getInventory().size())
+							if(index < player.getInventory().size())
 								player.getInventory().remove(index);
+							System.out.println(RESET);
 							entry = keyboard.nextLine();
 							
 						} else if (entry.contains("see") || entry.contains("view") || entry.contains("look") || entry.equals("s")) {
 							
 							if (!player.getInventory().isEmpty()){
-								for (int i = 0; i < player.getInventory().size(); i++)
-									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+								for (int i = 0; i < player.getInventory().size(); i++){
+									printMessage((i + 1) + " - " + player.getInventory().get(i) + "\n");
+									printMessage("\t" + player.getInventory().get(i).getDetail() + "\n\t Weight: " + player.getInventory().get(i).getWeight());
+									if (player.getInventory().get(i).getType().equals("Weapon"))
+										printMessage("\n\t Damage: " + player.getInventory().get(i).getDataValue());
+									printMessage("\n");
+								}
 								System.out.println();
 							} else
 								printMessage("There is nothing here.\n");
@@ -387,11 +398,19 @@ public class Game {
 							System.out.println((i + 1) + " - " + map.getCurrentRoom().getItems().get(i) + "\n");
 						System.out.print(CYAN + "> ");
 						int index = keyboard.nextInt() - 1;
-						player.pickupItem(map.getCurrentRoom().getItems().get(index));
-						map.getCurrentRoom().removeItems(index);
-					} else
+						if(index >= map.getCurrentRoom().getItems().size())
+							printMessage("There isn't that many items in the room.\n");
+						else
+						{
+							printMessage(map.getCurrentRoom().getItems().get(index) + " picked up.\n");
+							player.pickupItem(map.getCurrentRoom().getItems().get(index));
+							map.getCurrentRoom().removeItems(index);
+							entry = keyboard.nextLine();
+						}
+					} else {
 						System.out.println("There is nothing to pick up.");
-					entry = keyboard.nextLine();
+					}
+					System.out.println(RESET);
 				
 				}
 				else if (entry.contains("north") || entry.equals("n")) {
@@ -455,6 +474,7 @@ public class Game {
 						map.setCurrentRoom(map.getRooms()[why][ecks], why, ecks);
 						map.getCurrentRoom().playerVisits();
 						map.setAdjacentRooms();
+						System.out.println(RESET);
 						entry = keyboard.nextLine();
 					}
 						
