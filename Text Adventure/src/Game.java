@@ -186,7 +186,7 @@ public class Game {
 					{	
 						//get player input (for battle sequences)
 						printMessage("\nWhat will you do, "+makeYellow(player.getName())+"?\n", 30);
-						System.out.print(CYAN+ "> ");
+						System.out.print(RED+ "> ");
 						String input=keyboard.nextLine();
 						System.out.print(RESET);
 						input.toLowerCase();
