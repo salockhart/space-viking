@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * Person.java
  * @author Niclas Skaalum
@@ -7,7 +9,6 @@
  * Faculty of Computer Science
  */
 
-import java.util.Random;
 public class Person
 {
 	//Instance Variables
