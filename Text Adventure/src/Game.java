@@ -36,7 +36,7 @@ public class Game {
 		if (!System.getProperty("os.name").contains("Windows")){
 			 RESET = "\u001B[0m";
 			 BLACK = "\u001B[30m";
-			 RED = "\u001B[31m";
+			 RED = "\u001B[91m";
 			 GREEN = "\u001B[32m";
 			 YELLOW = "\u001B[33m";
 			 BLUE = "\u001B[34m";
@@ -207,11 +207,11 @@ public class Game {
 						
 						else if(input.contains("fight")||input.contains("attack"))
 						{
-							double damageDealt = player.dealDamage();
+							int damageDealt = (int) player.dealDamage();
 							enemy.takeDamage(damageDealt);
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
 							if(enemy.getHealth()>0) {
-								double damageTaken = enemy.dealDamage();
+								int damageTaken = (int) enemy.dealDamage();
 								player.takeDamage(damageTaken);
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
