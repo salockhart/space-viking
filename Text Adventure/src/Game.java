@@ -286,6 +286,8 @@ public class Game {
 							int index = keyboard.nextInt() - 1;
 							if(index >= player.getInventory().size())
 								printMessage("You do not have that item.\n");
+							else if (!player.getInventory().get(index).getType().equals("Weapon"))
+								printMessage("You can only equip weapons, using the numbers above.");
 							else
 							{
 							//Return current item to inventory
@@ -590,7 +592,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(0);
+			Thread.sleep(50);
 		}
 	}
 	
@@ -598,7 +600,7 @@ public class Game {
 		
 		for (int i = 0; i < n.length(); i++){
 			System.out.print(n.substring(i, i+1));
-			Thread.sleep(0);
+			Thread.sleep(time);
 		}
 	}
 	
