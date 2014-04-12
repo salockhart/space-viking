@@ -96,7 +96,7 @@ public class Game {
 			System.out.println();
 			
 			//user's character inputs
-			printMessage("What would you like me to "+makeCyan("call")+" you, Warrior?\n");
+			printMessage("What would you like me to "+makeYellow("call")+" you, Warrior?\n");
 			System.out.println();
 			printMessage(makeGreen("*** DRAFTING ***\n"));
 			printMessage("To: odin@valhalla.no\n");
@@ -105,14 +105,14 @@ public class Game {
 			printMessage("\nSending");
 			printMessage("..........", 125);
 			printMessage(" Sent!\n");
-			System.out.println();
+			System.out.print(CLEAN);
 			
 			//Next email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
 			printMessage("From: odin@valhalla.no\n");
 			printMessage("Subject: Re:Re: Hello Warrior\n\n");
-			printMessage(name+". An interesting name indeed.\nWhat is your "+makeCyan("profession")+"?\n");
+			printMessage(makeYellow(name)+". An interesting name indeed. What is your "+makeYellow("profession")+"?\n");
 			System.out.println();
 
 			printMessage(makeGreen("*** DRAFTING ***\n"));
@@ -124,16 +124,16 @@ public class Game {
 			printMessage("\nSending");
 			printMessage("..........", 125);
 			printMessage(" Sent!\n");
-			System.out.println();
+			System.out.print(CLEAN);
 
 			//Third email
 			printMessage(makeRed("*** ALERT ***\n"));
 			printMessage(makeRed("New E-mail Recieved!\n"));
 			printMessage("From: odin@valhalla.no\n");
 			printMessage("Subject: Re:Re:Re:Re: Hello Warrior\n\n");
-			printMessage("Ah, "+makeCyan(name)+" the "+makeCyan(profession)+". Yes, I remember you.\n");
+			printMessage("Ah, "+makeYellow(name)+" the "+makeYellow(profession)+". Yes, I remember you.\n");
 			System.out.println();
-			printMessage("I call upon you now "+makeCyan(name)+", to go and rid this universe of your mutating vessel.\n");
+			printMessage("I call upon you now "+makeYellow(name)+", to go and rid this universe of your mutating vessel.\n");
 			printMessage("You must reach the core and destroy it for good and finish this.\n");
 			System.out.println();
 			
@@ -159,8 +159,8 @@ public class Game {
 			printMessage("And here take "+makeBlue("these")+", you may find them useful on your quest.\n");
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
 			printMessage(makeRed("Odin has bestowed upon thee, Soedekilling. \nA lyn-gladius that is given to novice warriors.\n"));
-			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+",\na relic from the "+makePurple("Information Age")+".\nYou can use this to update your map as you venture further.");
-			printMessage("Finally, remember that your keen "+profession+" instinct allows you to seek for \"help\" at any time.\n");
+			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+",\na relic from the "+makePurple("Information Age")+".\nYou can use this to update your map as you venture further.\n");
+			printMessage("Finally, remember that your keen "+ makeYellow(profession) +" instinct allows you to seek for \"help\" at any time.\n");
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			
 			Thread.sleep(1000);
@@ -186,7 +186,7 @@ public class Game {
 					while(fight)
 					{	
 						//get player input (for battle sequences)
-						printMessage("\nWhat will you do?\n");
+						printMessage("\nWhat will you do, "+makeYellow(player.getName())+"?\n", 30);
 						System.out.print(CYAN+ "> ");
 						String input=keyboard.nextLine();
 						System.out.print(RESET);
@@ -196,6 +196,7 @@ public class Game {
 						if(input.contains("help")||input.equals("?")) {
 							printMessage("'attack' or 'fight' : attacks the perilous foe.\n", 15);
 							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.\n", 15);
+							printMessage("'stats' or 'health' : view your current condition.\n", 15);
 						}
 						
 						else if(input.contains("run")||input.contains("flee"))
@@ -207,16 +208,25 @@ public class Game {
 						
 						else if(input.contains("fight")||input.contains("attack"))
 						{
+<<<<<<< HEAD
 							int damageDealt = (int) player.dealDamage();
 							enemy.takeDamage(damageDealt);
+=======
+							double damageDealt = enemy.takeDamage(player.dealDamage());
+>>>>>>> master
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
+							
 							if(enemy.getHealth()>0) {
+<<<<<<< HEAD
 								int damageTaken = (int) enemy.dealDamage();
 								player.takeDamage(damageTaken);
+=======
+								double damageTaken = player.takeDamage(enemy.dealDamage());
+>>>>>>> master
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
 						} else if(input.contains("stats") || input.contains("health")) {
-							printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense());
+							printMessage("Health: " + player.getHealth()+ "/"+ player.getMaxHealth()+ "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ "\nInventory weight: "+ player.getInventoryWeight()+"/"+ player.getDefense()+ "\nEquiped Weapon: "+ player.getWeapon()+ "\n");
 						} else {
 							printMessage("Now's not a very good time for that.\n");
 						}
@@ -244,8 +254,8 @@ public class Game {
 				
 				//Get player input (non-battle sequences)
 				if (play){
-					printMessage("\nWhat will you do, "+player.getName()+"?\n");
-					System.out.print(CYAN+ "> ");
+					printMessage("\nWhat will you do, "+makeYellow(player.getName())+"?\n", 30);
+					System.out.print(CYAN + "> ");
 					entry = keyboard.nextLine();
 					System.out.print(RESET);
 					entry.toLowerCase();
@@ -264,18 +274,18 @@ public class Game {
 					while(inventory) {
 						
 						printMessage("What will you do with your inventory?\n");
-						System.out.print(CYAN+ "> ");
+						System.out.print(CYAN + "> ");
 						entry = keyboard.nextLine();
 						System.out.println(RESET);
 						entry.toLowerCase();
 						
 						if (entry.contains("help") || entry.equals("?")) {
 							
-							printMessage("'see' or 's' : view the contents of your inventory\n");
-							printMessage("'use' or 'u' : use an item from your inventory\n");
-							printMessage("'equip' or 'e' : equip a weapon from your inventory\n");
-							printMessage("'drop' or 'd' : drop an item or weapon from yout inventory\n");
-							printMessage("'exit' : leave the inventory\n");
+							printMessage("'see' or 's' : view the contents of your inventory\n", 15);
+							printMessage("'use' or 'u' : use an item from your inventory\n", 15);
+							printMessage("'equip' or 'e' : equip a weapon from your inventory\n", 15);
+							printMessage("'drop' or 'd' : drop an item or weapon from yout inventory\n", 15);
+							printMessage("'exit' : leave the inventory\n", 15);
 						
 						} else if (entry.contains("equip") || entry.equals("e")) {
 							
@@ -283,7 +293,7 @@ public class Game {
 							for (int i = 0; i < player.getInventory().size(); i++)
 								if (player.getInventory().get(i).getType().equals("Weapon"))
 									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
-							System.out.print(CYAN+ "> ");
+							System.out.print(CYAN + "> ");
 							int index = keyboard.nextInt() - 1;
 							if(index>player.getInventory().size())
 								printMessage("You do not have that item.");
@@ -324,7 +334,7 @@ public class Game {
 							for (int i = 0; i < player.getInventory().size(); i++)
 								if (player.getInventory().get(i).getType().equals("Potion") || player.getInventory().get(i).getType().equals("Statue"))
 									System.out.println((i + 1) + " - " + player.getInventory().get(i));
-							System.out.print(CYAN+ "> ");
+							System.out.print(YELLOW+ "> ");
 							int index = keyboard.nextInt() - 1;
 							//error check
 							if(index>player.getInventory().size())
@@ -385,7 +395,7 @@ public class Game {
 						printMessage("Enter the number of your selection:\n");
 						for (int i = 0; i < map.getCurrentRoom().getItems().size(); i++)
 							System.out.println((i + 1) + " - " + map.getCurrentRoom().getItems().get(i) + "\n");
-						System.out.print(CYAN+ "> ");
+						System.out.print(CYAN + "> ");
 						int index = keyboard.nextInt() - 1;
 						player.pickupItem(map.getCurrentRoom().getItems().get(index));
 						map.getCurrentRoom().removeItems(index);
@@ -427,8 +437,8 @@ public class Game {
 				
 				} else if(entry.contains("stats") || entry.contains("health")) {
 					
-					printMessage("Health: " + player.getHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ 
-							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength() + "\n");
+					printMessage("Health: " + player.getHealth()+ "/"+ player.getMaxHealth() + "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ 
+							"\nInventory weight: "+ player.getInventoryWeight()+ "/"+ player.getStrength() + "\nEquipped weapon: "+ player.getWeapon()+ "\n");
 				
 				}
 				
@@ -441,7 +451,7 @@ public class Game {
 					player.pickupItem(topDog);
 					player.setWeapon(topDog);
                     
-				} else if (entry.equals("~") || entry.equals("cheat")){
+				} else if (entry.equals("~") || entry.contains("cheat")){
 					
 					System.out.println("How do you want to break the game?\n");
 					System.out.print(CYAN+ "> ");
@@ -473,7 +483,7 @@ public class Game {
 			printMessage("\nGeoff Caven\t\tVice Admiral In Charge Of Breaking Shit");
 			printMessage("\nAlex Dunn\t\tSad BoIIIIIIIII");
 			printMessage("\nStanford Lockhart\tActual Cannibal Shia LeBeouf");
-			printMessage("\nNiclas Skaaaaaluuuuuum\t\tLiason to Asgard and Surrounding Suburbs");
+			printMessage("\nNiclas Skaaaaaluuuuuum  Liason to Asgard and Surrounding Suburbs");
 			printMessage("\nMatthew Trask\t\tHead of Lard");
 			printMessage("\n\n\t\tSpecial Thanks");
 			printMessage("\nYung Lean");
@@ -499,7 +509,6 @@ public class Game {
 			//not battle inputs
 			printMessage("'map' or 'm' : open your map (shows only previously visited and adjacent rooms)\n", 15);
 			printMessage("'inventory' or 'i' : open inventory\n", 15);
-			printMessage("'equip' or 'eq' : equips an item in your inventory at the specified index\n", 15);
 			printMessage("'look' or 'l' : look at your surroundings\n", 15);
 			printMessage("'pick up' or 'p' : pick up an item\n", 15);
 			printMessage("'move north' or 'n' : move to the northern adjacent room (if valid)\n", 15);
@@ -524,11 +533,11 @@ public class Game {
 		printMessage(".....\n", 150);
 		printMessage("LOADING WINDOWS XP SERVICE PACK 4 >>>>>\n\n", 15);
 		printMessage("kernel 4.5.2 \"SUPER SPACE\"\n", 15);
-		printMessage("busting shell ghost\n\n", 15);
+		printMessage("busting shell ghost\n", 15);
 		printMessage("popping kernals\n\n", 15);
 		printMessage("...\n", 165);
 		printMessage("WINDOWS XP SERVICE PACK 4 BOOTUP COMPLETE::\n\n", 15);
-		printMessage("forced startup pushed from 25.223.196.168\n\n", 15);
+		printMessage("forced wakeup pushed from 25.223.196.168\n\n", 15);
 		printMessage("//////////////begin cryostasis wake up//////////////\n\n", 15);
 		printMessage("initializing heart pump ", 15);
 		printMessage("... ", 120);
@@ -587,30 +596,30 @@ public class Game {
 	
 	//methods to change colours of strings in terminal
 	public static String makeBlack(String s) {
-		return BLACK+ s+ RESET;
+		return BLACK+ s.toUpperCase() + RESET;
 	}
 	public static String makeRed(String s) {
-		return RED+ s+ RESET;
+		return RED+ s.toUpperCase() + RESET;
 	}
 	public static String makeGreen(String s) {
-		return GREEN+ s+ RESET;
+		return GREEN+ s.toUpperCase() + RESET;
 	}
 	public static String makeYellow(String s) {
-		return YELLOW+ s+ RESET;
+		return YELLOW+ s.toUpperCase() + RESET;
 	}
 	public static String makeBlue(String s) {
-		return BLUE+ s+ RESET;
+		return BLUE+ s.toUpperCase() + RESET;
 	}
 	public static String makePurple(String s) {
-		return PURPLE+ s+ RESET;
+		return PURPLE+ s.toUpperCase() + RESET;
 	}
 	public static String makeCyan(String s) {
-		return CYAN+ s+ RESET;
+		return CYAN+ s.toUpperCase() + RESET;
 	}
 	public static String makeWhite(String s) {
-		return WHITE+ s+ RESET;
+		return WHITE+ s.toUpperCase() + RESET;
 	}
 	public static String makeHidden(String s) {
-		return HIDDEN+ s+ RESET;
+		return HIDDEN+ s + RESET;
 	}
 }
