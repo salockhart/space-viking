@@ -25,7 +25,7 @@ public class Map {
 	
 	//Create all player items for the game
 	private Item weapon2 = new Item("Sjoraeningi", "A dull lyn-cutlass, more fit for a pirate than a viking", 7, "Weapon", 30, true);
-	private Item weapon3 = new Item("Vejmon's Edge", "You can tell by the make of the lyn-saber that this used to belong to your friend, Vejmon.\nHow many others has Odin sent to their deaths before you?", 40, "Weapon", 3, true);
+	private Item weapon3 = new Item("Vejmon's Edge", "You can tell by the make of the lyn-saber that this used to belong to your friend, Vejmon.\n\tHow many others has Odin sent to their deaths before you?", 3, "Weapon", 40, true);
 	private Item weapon4 = new Item("The Bjoernkrammer", "Solid metal lyn-gauntlets, for punching this ship right back to hell.", 12, "Weapon", 50, true);
 	private Item weapon5 = new Item("Hestespiser", "A brutal looking axe, although from the stains it looks a tad used.", 14, "Weapon", 60, true);
 	private Item weapon6 = new Item("Andetaender", "A set of lyn-daggers, very useful for throwing at enemies from a distance.\nToo bad you can't throw.", 10, "Weapon", 70, true);
