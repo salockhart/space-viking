@@ -299,22 +299,24 @@ public class Game {
 									printMessage((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN + "> ");
 							int index = keyboard.nextInt() - 1;
-							if(index >= player.getInventory().size())
+							if(index >= player.getInventory().size()) {
 								playSound("error");
 								printMessage("You do not have that item.\n");
-							else if (!player.getInventory().get(index).getType().equals("Weapon"))
+							}
+							else if (!player.getInventory().get(index).getType().equals("Weapon")) {
 								playSound("error");
 								printMessage("You can only equip weapons, using the numbers above.");
+							}
 							else
 							{
-							//Return current item to inventory
-							player.pickupItem(player.getWeapon());
-							//Set weapon to selection
-							player.setWeapon(player.getInventory().get(index));
-							//Remove selection from inventory
-							player.getInventory().remove(index);
-							playSound("equip");
-							printMessage(makeBlue(player.getWeapon().toString()) + " equipped.");
+								//Return current item to inventory
+								player.pickupItem(player.getWeapon());
+								//Set weapon to selection
+								player.setWeapon(player.getInventory().get(index));
+								//Remove selection from inventory
+								player.getInventory().remove(index);
+								playSound("equip");
+								printMessage(makeBlue(player.getWeapon().toString()) + " equipped.");
 							}
 							inventory = false;
 							System.out.println(RESET);
@@ -427,9 +429,10 @@ public class Game {
 							printMessage((i + 1) + " - " + map.getCurrentRoom().getItems().get(i) + "\n");
 						System.out.print(CYAN + "> ");
 						int index = keyboard.nextInt() - 1;
-						if(index >= map.getCurrentRoom().getItems().size())
+						if(index >= map.getCurrentRoom().getItems().size()) {
 							playSound("error");
 							printMessage("There isn't that many items in the room.\n");
+						}	
 						else
 						{
 							printMessage(map.getCurrentRoom().getItems().get(index) + " picked up.\n");
