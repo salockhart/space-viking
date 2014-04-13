@@ -329,7 +329,7 @@ public class Game {
 							printMessage("What item would you like to use?\nEnter the number of your selection:\n");
 							for (int i = 0; i < player.getInventory().size(); i++)
 								if (player.getInventory().get(i).getType().equals("Potion") || player.getInventory().get(i).getType().equals("Statue"))
-									printMessage((i + 1) + " - " + player.getInventory().get(i));
+									printMessage((i + 1) + " - " + player.getInventory().get(i)+ "\n");
 							System.out.print(YELLOW+ "> ");
 							int index = keyboard.nextInt() - 1;
 							//error check
