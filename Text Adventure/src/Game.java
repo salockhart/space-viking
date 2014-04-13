@@ -51,6 +51,7 @@ public class Game {
 		
 		System.out.println(CLEAN);
 		
+
 		printMessage("A Blessed Boys production:\n");
 		System.out.println();
 		System.out.println();
@@ -105,6 +106,7 @@ public class Game {
 			printMessage("\nSending");
 			printMessage("..........", 125);
 			printMessage(" Sent!\n");
+			Thread.sleep(1000);
 			System.out.print(CLEAN);
 			
 			//Next email
@@ -124,6 +126,7 @@ public class Game {
 			printMessage("\nSending");
 			printMessage("..........", 125);
 			printMessage(" Sent!\n");
+			Thread.sleep(1000);
 			System.out.print(CLEAN);
 
 			//Third email
@@ -230,7 +233,7 @@ public class Game {
 						
 						if(player.getHealth()<=0)
 						{
-							printMessage("You were defeated by the "+makePurple(enemy.getName())+"\n");
+							printMessage("You were defeated by "+makePurple(enemy.getName()+ " the " + enemy.getProfession()) +"\n");
 							play = false;
 							printMessage("\nGAME OVER\n");
 							fight = false;
@@ -281,7 +284,7 @@ public class Game {
 							printMessage("What item would you like to equip?\nEnter the number of your selection:\n");
 							for (int i = 0; i < player.getInventory().size(); i++)
 								if (player.getInventory().get(i).getType().equals("Weapon"))
-									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+									printMessage((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN + "> ");
 							int index = keyboard.nextInt() - 1;
 							if(index >= player.getInventory().size())
@@ -306,7 +309,7 @@ public class Game {
 							
 							printMessage("What item would you like to drop?\nEnter the number of your selection:\n");
 							for (int i = 0; i < player.getInventory().size(); i++)
-								System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+								printMessage((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
 							if(index >= player.getInventory().size())
@@ -326,7 +329,7 @@ public class Game {
 							printMessage("What item would you like to use?\nEnter the number of your selection:\n");
 							for (int i = 0; i < player.getInventory().size(); i++)
 								if (player.getInventory().get(i).getType().equals("Potion") || player.getInventory().get(i).getType().equals("Statue"))
-									System.out.println((i + 1) + " - " + player.getInventory().get(i));
+									printMessage((i + 1) + " - " + player.getInventory().get(i));
 							System.out.print(YELLOW+ "> ");
 							int index = keyboard.nextInt() - 1;
 							//error check
@@ -336,21 +339,26 @@ public class Game {
 								printMessage("You drank the potion and restored some health.");
 								player.heal(player.getMaxHealth()/2);
 							} else if (player.getInventory().get(index).getType().equals("Statue")){
-								printMessage("The statue's blessings wash over you. You feel uncomfortably moist.");
+								printMessage("The statue's blessings wash over you. You feel uncomfortably moist.\n");
 								Item statue = player.getInventory().get(index);
 								if (statue.getName().contains("Nisk")){
 									player.setDefense(player.getDefense() + 10);
 									player.setStrength(player.getStrength() + 5);
-								} else if (statue.getName().contains("Caeven"))
+									printMessage("Defense +10 Strength +5\n");
+								} else if (statue.getName().contains("Caeven")){
 									player.setStrength(player.getStrength() + 15);
-								else if (statue.getName().contains("Lockhaert")){
+									printMessage("Strength +15\n");
+								} else if (statue.getName().contains("Lockhaert")){
 									player.setDefense(player.getDefense() + 10);
 									player.setStrength(player.getStrength() + 5);
-								} else if (statue.getName().contains("Traesk"))
+									printMessage("Defense +10 Strength +5\n");
+								} else if (statue.getName().contains("Traesk")){
 									player.setMaxHealth(player.getMaxHealth() + 200);
-								else if (statue.getName().contains("Duenn")){
+									printMessage("Max Health +200\n");
+								} else if (statue.getName().contains("Duenn")){
 									player.setDefense(player.getDefense() + 5);
 									player.setMaxHealth(player.getMaxHealth() + 100);
+									printMessage("Defense +5 Max Health +100\n");
 								}
 							}
 							inventory = false;
@@ -395,7 +403,7 @@ public class Game {
 					if (!map.getCurrentRoom().getItems().isEmpty()){
 						printMessage("Enter the number of your selection:\n");
 						for (int i = 0; i < map.getCurrentRoom().getItems().size(); i++)
-							System.out.println((i + 1) + " - " + map.getCurrentRoom().getItems().get(i) + "\n");
+							printMessage((i + 1) + " - " + map.getCurrentRoom().getItems().get(i) + "\n");
 						System.out.print(CYAN + "> ");
 						int index = keyboard.nextInt() - 1;
 						if(index >= map.getCurrentRoom().getItems().size())
@@ -408,7 +416,7 @@ public class Game {
 							entry = keyboard.nextLine();
 						}
 					} else {
-						System.out.println("There is nothing to pick up.");
+						printMessage("There is nothing to pick up.");
 					}
 					System.out.println(RESET);
 				
@@ -480,12 +488,13 @@ public class Game {
 						
 				} else if(entry.equals("quit")) {
 					play = false;
-				} else {
+				} else if (!entry.equals("")) {
 					printMessage("There is no time for that now.\n");
 				}
 
 			}
 			
+			Thread.sleep(1000);
 			System.out.println(CLEAN);
 			
 			//CREDITS
@@ -583,7 +592,7 @@ public class Game {
 		printMessage("//////////////cryostasis wakeup complete//////////////\n\n", 15);
 		printMessage("initializing email client");
 		printMessage("... \n", 175);
-		printMessage(CLEAN);
+		System.out.println(CLEAN);
 		
 	}
 	

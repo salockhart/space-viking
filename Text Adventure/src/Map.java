@@ -364,95 +364,100 @@ public class Map {
 	
 	/**
 	 * Move the player north if there is a door there and it is not locked
+	 * @throws InterruptedException 
 	 */
-	public void moveNorth(){
+	public void moveNorth() throws InterruptedException{
 		if (isDoor[0] && !isLocked[0]){
 			currentY--;
 			currentRoom = rooms[currentY][currentX];
 			currentRoom.playerVisits();
 			setAdjacentRooms();
 		} else if (!isDoor[0])
-			System.out.println("There is no door in that direction");
+			Game.printMessage("There is no door in that direction\n");
 		else if (isLocked[0])
-			System.out.println("You try to continue, but the door is locked");
+			Game.printMessage("You try to continue, but the door is locked\n");
 	}
 	
 	/**
 	 * Move the player east if there is a door there and it is not locked
+	 * @throws InterruptedException 
 	 */
-	public void moveEast(){
+	public void moveEast() throws InterruptedException{
 		if (isDoor[1] && !isLocked[1]){
 			currentX++;
 			currentRoom = rooms[currentY][currentX];
 			currentRoom.playerVisits();
 			setAdjacentRooms();
 		} else if (!isDoor[1])
-			System.out.println("There is no door in that direction");
+			Game.printMessage("There is no door in that direction\n");
 		else if (isLocked[1])
-			System.out.println("You try to continue, but the door is locked");
+			Game.printMessage("You try to continue, but the door is locked\n");
 	}
 	
 	/**
 	 * Move the player north if there is a door there and it is not locked
+	 * @throws InterruptedException 
 	 */
-	public void moveSouth(){
+	public void moveSouth() throws InterruptedException{
 		if (isDoor[2] && !isLocked[2]){
 			currentY++;
 			currentRoom = rooms[currentY][currentX];
 			currentRoom.playerVisits();
 			setAdjacentRooms();
 		} else if (!isDoor[2])
-			System.out.println("There is no door in that direction");
+			Game.printMessage("There is no door in that direction\n");
 		else if (isLocked[2])
-			System.out.println("You try to continue, but the door is locked");
+			Game.printMessage("You try to continue, but the door is locked\n");
 	}
 	
 	/**
 	 * Move the player north if there is a door there and it is not locked
+	 * @throws InterruptedException 
 	 */
-	public void moveWest(){
+	public void moveWest() throws InterruptedException{
 		if (isDoor[3] && !isLocked[3]){
 			currentX--;
 			currentRoom = rooms[currentY][currentX];
 			currentRoom.playerVisits();
 			setAdjacentRooms();
 		} else if (!isDoor[3])
-			System.out.println("There is no door in that direction");
+			Game.printMessage("There is no door in that direction\n");
 		else if (isLocked[3])
-			System.out.println("You try to continue, but the door is locked");
+			Game.printMessage("You try to continue, but the door is locked\n");
 	}
 	
 	/**
 	 * Returns a description of the current room
+	 * @throws InterruptedException 
 	 */
-	public void look(){
-		System.out.println(currentRoom.getDescription());
+	public void look() throws InterruptedException{
+		Game.printMessage(currentRoom.getDescription() + "\n");
 		if (isDoor[0]){
 			if (isLocked[0])
-				System.out.println("There is a locked door to the North");
+				Game.printMessage("There is a locked door to the North\n");
 			else
-				System.out.println("There is a door to the North");
+				Game.printMessage("There is a door to the North\n");
 		}
 		if (isDoor[1]){
 			if (isLocked[1])
-				System.out.println("There is a locked door to the East");
+				Game.printMessage("There is a locked door to the East\n");
 			else
-				System.out.println("There is a door to the East");
+				Game.printMessage("There is a door to the East\n");
 		}
 		if (isDoor[2]){
 			if (isLocked[2])
-				System.out.println("There is a locked door to the South");
+				Game.printMessage("There is a locked door to the South\n");
 			else
-				System.out.println("There is a door to the South");
+				Game.printMessage("There is a door to the South\n");
 		}
 		if (isDoor[3]){
 			if (isLocked[3])
-				System.out.println("There is a locked door to the West");
+				Game.printMessage("There is a locked door to the West\n");
 			else
-				System.out.println("There is a door to the West");
+				Game.printMessage("There is a door to the West\n");
 		}
 		if (!currentRoom.getItems().isEmpty())
-			System.out.println("The room has the following items:\n" + currentRoom.getItems());
+			Game.printMessage("The room has the following items:\n" + currentRoom.getItems() + "\n");
 	}
 	
 	/**
