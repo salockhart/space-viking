@@ -8,6 +8,9 @@
  */
 
 import java.util.Scanner;
+import java.net.*;
+import java.applet.*;
+import java.util.Random;
 
 public class Game {
 	
@@ -76,6 +79,7 @@ public class Game {
 			System.out.println();
 			
 			loadUp();
+			playSound("load");
 			
 			//First email
 			printMessage(makeRed("*** ALERT ***\n"));
@@ -104,6 +108,7 @@ public class Game {
 			printMessage("Subject: Re: Hello Warrior\n");
 			String name = keyboard.nextLine();
 			printMessage("\nSending");
+			playSound("send");
 			printMessage("..........", 125);
 			printMessage(" Sent!\n");
 			Thread.sleep(1000);
@@ -124,6 +129,7 @@ public class Game {
 			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
 			String profession = keyboard.nextLine();
 			printMessage("\nSending");
+			playSound("send");
 			printMessage("..........", 125);
 			printMessage(" Sent!\n");
 			Thread.sleep(1000);
@@ -161,6 +167,7 @@ public class Game {
 			
 			printMessage("And here take "+makeBlue("these")+", you may find them useful on your quest.\n");
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
+			playSound("equip");
 			printMessage(makeRed("Odin has bestowed upon thee, Soedekilling. \nA lyn-gladius that is given to novice warriors.\n"));
 			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+",\na relic from the "+makePurple("Information Age")+".\nYou can use this to update your map as you venture further.\n");
 			printMessage("Finally, remember that your keen "+ makeYellow(profession) +" instinct allows you to seek for \"help\" at any time.\n");
@@ -211,20 +218,24 @@ public class Game {
 						else if(input.contains("fight")||input.contains("attack"))
 						{
 							int damageDealt = enemy.takeDamage(player.dealDamage());
+							playSound("damage");
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
 							
 							if(enemy.getHealth()>0) {
 								int damageTaken = player.takeDamage(enemy.dealDamage());
+								playSound("damage");
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
 						} else if(input.contains("stats") || input.contains("health")) {
 							printMessage("Health: " + player.getHealth()+ "/"+ player.getMaxHealth()+ "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ "\nInventory weight: "+ player.getInventoryWeight()+"/"+ player.getDefense()+ "\nEquiped Weapon: "+ player.getWeapon()+ "\n");
 						} else {
+							playSound("error");
 							printMessage("Now's not a very good time for that.\n");
 						}
 						
 						if(enemy.getHealth()<=0)
 						{
+							playSound("enemydead");
 							printMessage("You defeated "+makePurple(enemy.getName()) + " " + makePurple(enemy.getProfession()) +"\n");
 							map.getCurrentRoom().setEnemy(null);
 							fight=false;
@@ -233,6 +244,7 @@ public class Game {
 						
 						if(player.getHealth()<=0)
 						{
+							playSound("playerdead");
 							printMessage("You were defeated by "+makePurple(enemy.getName()+ " the " + enemy.getProfession()) +"\n");
 							play = false;
 							printMessage("\nGAME OVER\n");
@@ -288,8 +300,10 @@ public class Game {
 							System.out.print(CYAN + "> ");
 							int index = keyboard.nextInt() - 1;
 							if(index >= player.getInventory().size())
+								playSound("error");
 								printMessage("You do not have that item.\n");
 							else if (!player.getInventory().get(index).getType().equals("Weapon"))
+								playSound("error");
 								printMessage("You can only equip weapons, using the numbers above.");
 							else
 							{
@@ -299,6 +313,7 @@ public class Game {
 							player.setWeapon(player.getInventory().get(index));
 							//Remove selection from inventory
 							player.getInventory().remove(index);
+							playSound("equip");
 							printMessage(makeBlue(player.getWeapon().toString()) + " equipped.");
 							}
 							inventory = false;
@@ -336,6 +351,7 @@ public class Game {
 							if(index >= player.getInventory().size())
 								printMessage("You do not have that item.\n");
 							else if (player.getInventory().get(index).getName().equals("Health Potion")){
+								playSound("potion");
 								printMessage("You drank the potion and restored some health.");
 								player.heal(player.getMaxHealth()/2);
 							} else if (player.getInventory().get(index).getType().equals("Statue")){
@@ -344,20 +360,25 @@ public class Game {
 								if (statue.getName().contains("Nisk")){
 									player.setDefense(player.getDefense() + 10);
 									player.setStrength(player.getStrength() + 5);
+									playSound("potion");
 									printMessage("Defense +10 Strength +5\n");
 								} else if (statue.getName().contains("Caeven")){
 									player.setStrength(player.getStrength() + 15);
+									playSound("potion");
 									printMessage("Strength +15\n");
 								} else if (statue.getName().contains("Lockhaert")){
 									player.setDefense(player.getDefense() + 10);
 									player.setStrength(player.getStrength() + 5);
+									playSound("potion");
 									printMessage("Defense +10 Strength +5\n");
 								} else if (statue.getName().contains("Traesk")){
 									player.setMaxHealth(player.getMaxHealth() + 200);
+									playSound("potion");
 									printMessage("Max Health +200\n");
 								} else if (statue.getName().contains("Duenn")){
 									player.setDefense(player.getDefense() + 5);
 									player.setMaxHealth(player.getMaxHealth() + 100);
+									playSound("potion");
 									printMessage("Defense +5 Max Health +100\n");
 								}
 							}
@@ -386,7 +407,7 @@ public class Game {
 							inventory = false;
 							
 						} else if (!entry.equals("")){
-							
+							playSound("error");
 							printMessage("There is no time for that now.\n");
 							
 						}
@@ -407,6 +428,7 @@ public class Game {
 						System.out.print(CYAN + "> ");
 						int index = keyboard.nextInt() - 1;
 						if(index >= map.getCurrentRoom().getItems().size())
+							playSound("error");
 							printMessage("There isn't that many items in the room.\n");
 						else
 						{
@@ -416,6 +438,7 @@ public class Game {
 							entry = keyboard.nextLine();
 						}
 					} else {
+						playSound("error");
 						printMessage("There is nothing to pick up.");
 					}
 					System.out.println(RESET);
@@ -448,7 +471,7 @@ public class Game {
 						player.deleteItem("Key");
 					}
 				
-				} else if(entry.equals("clean")) {
+				} else if(entry.equals("clean")||entry.equals("clear")) {
 					
 					System.out.println(CLEAN);
 				
@@ -461,6 +484,7 @@ public class Game {
 				
 				//GOD MODE
 				else if(entry.equals("):") || entry.equals(":(")) {
+					playSound("god");
 					player.setStrength(500);
 					player.setDefense(500);
 					player.setHealth(500);
@@ -485,10 +509,18 @@ public class Game {
 						System.out.println(RESET);
 						entry = keyboard.nextLine();
 					}
+					if(entry.equals("saxxy")) {
+						playSound("saxxy");
+					}
+					
+					if(entry.equals("dance")) {
+						playSound("party");
+					}
 						
 				} else if(entry.equals("quit")) {
 					play = false;
 				} else if (!entry.equals("")) {
+					playSound("error");
 					printMessage("There is no time for that now.\n");
 				}
 
@@ -611,6 +643,126 @@ public class Game {
 			System.out.print(n.substring(i, i+1));
 			Thread.sleep(time);
 		}
+	}
+	
+	//method keeping all possible playable sounds in one place. Keep rest of code clean
+	public static void playSound(String s) {
+		if(s.equals("damage")) {
+			AudioClip[] damage= new AudioClip[4];
+			Random gen= new Random();	//select a random damage noise to play
+			try {
+				damage[0]= Applet.newAudioClip(new URL("file:Music/damage0.wav"));
+				damage[1]= Applet.newAudioClip(new URL("file:Music/damage1.wav"));
+				damage[2]= Applet.newAudioClip(new URL("file:Music/damage2.wav"));
+				damage[3]= Applet.newAudioClip(new URL("file:Music/damage3.wav"));
+				
+				int rand= gen.nextInt(4);
+				damage[rand].play();
+			}
+			catch (Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("equip")) {
+			try {
+				AudioClip equip= Applet.newAudioClip(new URL("file:Music/equip.wav"));
+				equip.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		if(s.equals("error")) {
+			try {
+				AudioClip error= Applet.newAudioClip(new URL("file:Music/Error.wav"));
+				error.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("god")) {
+			try {
+				AudioClip godMode= Applet.newAudioClip(new URL("file:Music/GODMODE.wav"));
+				godMode.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("enemydead")) {
+			try {
+				AudioClip death= Applet.newAudioClip(new URL("file:Music/enemyDeath.wav"));
+				death.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("load")) {
+			try {
+				AudioClip loading= Applet.newAudioClip(new URL("file:Music/LOADUP.wav"));
+				loading.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("playerdead")) {
+			try {
+				AudioClip death= Applet.newAudioClip(new URL("file:Music/Player_Death.wav"));
+				death.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("potion")) {
+			try {
+				AudioClip heal= Applet.newAudioClip(new URL("file:Music/potion.wav"));
+				heal.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("saxxy")) {
+			try {
+				AudioClip cheaty= Applet.newAudioClip(new URL("file:Music/saxxy.wav"));
+				cheaty.loop();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("send")) {
+			try {
+				AudioClip dial= Applet.newAudioClip(new URL("file:Music/Sending.wav"));
+				dial.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("party")) {
+			try {
+				AudioClip funk= Applet.newAudioClip(new URL("file:Music/Who Likes to Party.wav"));
+				funk.loop();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
 	}
 	
 	//methods to change colours of strings in terminal
