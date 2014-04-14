@@ -7,10 +7,11 @@
  * Faculty of Computer Science
  */
 
-import java.util.Scanner;
-import java.net.*;
-import java.applet.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Game {
 	
@@ -120,7 +121,7 @@ public class Game {
 			printMessage(makeRed("New E-mail Recieved!\n"),25);
 			printMessage("From: odin@valhalla.no\n",25);
 			printMessage("Subject: Re:Re: Hello Warrior\n\n",25);
-			printMessage(makeYellow(name)+". An interesting name indeed. What is your "+makeYellow("profession")+"?\n");
+			printMessage(makeYellow(name)+". An interesting name indeed. What is your "+makeYellow("title")+"?\n");
 			System.out.println();
 
 			printMessage(makeGreen("*** DRAFTING ***\n"),25);
