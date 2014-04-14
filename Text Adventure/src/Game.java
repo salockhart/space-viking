@@ -190,6 +190,7 @@ public class Game {
 				if(map.getCurrentRoom().equals(map.getRooms()[0][5]))
 				{
 					boss = true;
+					map.look();
 				}
 
 				if(map.getCurrentRoom().getEnemy()!=null)

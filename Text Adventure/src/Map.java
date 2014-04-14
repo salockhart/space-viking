@@ -154,7 +154,7 @@ public class Map {
 		rooms[3][1] = new Room(false, new ArrayList<Item>(Arrays.asList(key3)), null,"A storage closest, a skull sits on the shelf. 'with love, from mom' is written across the brow.");
 		rooms[3][2] = null;
 		rooms[3][3] = new Room(false, new ArrayList<Item>(Arrays.asList(potion)), null, "A narrow maintenance hallway");
-		rooms[3][4] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "The floor is covered in strewn human bones and viscera\n Horned helmets are piled against the north wall, though most have been broken.");
+		rooms[3][4] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "The floor is covered in strewn human bones and viscera\nHorned helmets are piled against the north wall, though most have been broken.");
 		rooms[3][5] = new Room(true, new ArrayList<Item>(), null, "A central maintenance room\nDoors to the west and east provide access to the engine sector.");
 		rooms[3][6] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "This room is spotless\nSomeone even took the time to clean the ceilings.");
 		rooms[3][7] = new Room(false, new ArrayList<Item>(Arrays.asList(potion)), null, "A narrow maintenance hallway");
@@ -274,7 +274,7 @@ public class Map {
 		rooms[13][1] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "A largely unremarkable hallway. A sign points south and reads: 'Bridge Access and Fish Saltery'.");
 		rooms[13][2] = null;
 		rooms[13][3] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "The wall panelling is spread around the room.\nThe pipes have been pulled out of the wall and are spraying superheated steam in the air.");
-		rooms[13][4] = new Room(true, new ArrayList<Item>(), null, "A security room. It was locked down prety tight until you found the key.\n Someone already emptied the weapon cabinet.");
+		rooms[13][4] = new Room(true, new ArrayList<Item>(), null, "A security room. It was locked down prety tight until you found the key.\nSomeone already emptied the weapon cabinet.");
 		rooms[13][5] = new Room(false, new ArrayList<Item>(), null, "A nice snack room, the vending machines are fully stocked.\nA bulkhead automatically sealed off access to the west.");
 		rooms[13][6] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "The salt storage depository, someone took the time to smash all the salt jars. What a jerk.");
 		rooms[13][7] = new Room(false, new ArrayList<Item>(), null, "A pleasant hallway, rather 1970s with some wood panelling.");
