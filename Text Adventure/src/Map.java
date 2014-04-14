@@ -153,16 +153,16 @@ public class Map {
 		rooms[3][0] = new Room(false, new ArrayList<Item>(), hard[rand.nextInt(7)],"Sleeping Quarters, most of the bunks have been torn to shreds. The trash can was carefully placed upside-down.");
 		rooms[3][1] = new Room(false, new ArrayList<Item>(Arrays.asList(key3)), null,"A storage closest, a skull sits on the shelf. 'with love, from mom' is written across the brow.");
 		rooms[3][2] = null;
-		rooms[3][3] = new Room(false, new ArrayList<Item>(), null, "A narrow maintenance hallway");
+		rooms[3][3] = new Room(false, new ArrayList<Item>(Arrays.asList(potion)), null, "A narrow maintenance hallway");
 		rooms[3][4] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "The floor is covered in strewn human bones and viscera\n Horned helmets are piled against the north wall, though most have been broken.");
 		rooms[3][5] = new Room(true, new ArrayList<Item>(), null, "A central maintenance room\nDoors to the west and east provide access to the engine sector.");
 		rooms[3][6] = new Room(false, new ArrayList<Item>(), tough[rand.nextInt(4)], "This room is spotless\nSomeone even took the time to clean the ceilings.");
-		rooms[3][7] = new Room(false, new ArrayList<Item>(), null, "A narrow maintenance hallway");
+		rooms[3][7] = new Room(false, new ArrayList<Item>(Arrays.asList(potion)), null, "A narrow maintenance hallway");
 		rooms[3][8] = null;
 		rooms[3][9] = new Room(true, new ArrayList<Item>(Arrays.asList(caeven)), null, "Capt. Ormskaeg's private room\nThe Captain's belongings have been thrown onto the floor.");
 		rooms[3][10] = new Room(false, new ArrayList<Item>(), hard[rand.nextInt(7)], "Sleeping quarters, bunks are pushed against the north and east walls.");
 		
-		rooms[4][0] = new Room(false, new ArrayList<Item>(), null, "Sleeping quarters, the west and east walls are lined with bunks\nBlood on the floor is evidence of a recent fight.");
+		rooms[4][0] = new Room(false, new ArrayList<Item>(Arrays.asList(potion)), null, "Sleeping quarters, the west and east walls are lined with bunks\nBlood on the floor is evidence of a recent fight.");
 		rooms[4][1] = null;
 		rooms[4][2] = new Room(false, new ArrayList<Item>(Arrays.asList(weapon5)), null, "A large bathroom, someone knocked over all the stall walls. How rude.");
 		rooms[4][3] = null;
@@ -219,7 +219,7 @@ public class Map {
 		rooms[8][6] = new Room(false, new ArrayList<Item>(Arrays.asList(traesk)), null, "This room hasn't been opened in years, a box is upended on the floor.");
 		rooms[8][7] = null;
 		rooms[8][8] = new Room(false, new ArrayList<Item>(Arrays.asList(key6)), null, "A dusty, forgotton little room. Someone was keeping their collection of loose keys in here, though most of them are pretty bent.");
-		rooms[8][9] = new Room(false, new ArrayList<Item>(), null, "A tall, airy chamber. The ceiling has a stained glass cupola.\nApparently the captain stole it off some Neo-British station way back.");
+		rooms[8][9] = new Room(false, new ArrayList<Item>(Arrays.asList(potion)), null, "A tall, airy chamber. The ceiling has a stained glass cupola.\nApparently the captain stole it off some Neo-British station way back.");
 		rooms[8][10] = new Room(false, new ArrayList<Item>(Arrays.asList(weapon3)), null, "Backed into a corner, this dust filled room has nothing of importance.");
 		
 		rooms[9][0] = new Room(false, new ArrayList<Item>(), null, "A maintenance hallway, the space janitor left his tools here in a hurry.");
@@ -280,14 +280,14 @@ public class Map {
 		rooms[13][7] = new Room(false, new ArrayList<Item>(), null, "A pleasant hallway, rather 1970s with some wood panelling.");
 		rooms[13][8] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "Recreational quarters, or they were. More like a morgue now really. Pretty grizzly.");
 		rooms[13][9] = new Room(false, new ArrayList<Item>(), null, "Recreational quarters, the rooms is filled with startlingly uncomfortable looking couches.");
-		rooms[13][10] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "A bay window reveals a beautiful space vista. Someone taped a chore list to the window.\n It's Sveinbjorn's day to do the dishes, he probably won't though.");
+		rooms[13][10] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "A bay window reveals a beautiful space vista. Someone taped a chore list to the window.\nIt's Sveinbjorn's day to do the dishes, he probably won't though.");
 		
 		rooms[14][0] = new Room(false, new ArrayList<Item>(Arrays.asList(weapon4)), null, "The bow of the ship\nA large window to the south provides a view of passing asteroids.");
-		rooms[14][1] = new Room(false, new ArrayList<Item>(), null, "The bow of the ship\nThe bulkhead to the south has sealed off access to the bridge.\nThe room is full of comfortable chairs and piles of half-salted fish.");
+        rooms[14][1] = new Room(false, new ArrayList<Item>(Arrays.asList(potion)), null, "The bow of the ship\nThe bulkhead to the south has sealed off access to the bridge.\nThe room is full of comfortable chairs and piles of half-salted fish.");
 		rooms[14][2] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "The bow of the ship\nA human skeleton is lounging on a couch in front of the window.\nThe large window provides a nice view of the star the ship is orbiting. Is that the bridge floating over there?.");
 		rooms[14][3] = new Room(false, new ArrayList<Item>(), null, "The bow of the ship\nNormally one could see the bridge through the southern window, but it seems to be missing.");
 		rooms[14][4] = null;
-		rooms[14][5] = new Room(false, new ArrayList<Item>(), null, "The secondary bow airlock it to the west, but it has been automatically sealed.\nA lyn-axe has been thrown into the shattered southern window, triggering the bulkhead seal.");
+		rooms[14][5] = new Room(false, new ArrayList<Item>(), null, "The secondary bow airlock is to the west, but it has been automatically sealed.");
 		rooms[14][6] = null;
 		rooms[14][7] = new Room(false, new ArrayList<Item>(Arrays.asList(weapon2)), null, "The main bow airlock is to east, but it has been automatically sealed.\nHalf salted fish litters the floor\nYou can see a distant gas giant through the large window to the south.");
 		rooms[14][8] = null;
