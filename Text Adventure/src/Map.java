@@ -277,14 +277,14 @@ public class Map {
 		rooms[13][4] = new Room(true, new ArrayList<Item>(), null, "A security room. It was locked down prety tight until you found the key.\n Someone already emptied the weapon cabinet.");
 		rooms[13][5] = new Room(false, new ArrayList<Item>(), null, "A nice snack room, the vending machines are fully stocked.\nA bulkhead automatically sealed off access to the west.");
 		rooms[13][6] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "The salt storage depository, someone took the time to smash all the salt jars. What a jerk.");
-		rooms[13][7] = new Room(false, new ArrayList<Item>(), null, "A rather pleasant hallway, rather 70s with some wood panelling.");
+		rooms[13][7] = new Room(false, new ArrayList<Item>(), null, "A pleasant hallway, rather 1970s with some wood panelling.");
 		rooms[13][8] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "Recreational quarters, or they were. More like a morgue now really. Pretty grizzly.");
 		rooms[13][9] = new Room(false, new ArrayList<Item>(), null, "Recreational quarters, the rooms is filled with startlingly uncomfortable looking couches.");
 		rooms[13][10] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "A bay window reveals a beautiful space vista. Someone taped a chore list to the window.\n It's Sveinbjorn's day to do the dishes, he probably won't though.");
 		
 		rooms[14][0] = new Room(false, new ArrayList<Item>(Arrays.asList(weapon4)), null, "The bow of the ship\nA large window to the south provides a view of passing asteroids.");
 		rooms[14][1] = new Room(false, new ArrayList<Item>(), null, "The bow of the ship\nThe bulkhead to the south has sealed off access to the bridge.\nThe room is full of comfortable chairs and piles of half-salted fish.");
-		rooms[14][2] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "The bow of the ship\nA human skeleton is lounging on a couch in front of the window.\nThe large window provides a nice view of the passing debris. Is that the bridge floating over there?.");
+		rooms[14][2] = new Room(false, new ArrayList<Item>(), easy[rand.nextInt(easy.length)], "The bow of the ship\nA human skeleton is lounging on a couch in front of the window.\nThe large window provides a nice view of the star the ship is orbiting. Is that the bridge floating over there?.");
 		rooms[14][3] = new Room(false, new ArrayList<Item>(), null, "The bow of the ship\nNormally one could see the bridge through the southern window, but it seems to be missing.");
 		rooms[14][4] = null;
 		rooms[14][5] = new Room(false, new ArrayList<Item>(), null, "The secondary bow airlock it to the west, but it has been automatically sealed.\nA lyn-axe has been thrown into the shattered southern window, triggering the bulkhead seal.");

@@ -17,6 +17,7 @@ public class Game {
 	public static boolean play;
 	public static boolean fight;
 	public static boolean inventory;
+	public static boolean boss = false;
 	public static String RESET = "";
 	public static String BLACK = "";
 	public static String RED = "";
@@ -82,10 +83,10 @@ public class Game {
 			playSound("load");
 			
 			//First email
-			printMessage(makeRed("*** ALERT ***\n"));
-			printMessage(makeRed("New E-mail Recieved!\n"));
-			printMessage("From: odin@valhalla.no\n");
-			printMessage("Subject: Hello Warrior\n");
+			printMessage(makeRed("*** ALERT ***\n"),25);
+			printMessage(makeRed("New E-mail Recieved!\n"),25);
+			printMessage("From: odin@valhalla.no\n",25);
+			printMessage("Subject: Hello Warrior\n",25);
 			System.out.println();
 			printMessage("Hello Warrior.\n");
 			printMessage("I am "+makeRed("Odin")+", The All-Father. You have been in cryostasis since the "+makePurple("Information Age")+".\n");
@@ -103,9 +104,9 @@ public class Game {
 			//user's character inputs
 			printMessage("What would you like me to "+makeYellow("call")+" you, Warrior?\n");
 			System.out.println();
-			printMessage(makeGreen("*** DRAFTING ***\n"));
-			printMessage("To: odin@valhalla.no\n");
-			printMessage("Subject: Re: Hello Warrior\n");
+			printMessage(makeGreen("*** DRAFTING ***\n"),25);
+			printMessage("To: odin@valhalla.no\n",25);
+			printMessage("Subject: Re: Hello Warrior\n",25);
 			String name = keyboard.nextLine();
 			printMessage("\nSending");
 			playSound("send");
@@ -115,18 +116,18 @@ public class Game {
 			System.out.print(CLEAN);
 			
 			//Next email
-			printMessage(makeRed("*** ALERT ***\n"));
-			printMessage(makeRed("New E-mail Recieved!\n"));
-			printMessage("From: odin@valhalla.no\n");
-			printMessage("Subject: Re:Re: Hello Warrior\n\n");
+			printMessage(makeRed("*** ALERT ***\n"),25);
+			printMessage(makeRed("New E-mail Recieved!\n"),25);
+			printMessage("From: odin@valhalla.no\n",25);
+			printMessage("Subject: Re:Re: Hello Warrior\n\n",25);
 			printMessage(makeYellow(name)+". An interesting name indeed. What is your "+makeYellow("profession")+"?\n");
 			System.out.println();
 
-			printMessage(makeGreen("*** DRAFTING ***\n"));
+			printMessage(makeGreen("*** DRAFTING ***\n"),25);
 			
 			//User's second input field
-			printMessage("To: odin@valhalla.no\n");
-			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
+			printMessage("To: odin@valhalla.no\n",25);
+			printMessage("Subject: Re:Re:Re: Hello Warrior\n",25);
 			String profession = keyboard.nextLine();
 			printMessage("\nSending");
 			playSound("send");
@@ -169,7 +170,7 @@ public class Game {
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
 			playSound("equip");
 			printMessage(makeRed("Odin has bestowed upon thee, Soedekilling. \nA lyn-gladius that is given to novice warriors.\n"));
-			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+",\na relic from the "+makePurple("Information Age")+".\nYou can use this to update your map as you venture further.\n");
+			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+makeRed(",\na relic from the ")+makePurple("Information Age")+makeRed(".\nYou can use this to update your map as you venture further.\n"));
 			printMessage("Now careful, although your Palm Pilot will not effect you, anything you pick up on your journey will slow you down, and ruin your effectiveness in battle.\n");
 			printMessage("Finally, remember that your keen "+ makeYellow(profession) +" instinct allows you to seek for \"help\" at any time.\n");
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
@@ -185,8 +186,12 @@ public class Game {
 			
 			//Game loop
 			while(play)
-			{
-				//Check for an enemy in the room
+			{ 
+				if(map.getCurrentRoom().equals(map.getRooms()[0][5]))
+				{
+					boss = true;
+				}
+
 				if(map.getCurrentRoom().getEnemy()!=null)
 				{
 					Person enemy=map.getCurrentRoom().getEnemy();
@@ -235,7 +240,7 @@ public class Game {
 							printMessage("Now's not a very good time for that.\n");
 						}
 						
-						if(enemy.getHealth()<=0)
+						if(enemy.getHealth()<=0 && boss==false)
 						{
 							playSound("enemydead");
 							printMessage("You defeated "+makePurple(enemy.getName()) + " " + makePurple(enemy.getProfession()) +"\n");
@@ -243,6 +248,16 @@ public class Game {
 							fight=false;
 							map.resetEnemies();
 						}
+						if(enemy.getHealth()<=0 && boss==true)
+						{
+							playSound("enemydead");
+							printMessage("You defeated "+makePurple(enemy.getName()) + " " + makePurple(enemy.getProfession()) +"\n");
+							map.getCurrentRoom().setEnemy(null);
+							fight=false;
+							map.resetEnemies();
+							play=false;
+							endgame();
+						}				
 						
 						if(player.getHealth()<=0)
 						{
@@ -582,6 +597,7 @@ public class Game {
 	}
 	
 	public static void loadUp() throws InterruptedException {
+		printMessage("//////////////////////////////////BEGIN TRANSMISSION//////////////////////////////////\n\n", 15);
 		printMessage("//////////////////////////////////LOAD UP ERROR RECIEVED//////////////////////////////////\n\n", 15);
 		printMessage("*\n", 15);
 		printMessage("(34wpCD error recieved)\n", 15);
@@ -593,7 +609,7 @@ public class Game {
 		printMessage("popping kernals\n\n", 15);
 		printMessage("...\n", 165);
 		printMessage("WINDOWS XP SERVICE PACK 4 BOOTUP COMPLETE::\n\n", 15);
-		printMessage("forced wakeup pushed from 25.223.196.168\n\n", 15);
+		printMessage("forced wakeup pushed from 25.223.196.168:asgard\n\n", 15);
 		printMessage("//////////////begin cryostasis wake up//////////////\n\n", 15);
 		printMessage("initializing heart pump ", 15);
 		printMessage("... ", 120);
@@ -631,6 +647,27 @@ public class Game {
 		printMessage("... \n", 175);
 		System.out.println(CLEAN);
 		
+	}
+	
+	public static void endgame() throws InterruptedException {
+		printMessage("\n\nAs you strike the final blow, the core dissolves into a puddle of " + makeGreen("radioactive slag") + ".\n");
+		printMessage("The ship suddenly loses power, which was evidently being provided by the core.\nYou feel your feet lift off of the ground as the artificial gravity disengages.\n");
+		printMessage("A sudden realization: This ship is orbiting a fierce " +  makeRed("Red Giant Star") + ",\nand without the core powering the gravity drive\nyou will very shortly be plunged into the nuclear heart of the aformentioned " + makeRed("star") +  ".\n");
+		printMessage("As the ship begins to fall, you are comforted to know that you have completed your mission.\n");
+		printMessage(makeCyan("\nThe universe is safe.\n"),100);
+		Thread.sleep(1000);
+		System.out.println(CLEAN);
+		printMessage("\n\n" + makeYellow("Stellar altitude dropping,\nsuborbital trajectory detected.\nReccomend immeadiate evacuation\nEscape pods offline\nPeril level 100"), 25);
+		Thread.sleep(500);
+		System.out.println(CLEAN);
+		printMessage(makeRed("*** ALERT ***\n"),25);
+		printMessage(makeRed("New E-mail Recieved!\n"),25);
+		printMessage("From: odin@valhalla.no\n",25);
+		printMessage("Subject: null\n\n",25);
+		printMessage("Goodbye, warrior\nYou have done well.");
+		Thread.sleep(500);
+		printMessage(makeRed("\n\nHeat threshold exceeded, terminating commlink to 25.223.196.168:asgard"), 25);
+		printMessage("\n\n//////////////////////////////////END TRANSMISSION//////////////////////////////////", 15);
 	}
 	
 	//prints strings letter by letter to create a typing effect
