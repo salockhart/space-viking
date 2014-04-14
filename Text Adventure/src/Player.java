@@ -116,10 +116,11 @@ public class Player extends Person
 
 	/**
 	 * Print the inventory name
+	 * @throws InterruptedException 
 	 */
-	public void printInventory()
+	public void printInventory() throws InterruptedException
 	{
-		System.out.println("\n\ninventory\n");
+		Game.printMessage("\n\ninventory\n\n");
 	}
 
 	/**

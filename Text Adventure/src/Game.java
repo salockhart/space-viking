@@ -8,12 +8,16 @@
  */
 
 import java.util.Scanner;
+import java.net.*;
+import java.applet.*;
+import java.util.Random;
 
 public class Game {
 	
 	public static boolean play;
 	public static boolean fight;
 	public static boolean inventory;
+	public static boolean boss = false;
 	public static String RESET = "";
 	public static String BLACK = "";
 	public static String RED = "";
@@ -51,6 +55,7 @@ public class Game {
 		
 		System.out.println(CLEAN);
 		
+
 		printMessage("A Blessed Boys production:\n");
 		System.out.println();
 		System.out.println();
@@ -75,12 +80,13 @@ public class Game {
 			System.out.println();
 			
 			loadUp();
+			playSound("load");
 			
 			//First email
-			printMessage(makeRed("*** ALERT ***\n"));
-			printMessage(makeRed("New E-mail Recieved!\n"));
-			printMessage("From: odin@valhalla.no\n");
-			printMessage("Subject: Hello Warrior\n");
+			printMessage(makeRed("*** ALERT ***\n"),25);
+			printMessage(makeRed("New E-mail Recieved!\n"),25);
+			printMessage("From: odin@valhalla.no\n",25);
+			printMessage("Subject: Hello Warrior\n",25);
 			System.out.println();
 			printMessage("Hello Warrior.\n");
 			printMessage("I am "+makeRed("Odin")+", The All-Father. You have been in cryostasis since the "+makePurple("Information Age")+".\n");
@@ -98,32 +104,36 @@ public class Game {
 			//user's character inputs
 			printMessage("What would you like me to "+makeYellow("call")+" you, Warrior?\n");
 			System.out.println();
-			printMessage(makeGreen("*** DRAFTING ***\n"));
-			printMessage("To: odin@valhalla.no\n");
-			printMessage("Subject: Re: Hello Warrior\n");
+			printMessage(makeGreen("*** DRAFTING ***\n"),25);
+			printMessage("To: odin@valhalla.no\n",25);
+			printMessage("Subject: Re: Hello Warrior\n",25);
 			String name = keyboard.nextLine();
 			printMessage("\nSending");
+			playSound("send");
 			printMessage("..........", 125);
 			printMessage(" Sent!\n");
+			Thread.sleep(1000);
 			System.out.print(CLEAN);
 			
 			//Next email
-			printMessage(makeRed("*** ALERT ***\n"));
-			printMessage(makeRed("New E-mail Recieved!\n"));
-			printMessage("From: odin@valhalla.no\n");
-			printMessage("Subject: Re:Re: Hello Warrior\n\n");
+			printMessage(makeRed("*** ALERT ***\n"),25);
+			printMessage(makeRed("New E-mail Recieved!\n"),25);
+			printMessage("From: odin@valhalla.no\n",25);
+			printMessage("Subject: Re:Re: Hello Warrior\n\n",25);
 			printMessage(makeYellow(name)+". An interesting name indeed. What is your "+makeYellow("profession")+"?\n");
 			System.out.println();
 
-			printMessage(makeGreen("*** DRAFTING ***\n"));
+			printMessage(makeGreen("*** DRAFTING ***\n"),25);
 			
 			//User's second input field
-			printMessage("To: odin@valhalla.no\n");
-			printMessage("Subject: Re:Re:Re: Hello Warrior\n");
+			printMessage("To: odin@valhalla.no\n",25);
+			printMessage("Subject: Re:Re:Re: Hello Warrior\n",25);
 			String profession = keyboard.nextLine();
 			printMessage("\nSending");
+			playSound("send");
 			printMessage("..........", 125);
 			printMessage(" Sent!\n");
+			Thread.sleep(1000);
 			System.out.print(CLEAN);
 
 			//Third email
@@ -158,9 +168,13 @@ public class Game {
 			
 			printMessage("And here take "+makeBlue("these")+", you may find them useful on your quest.\n");
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
-			printMessage(makeRed("Odin has bestowed upon thee, "+makeCyan("Soedekilling")+". \nA lyn-gladius that is given to novice warriors.\n"));
-			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+",\na relic from the "+makePurple("Information Age")+".\nYou can use this to update your map as you venture further.\n");
-			printMessage("\nFinally, remember that your keen "+ makeYellow(profession) +" instinct allows you to seek for \"help\" at any time.\n");
+
+			playSound("equip");
+			printMessage(makeRed("Odin has bestowed upon thee, Soedekilling. \nA lyn-gladius that is given to novice warriors.\n"));
+			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+makeRed(",\na relic from the ")+makePurple("Information Age")+makeRed(".\nYou can use this to update your map as you venture further.\n"));
+			printMessage("Now careful, although your Palm Pilot will not effect you, anything you pick up on your journey will slow you down, and ruin your effectiveness in battle.\n");
+			printMessage("Finally, remember that your keen "+ makeYellow(profession) +" instinct allows you to seek for \"help\" at any time.\n");
+
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			
 			Thread.sleep(1000);
@@ -174,8 +188,12 @@ public class Game {
 			
 			//Game loop
 			while(play)
-			{
-				//Check for an enemy in the room
+			{ 
+				if(map.getCurrentRoom().equals(map.getRooms()[0][5]))
+				{
+					boss = true;
+				}
+
 				if(map.getCurrentRoom().getEnemy()!=null)
 				{
 					Person enemy=map.getCurrentRoom().getEnemy();
@@ -195,7 +213,7 @@ public class Game {
 						if(input.contains("help")||input.equals("?")) {
 							printMessage("'attack' or 'fight' : attacks the perilous foe.\n", 15);
 							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.\n", 15);
-							printMessage("'stats' or 'health' : view your current condition.\n", 15);
+							printMessage("'stats' or 'health' : view your's and your enemy's current condition.\n", 15);
 						}
 						
 						else if(input.contains("run")||input.contains("flee"))
@@ -208,29 +226,45 @@ public class Game {
 						else if(input.contains("fight")||input.contains("attack"))
 						{
 							int damageDealt = enemy.takeDamage(player.dealDamage());
+							playSound("damage");
 							printMessage("You dealt "+damageDealt+" damage to your opponent.\n");
 							
 							if(enemy.getHealth()>0) {
 								int damageTaken = player.takeDamage(enemy.dealDamage());
+								playSound("damage");
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
 						} else if(input.contains("stats") || input.contains("health")) {
-							printMessage("Health: " + player.getHealth()+ "/"+ player.getMaxHealth()+ "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ "\nInventory weight: "+ player.getInventoryWeight()+"/"+ player.getDefense()+ "\nEquiped Weapon: "+ player.getWeapon()+ "\n");
+							printMessage("Player:\nHealth: " + player.getHealth()+ "/"+ player.getMaxHealth()+ "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ "\nInventory weight: "+ player.getInventoryWeight()+"/"+ player.getDefense()+ "\nEquiped Weapon: "+ player.getWeapon()+ "\n");
+							printMessage("\nEnemy:\nHealth: " + map.getCurrentRoom().getEnemy().getHealth()+ "\nStrength: " + map.getCurrentRoom().getEnemy().getStrength() + "\nDefense: " + map.getCurrentRoom().getEnemy().getDefense()+ "\nEquiped Weapon: "+ map.getCurrentRoom().getEnemy().getWeapon()+ "\n");
 						} else {
+							playSound("error");
 							printMessage("Now's not a very good time for that.\n");
 						}
 						
-						if(enemy.getHealth()<=0)
+						if(enemy.getHealth()<=0 && boss==false)
 						{
+							playSound("enemydead");
 							printMessage("You defeated "+makePurple(enemy.getName()) + " " + makePurple(enemy.getProfession()) +"\n");
 							map.getCurrentRoom().setEnemy(null);
 							fight=false;
 							map.resetEnemies();
 						}
+						if(enemy.getHealth()<=0 && boss==true)
+						{
+							playSound("enemydead");
+							printMessage("You defeated "+makePurple(enemy.getName()) + " " + makePurple(enemy.getProfession()) +"\n");
+							map.getCurrentRoom().setEnemy(null);
+							fight=false;
+							map.resetEnemies();
+							play=false;
+							endgame();
+						}				
 						
 						if(player.getHealth()<=0)
 						{
-							printMessage("You were defeated by the "+makePurple(enemy.getName())+"\n");
+							playSound("playerdead");
+							printMessage("You were defeated by "+makePurple(enemy.getName()+ " the " + enemy.getProfession()) +"\n");
 							play = false;
 							printMessage("\nGAME OVER\n");
 							fight = false;
@@ -281,22 +315,27 @@ public class Game {
 							printMessage("What item would you like to equip?\nEnter the number of your selection:\n");
 							for (int i = 0; i < player.getInventory().size(); i++)
 								if (player.getInventory().get(i).getType().equals("Weapon"))
-									System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+									printMessage((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN + "> ");
 							int index = keyboard.nextInt() - 1;
-							if(index >= player.getInventory().size())
+							if(index >= player.getInventory().size()) {
+								playSound("error");
 								printMessage("You do not have that item.\n");
-							else if (!player.getInventory().get(index).getType().equals("Weapon"))
+							}
+							else if (!player.getInventory().get(index).getType().equals("Weapon")) {
+								playSound("error");
 								printMessage("You can only equip weapons, using the numbers above.");
+							}
 							else
 							{
-							//Return current item to inventory
-							player.pickupItem(player.getWeapon());
-							//Set weapon to selection
-							player.setWeapon(player.getInventory().get(index));
-							//Remove selection from inventory
-							player.getInventory().remove(index);
-							printMessage(makeBlue(player.getWeapon().toString()) + " equipped.");
+								//Return current item to inventory
+								player.pickupItem(player.getWeapon());
+								//Set weapon to selection
+								player.setWeapon(player.getInventory().get(index));
+								//Remove selection from inventory
+								player.getInventory().remove(index);
+								playSound("equip");
+								printMessage(makeBlue(player.getWeapon().toString()) + " equipped.");
 							}
 							inventory = false;
 							System.out.println(RESET);
@@ -306,7 +345,7 @@ public class Game {
 							
 							printMessage("What item would you like to drop?\nEnter the number of your selection:\n");
 							for (int i = 0; i < player.getInventory().size(); i++)
-								System.out.println((i + 1) + " - " + player.getInventory().get(i) + "\n");
+								printMessage((i + 1) + " - " + player.getInventory().get(i) + "\n");
 							System.out.print(CYAN+ "> ");
 							int index = keyboard.nextInt() - 1;
 							if(index >= player.getInventory().size())
@@ -326,31 +365,42 @@ public class Game {
 							printMessage("What item would you like to use?\nEnter the number of your selection:\n");
 							for (int i = 0; i < player.getInventory().size(); i++)
 								if (player.getInventory().get(i).getType().equals("Potion") || player.getInventory().get(i).getType().equals("Statue"))
-									System.out.println((i + 1) + " - " + player.getInventory().get(i));
+									printMessage((i + 1) + " - " + player.getInventory().get(i)+ "\n");
 							System.out.print(YELLOW+ "> ");
 							int index = keyboard.nextInt() - 1;
 							//error check
 							if(index >= player.getInventory().size())
 								printMessage("You do not have that item.\n");
 							else if (player.getInventory().get(index).getName().equals("Health Potion")){
+								playSound("potion");
 								printMessage("You drank the potion and restored some health.");
 								player.heal(player.getMaxHealth()/2);
 							} else if (player.getInventory().get(index).getType().equals("Statue")){
-								printMessage("The statue's blessings wash over you. You feel uncomfortably moist.");
+								printMessage("The statue's blessings wash over you. You feel uncomfortably moist.\n");
 								Item statue = player.getInventory().get(index);
 								if (statue.getName().contains("Nisk")){
 									player.setDefense(player.getDefense() + 10);
 									player.setStrength(player.getStrength() + 5);
-								} else if (statue.getName().contains("Caeven"))
+									playSound("potion");
+									printMessage("Defense +10 Strength +5\n");
+								} else if (statue.getName().contains("Caeven")){
 									player.setStrength(player.getStrength() + 15);
-								else if (statue.getName().contains("Lockhaert")){
+									playSound("potion");
+									printMessage("Strength +15\n");
+								} else if (statue.getName().contains("Lockhaert")){
 									player.setDefense(player.getDefense() + 10);
 									player.setStrength(player.getStrength() + 5);
-								} else if (statue.getName().contains("Traesk"))
+									playSound("potion");
+									printMessage("Defense +10 Strength +5\n");
+								} else if (statue.getName().contains("Traesk")){
 									player.setMaxHealth(player.getMaxHealth() + 200);
-								else if (statue.getName().contains("Duenn")){
+									playSound("potion");
+									printMessage("Max Health +200\n");
+								} else if (statue.getName().contains("Duenn")){
 									player.setDefense(player.getDefense() + 5);
 									player.setMaxHealth(player.getMaxHealth() + 100);
+									playSound("potion");
+									printMessage("Defense +5 Max Health +100\n");
 								}
 							}
 							inventory = false;
@@ -378,7 +428,7 @@ public class Game {
 							inventory = false;
 							
 						} else if (!entry.equals("")){
-							
+							playSound("error");
 							printMessage("There is no time for that now.\n");
 							
 						}
@@ -395,11 +445,13 @@ public class Game {
 					if (!map.getCurrentRoom().getItems().isEmpty()){
 						printMessage("Enter the number of your selection:\n");
 						for (int i = 0; i < map.getCurrentRoom().getItems().size(); i++)
-							System.out.println((i + 1) + " - " + map.getCurrentRoom().getItems().get(i) + "\n");
+							printMessage((i + 1) + " - " + map.getCurrentRoom().getItems().get(i) + "\n");
 						System.out.print(CYAN + "> ");
 						int index = keyboard.nextInt() - 1;
-						if(index >= map.getCurrentRoom().getItems().size())
+						if(index >= map.getCurrentRoom().getItems().size()) {
+							playSound("error");
 							printMessage("There isn't that many items in the room.\n");
+						}	
 						else
 						{
 							printMessage(map.getCurrentRoom().getItems().get(index) + " picked up.\n");
@@ -408,7 +460,8 @@ public class Game {
 							entry = keyboard.nextLine();
 						}
 					} else {
-						System.out.println("There is nothing to pick up.");
+						playSound("error");
+						printMessage("There is nothing to pick up.");
 					}
 					System.out.println(RESET);
 				
@@ -440,7 +493,7 @@ public class Game {
 						player.deleteItem("Key");
 					}
 				
-				} else if(entry.equals("clean")) {
+				} else if(entry.equals("clean")||entry.equals("clear")) {
 					
 					System.out.println(CLEAN);
 				
@@ -453,6 +506,7 @@ public class Game {
 				
 				//GOD MODE
 				else if(entry.equals("):") || entry.equals(":(")) {
+					playSound("god");
 					player.setStrength(500);
 					player.setDefense(500);
 					player.setHealth(500);
@@ -477,15 +531,24 @@ public class Game {
 						System.out.println(RESET);
 						entry = keyboard.nextLine();
 					}
+					if(entry.equals("saxxy")) {
+						playSound("saxxy");
+					}
+					
+					if(entry.equals("dance")) {
+						playSound("party");
+					}
 						
 				} else if(entry.equals("quit")) {
 					play = false;
-				} else {
+				} else if (!entry.equals("")) {
+					playSound("error");
 					printMessage("There is no time for that now.\n");
 				}
 
 			}
 			
+			Thread.sleep(1000);
 			System.out.println(CLEAN);
 			
 			//CREDITS
@@ -536,6 +599,7 @@ public class Game {
 	}
 	
 	public static void loadUp() throws InterruptedException {
+		printMessage("//////////////////////////////////BEGIN TRANSMISSION//////////////////////////////////\n\n", 15);
 		printMessage("//////////////////////////////////LOAD UP ERROR RECIEVED//////////////////////////////////\n\n", 15);
 		printMessage("*\n", 15);
 		printMessage("(34wpCD error recieved)\n", 15);
@@ -547,7 +611,7 @@ public class Game {
 		printMessage("popping kernals\n\n", 15);
 		printMessage("...\n", 165);
 		printMessage("WINDOWS XP SERVICE PACK 4 BOOTUP COMPLETE::\n\n", 15);
-		printMessage("forced wakeup pushed from 25.223.196.168\n\n", 15);
+		printMessage("forced wakeup pushed from 25.223.196.168:asgard\n\n", 15);
 		printMessage("//////////////begin cryostasis wake up//////////////\n\n", 15);
 		printMessage("initializing heart pump ", 15);
 		printMessage("... ", 120);
@@ -583,8 +647,29 @@ public class Game {
 		printMessage("//////////////cryostasis wakeup complete//////////////\n\n", 15);
 		printMessage("initializing email client");
 		printMessage("... \n", 175);
-		printMessage(CLEAN);
+		System.out.println(CLEAN);
 		
+	}
+	
+	public static void endgame() throws InterruptedException {
+		printMessage("\n\nAs you strike the final blow, the core dissolves into a puddle of " + makeGreen("radioactive slag") + ".\n");
+		printMessage("The ship suddenly loses power, which was evidently being provided by the core.\nYou feel your feet lift off of the ground as the artificial gravity disengages.\n");
+		printMessage("A sudden realization: This ship is orbiting a fierce " +  makeRed("Red Giant Star") + ",\nand without the core powering the gravity drive\nyou will very shortly be plunged into the nuclear heart of the aformentioned " + makeRed("star") +  ".\n");
+		printMessage("As the ship begins to fall, you are comforted to know that you have completed your mission.\n");
+		printMessage(makeCyan("\nThe universe is safe.\n"),100);
+		Thread.sleep(1000);
+		System.out.println(CLEAN);
+		printMessage("\n\n" + makeYellow("Stellar altitude dropping,\nsuborbital trajectory detected.\nReccomend immeadiate evacuation\nEscape pods offline\nPeril level 100"), 25);
+		Thread.sleep(500);
+		System.out.println(CLEAN);
+		printMessage(makeRed("*** ALERT ***\n"),25);
+		printMessage(makeRed("New E-mail Recieved!\n"),25);
+		printMessage("From: odin@valhalla.no\n",25);
+		printMessage("Subject: null\n\n",25);
+		printMessage("Goodbye, warrior\nYou have done well.");
+		Thread.sleep(500);
+		printMessage(makeRed("\n\nHeat threshold exceeded, terminating commlink to 25.223.196.168:asgard"), 25);
+		printMessage("\n\n//////////////////////////////////END TRANSMISSION//////////////////////////////////", 15);
 	}
 	
 	//prints strings letter by letter to create a typing effect
@@ -602,6 +687,126 @@ public class Game {
 			System.out.print(n.substring(i, i+1));
 			Thread.sleep(time);
 		}
+	}
+	
+	//method keeping all possible playable sounds in one place. Keep rest of code clean
+	public static void playSound(String s) {
+		if(s.equals("damage")) {
+			AudioClip[] damage= new AudioClip[4];
+			Random gen= new Random();	//select a random damage noise to play
+			try {
+				damage[0]= Applet.newAudioClip(new URL("file:Music/damage0.wav"));
+				damage[1]= Applet.newAudioClip(new URL("file:Music/damage1.wav"));
+				damage[2]= Applet.newAudioClip(new URL("file:Music/damage2.wav"));
+				damage[3]= Applet.newAudioClip(new URL("file:Music/damage3.wav"));
+				
+				int rand= gen.nextInt(4);
+				damage[rand].play();
+			}
+			catch (Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("equip")) {
+			try {
+				AudioClip equip= Applet.newAudioClip(new URL("file:Music/equip.wav"));
+				equip.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		if(s.equals("error")) {
+			try {
+				AudioClip error= Applet.newAudioClip(new URL("file:Music/Error.wav"));
+				error.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("god")) {
+			try {
+				AudioClip godMode= Applet.newAudioClip(new URL("file:Music/GODMODE.wav"));
+				godMode.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("enemydead")) {
+			try {
+				AudioClip death= Applet.newAudioClip(new URL("file:Music/enemyDeath.wav"));
+				death.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("load")) {
+			try {
+				AudioClip loading= Applet.newAudioClip(new URL("file:Music/LOADUP.wav"));
+				loading.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("playerdead")) {
+			try {
+				AudioClip death= Applet.newAudioClip(new URL("file:Music/Player_Death.wav"));
+				death.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("potion")) {
+			try {
+				AudioClip heal= Applet.newAudioClip(new URL("file:Music/potion.wav"));
+				heal.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("saxxy")) {
+			try {
+				AudioClip cheaty= Applet.newAudioClip(new URL("file:Music/saxxy.wav"));
+				cheaty.loop();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("send")) {
+			try {
+				AudioClip dial= Applet.newAudioClip(new URL("file:Music/Sending.wav"));
+				dial.play();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
+		if(s.equals("party")) {
+			try {
+				AudioClip funk= Applet.newAudioClip(new URL("file:Music/Who Likes to Party.wav"));
+				funk.loop();
+			}
+			catch(Exception e) {
+				System.err.println(e);
+			}
+		}
+		
 	}
 	
 	//methods to change colours of strings in terminal
