@@ -170,6 +170,7 @@ public class Game {
 			playSound("equip");
 			printMessage(makeRed("Odin has bestowed upon thee, Soedekilling. \nA lyn-gladius that is given to novice warriors.\n"));
 			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+",\na relic from the "+makePurple("Information Age")+".\nYou can use this to update your map as you venture further.\n");
+			printMessage("Now careful, although your Palm Pilot will not effect you, anything you pick up on your journey will slow you down, and ruin your effectiveness in battle.\n");
 			printMessage("Finally, remember that your keen "+ makeYellow(profession) +" instinct allows you to seek for \"help\" at any time.\n");
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			
@@ -205,7 +206,7 @@ public class Game {
 						if(input.contains("help")||input.equals("?")) {
 							printMessage("'attack' or 'fight' : attacks the perilous foe.\n", 15);
 							printMessage("'run' or 'flee' : abandon your viking virtues and run from battle.\n", 15);
-							printMessage("'stats' or 'health' : view your current condition.\n", 15);
+							printMessage("'stats' or 'health' : view your's and your enemy's current condition.\n", 15);
 						}
 						
 						else if(input.contains("run")||input.contains("flee"))
@@ -227,7 +228,8 @@ public class Game {
 								printMessage("Your opponent dealt "+damageTaken+" damage to you\n");
 							}
 						} else if(input.contains("stats") || input.contains("health")) {
-							printMessage("Health: " + player.getHealth()+ "/"+ player.getMaxHealth()+ "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ "\nInventory weight: "+ player.getInventoryWeight()+"/"+ player.getDefense()+ "\nEquiped Weapon: "+ player.getWeapon()+ "\n");
+							printMessage("Player:\nHealth: " + player.getHealth()+ "/"+ player.getMaxHealth()+ "\nStrength: " + player.getStrength() + "\nDefense: " + player.getDefense()+ "\nInventory weight: "+ player.getInventoryWeight()+"/"+ player.getDefense()+ "\nEquiped Weapon: "+ player.getWeapon()+ "\n");
+							printMessage("\nEnemy:\nHealth: " + map.getCurrentRoom().getEnemy().getHealth()+ "\nStrength: " + map.getCurrentRoom().getEnemy().getStrength() + "\nDefense: " + map.getCurrentRoom().getEnemy().getDefense()+ "\nEquiped Weapon: "+ map.getCurrentRoom().getEnemy().getWeapon()+ "\n");
 						} else {
 							playSound("error");
 							printMessage("Now's not a very good time for that.\n");
