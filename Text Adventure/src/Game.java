@@ -7,10 +7,11 @@
  * Faculty of Computer Science
  */
 
-import java.util.Scanner;
-import java.net.*;
-import java.applet.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Game {
 	
@@ -40,7 +41,7 @@ public class Game {
 		if (!System.getProperty("os.name").contains("Windows")){
 			 RESET = "\u001B[0m";
 			 BLACK = "\u001B[30m";
-			 RED = "\u001B[31m";
+			 RED = "\u001B[91m";
 			 GREEN = "\u001B[32m";
 			 YELLOW = "\u001B[33m";
 			 BLUE = "\u001B[34m";
@@ -120,7 +121,7 @@ public class Game {
 			printMessage(makeRed("New E-mail Recieved!\n"),25);
 			printMessage("From: odin@valhalla.no\n",25);
 			printMessage("Subject: Re:Re: Hello Warrior\n\n",25);
-			printMessage(makeYellow(name)+". An interesting name indeed. What is your "+makeYellow("profession")+"?\n");
+			printMessage(makeYellow(name)+". An interesting name indeed. What is your "+makeYellow("title")+"?\n");
 			System.out.println();
 
 			printMessage(makeGreen("*** DRAFTING ***\n"),25);
@@ -168,11 +169,13 @@ public class Game {
 			
 			printMessage("And here take "+makeBlue("these")+", you may find them useful on your quest.\n");
 			Item soedekilling = new Item("Soedekilling", "A lyn-gladius", 8, "Weapon", 20, true);
+
 			playSound("equip");
 			printMessage(makeRed("Odin has bestowed upon thee, Soedekilling. \nA lyn-gladius that is given to novice warriors.\n"));
 			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+makeRed(",\na relic from the ")+makePurple("Information Age")+makeRed(".\nYou can use this to update your map as you venture further.\n"));
 			printMessage("Now careful, although your Palm Pilot will not effect you, anything you pick up on your journey will slow you down, and ruin your effectiveness in battle.\n");
 			printMessage("Finally, remember that your keen "+ makeYellow(profession) +" instinct allows you to seek for \"help\" at any time.\n");
+
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
 			
 			Thread.sleep(1000);
