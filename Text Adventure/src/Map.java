@@ -432,6 +432,8 @@ public class Map {
 	 */
 	public void look() throws InterruptedException{
 		Game.printMessage(currentRoom.getDescription() + "\n");
+		if (currentRoom.equals(rooms[0][5]))
+			return;
 		if (isDoor[0]){
 			if (isLocked[0])
 				Game.printMessage("There is a locked door to the North\n");
