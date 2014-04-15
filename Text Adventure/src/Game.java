@@ -229,7 +229,7 @@ public class Game {
 						else if(input.contains("run")||input.contains("flee"))
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
 									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", \nas opposed to a powerful "
-									+profession+" embarking on a "+makeRed("VIKING") +" related journey \nin the cold and unforgiving "
+									+ makeYellow(profession) +" embarking on a "+makeRed("VIKING") +" related journey \nin the cold and unforgiving "
 									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte \nand a foot massage on your way out?"
 									+" Hm? No, I thought not. \nNow go back and fight.\n");
 						
