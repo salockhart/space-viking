@@ -2,6 +2,14 @@
  * Game.java
  * @author Alex Dunn
  * B00636250
+ * @author Geoffrey Caven
+ * B00629837
+ * @author Matthew Trask
+ * B00639252
+ * @author Niclas Skaalum
+ * B00634842
+ * @author Stanford Lockhart
+ * B00636250
  * Mar 9, 2014
  * Dalhousie University
  * Faculty of Computer Science
