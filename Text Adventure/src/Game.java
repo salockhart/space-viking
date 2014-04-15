@@ -471,21 +471,25 @@ public class Game {
 				else if (entry.contains("north") || entry.equals("n")) {
 					
 					map.moveNorth();
+					printMessage("You walk through the northern door\n");
 				
 				}
 				else if (entry.contains("east") || entry.equals("e")) {
 					
 					map.moveEast();
+					printMessage("You walk through the eastern door\n");
 				
 				}
 				else if (entry.contains("south") || entry.equals("s")) {
 					
 					map.moveSouth();
+					printMessage("You walk through the southern door\n");
 				
 				}
 				else if (entry.contains("west") || entry.equals("w")) {
 					
 					map.moveWest();
+					printMessage("You walk through the western door\n");
 				
 				}
 				else if (entry.contains("unlock") || entry.equals("u")) {
@@ -493,7 +497,9 @@ public class Game {
 					if(player.hasKey()) {
 						map.unlock();
 						player.deleteItem("Key");
-					}
+						printMessage("You unlocked any locked doors in the rooom\n");
+					} else
+						printMessage("You have no keys to unlock with.\n");
 				
 				} else if(entry.equals("clean")||entry.equals("clear")) {
 					
