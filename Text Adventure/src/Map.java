@@ -372,6 +372,7 @@ public class Map {
 			currentRoom = rooms[currentY][currentX];
 			currentRoom.playerVisits();
 			setAdjacentRooms();
+			Game.printMessage("You walk through the northern door\n");
 		} else if (!isDoor[0])
 			Game.printMessage("There is no door in that direction\n");
 		else if (isLocked[0])
@@ -388,6 +389,7 @@ public class Map {
 			currentRoom = rooms[currentY][currentX];
 			currentRoom.playerVisits();
 			setAdjacentRooms();
+			Game.printMessage("You walk through the eastern door\n");
 		} else if (!isDoor[1])
 			Game.printMessage("There is no door in that direction\n");
 		else if (isLocked[1])
@@ -404,6 +406,7 @@ public class Map {
 			currentRoom = rooms[currentY][currentX];
 			currentRoom.playerVisits();
 			setAdjacentRooms();
+			Game.printMessage("You walk through the southern door\n");
 		} else if (!isDoor[2])
 			Game.printMessage("There is no door in that direction\n");
 		else if (isLocked[2])
@@ -420,6 +423,7 @@ public class Map {
 			currentRoom = rooms[currentY][currentX];
 			currentRoom.playerVisits();
 			setAdjacentRooms();
+			Game.printMessage("You walk through the western door\n");
 		} else if (!isDoor[3])
 			Game.printMessage("There is no door in that direction\n");
 		else if (isLocked[3])

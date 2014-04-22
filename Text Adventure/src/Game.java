@@ -2,6 +2,14 @@
  * Game.java
  * @author Alex Dunn
  * B00636250
+ * @author Geoffrey Caven
+ * B00629837
+ * @author Matthew Trask
+ * B00639252
+ * @author Niclas Skaalum
+ * B00634842
+ * @author Stanford Lockhart
+ * B00636250
  * Mar 9, 2014
  * Dalhousie University
  * Faculty of Computer Science
@@ -173,7 +181,7 @@ public class Game {
 			playSound("equip");
 			printMessage(makeRed("Odin has bestowed upon thee, Soedekilling. \nA lyn-gladius that is given to novice warriors.\n"));
 			printMessage(makeRed("Odin has also bestowed upon thee a ")+makeCyan("Palm Pilot")+makeRed(",\na relic from the ")+makePurple("Information Age")+makeRed(".\nYou can use this to update your map as you venture further.\n"));
-			printMessage("Now careful, although your Palm Pilot will not effect you, anything you pick up on your journey will slow you down, and ruin your effectiveness in battle.\n");
+			printMessage("Now careful, although your Palm Pilot will not effect you,\nanything you pick up on your journey will slow you down, and ruin your effectiveness in battle.\n");
 			printMessage("Finally, remember that your keen "+ makeYellow(profession) +" instinct allows you to seek for \"help\" at any time.\n");
 
 			printMessage("Now Go Warrior.\nYou will die in the process, but in doing so you will save the universe.\n");
@@ -221,7 +229,7 @@ public class Game {
 						else if(input.contains("run")||input.contains("flee"))
 							printMessage("Oh I'm sorry. Clearly we've been mistaken and are "
 									+"narrating the deeds of a perpetually "+makeYellow("SNIVELING COWARD")+", \nas opposed to a powerful "
-									+profession+" embarking on a "+makeRed("VIKING") +" related journey \nin the cold and unforgiving "
+									+ makeYellow(profession) +" embarking on a "+makeRed("VIKING") +" related journey \nin the cold and unforgiving "
 									+makeCyan("VOID OF SPACE.")+" Would you also like a spiced latte \nand a foot massage on your way out?"
 									+" Hm? No, I thought not. \nNow go back and fight.\n");
 						
@@ -471,25 +479,21 @@ public class Game {
 				else if (entry.contains("north") || entry.equals("n")) {
 					
 					map.moveNorth();
-					printMessage("You walk through the northern door\n");
 				
 				}
 				else if (entry.contains("east") || entry.equals("e")) {
 					
 					map.moveEast();
-					printMessage("You walk through the eastern door\n");
 				
 				}
 				else if (entry.contains("south") || entry.equals("s")) {
 					
 					map.moveSouth();
-					printMessage("You walk through the southern door\n");
 				
 				}
 				else if (entry.contains("west") || entry.equals("w")) {
 					
 					map.moveWest();
-					printMessage("You walk through the western door\n");
 				
 				}
 				else if (entry.contains("unlock") || entry.equals("u")) {
