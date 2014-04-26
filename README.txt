@@ -1,3 +1,22 @@
+
+TO RUN:
+
+*** CASE SENSITIVE // ALL CAPITAL LETTERS MATTER ***
+
+1) Find the path to the ‘src’ folder, right-click and copy it
+2) Open Command Prompt (or terminal if you are using Mac OS X or Linux)
+3) Type cd and then a space, then paste the src folder.
+    It should look something similar to:
+    cd Users/HATEBASE/Downloads/Space Viking/src
+4) Next enter: javac Game.java
+	This will compile the game code
+5) Finally enter: java Game
+    This will run the game
+
+
+
+
+
 Program designed by: †BLESSED BOYS†
 	Matthew Trask
 	Geoff Caven
