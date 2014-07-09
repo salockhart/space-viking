@@ -175,7 +175,7 @@ public class Person
 	 */
 	public String toString()
 	{
-		return "\nStatus:\nHealth:\t"+health+"\nStrength:\t"+strength
-				+"\nDefense:\t"+defense+"\nWeapon name:\t"+weapon.getName();
+		return "<br>Status:<br>Health:&#160;&#160;&#160;&#160;&#160;"+health+"<br>Strength:&#160;&#160;&#160;&#160;&#160;"+strength
+				+"<br>Defense:&#160;&#160;&#160;&#160;&#160;"+defense+"<br>Weapon name:&#160;&#160;&#160;&#160;&#160;"+weapon.getName();
 	}
 }
