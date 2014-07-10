@@ -158,7 +158,7 @@ public class Game extends JFrame implements ActionListener{
 		printMessage("..........", 125);
 		printMessage(" Sent!<br>");
 		Thread.sleep(1000);
-		//console.setText("<html>");
+		console.setText("<html>");
 		
 		//Next email
 		printMessage(makeRed("*** ALERT ***<br>"),25);
@@ -180,7 +180,7 @@ public class Game extends JFrame implements ActionListener{
 		printMessage("..........", 125);
 		printMessage(" Sent!<br>");
 		Thread.sleep(1000);
-		//console.setText("<html>");
+		console.setText("<html>");
 
 		//Third email
 		printMessage(makeRed("*** ALERT ***<br>"));
@@ -224,7 +224,7 @@ public class Game extends JFrame implements ActionListener{
 		printMessage("Now Go Warrior.<br>You will die in the process, but in doing so you will save the universe.<br>");
 		
 		Thread.sleep(1000);
-		//console.setText("<html>");
+		console.setText("<html>");
 		
 		//new player created with the inputed name and profession
 			//health: 400
@@ -583,7 +583,7 @@ public class Game extends JFrame implements ActionListener{
 			
 			} else if(entry.equals("clean")||entry.equals("clear")) {
 				
-				//console.setText("<html>");
+				console.setText("<html>");
 			
 			} else if(entry.contains("stats") || entry.contains("health")) {
 				
@@ -651,7 +651,7 @@ public class Game extends JFrame implements ActionListener{
 		}
 		
 		Thread.sleep(1000);
-		//console.setText("<html>");
+		console.setText("<html>");
 		
 		//CREDITS
 		printMessage("<br><br><br><br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Credits");
@@ -765,10 +765,10 @@ public class Game extends JFrame implements ActionListener{
 		printMessage("As the ship begins to fall, you are comforted to know that you have completed your mission.<br>");
 		printMessage(makeCyan("<br>The universe is safe.<br>"),100);
 		Thread.sleep(1000);
-		//console.setText("<html>");
+		console.setText("<html>");
 		printMessage("<br><br>" + makeYellow("Stellar altitude dropping,<br>suborbital trajectory detected.<br>Reccomend immeadiate evacuation<br>Escape pods offline<br>Peril level 100"), 25);
 		Thread.sleep(500);
-		//console.setText("<html>");
+		console.setText("<html>");
 		printMessage(makeRed("*** ALERT ***<br>"),25);
 		printMessage(makeRed("New E-mail Recieved!<br>"),25);
 		printMessage("From: odin@valhalla.no<br>",25);

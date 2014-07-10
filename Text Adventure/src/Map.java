@@ -492,6 +492,7 @@ public class Map {
 	 * @return the entire map, regardless of whether or not a room has been visited
 	 */
 	public String fullMap(){
+		//TODO Turn spaces into entities
 		String map = "";
 		for (int i = 0; i < 15; i++){
 			for (int j = 0; j < 11; j++){
@@ -501,7 +502,7 @@ public class Map {
 					else
 						map += rooms[i][j];
 				else
-					map += "   ";
+					map += "&#160;&#160;&#160;";
 			}
 			map += "<br>";
 		}
@@ -522,7 +523,7 @@ public class Map {
 					else
 						map += rooms[i][j];
 				else
-					map += "   ";
+					map += "&#160;&#160;&#160;";
 			}
 			map += "<br>";
 		}

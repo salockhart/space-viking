@@ -143,7 +143,7 @@ public class Room {
 	 * Return the room as a string
 	 */
 	public String toString() {
-		return "[ ]";
+		return "[&#160;]";
 	}
 	
 }
